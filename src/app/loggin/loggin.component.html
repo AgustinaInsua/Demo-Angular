@@ -1,0 +1,68 @@
+<h1>Login</h1>
+<div>
+    <form class="form" [formGroup]="formLogin" (submit)="loggin()">
+
+        <div>
+            <input type="text" id="email" pInputText placeholder="Email" formControlName="email" />
+            <div class="errors" *ngIf="isNotValidAndIsDirtyOrIsTouched('email')">
+                <div *ngIf="!fieldRequiredValid('email')">
+                    Email is required
+                </div>
+
+                <div>
+                    <span *ngIf="!fieldMinLengthValid('email')">
+                        Email must at least 8 characters
+                    </span>
+                </div>
+
+                <div>
+                    <span *ngIf="!emailValidateStructure">
+                        Email structure incorrect
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <input type="password" id="password" formControlName="password" pInputText placeholder="Password" />
+            <div *ngIf="isNotValidAndIsDirtyOrIsTouched('password')" class="errors">
+                <div *ngIf="!fieldRequiredValid('password')">
+                    Password is required.
+                </div>
+
+                <div *ngIf="!requiresDigitValid">
+                    Debe tener un numero
+                </div>
+
+                <div *ngIf="!minLengthValid">
+                    Debe tener un minimo de 6 caracteres
+                </div>
+
+                <div *ngIf="!requiresUpperCaseValid">
+                    Debe tener una letra mayuscula
+                </div>
+
+                <div *ngIf="!requiresLowerCaseValid">
+                    Debe tener una letra minuscula
+                </div>
+
+                <div *ngIf="!requiresSpecialCharsValid">
+                    Debe tener un caracter especial
+                </div>
+            </div>
+        </div>
+
+        <button pButton type="submit">Login</button>
+
+        <div>
+            <label class="labelRegister">New user?</label>
+            <div>
+                <a class="linkRegister" routerLink="/register">Create a new account</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div>
+    Valid: {{formLogin.valid | json}}
+</div>

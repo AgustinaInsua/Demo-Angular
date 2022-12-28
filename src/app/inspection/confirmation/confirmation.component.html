@@ -1,0 +1,79 @@
+<p-card>
+
+    <ng-template pTemplate="title">
+        Confirm Information
+    </ng-template>
+    <ng-template pTemplate="subtitle">
+        Check all information before continue
+    </ng-template>
+
+    <ng-template pTemplate="content">
+        <div id="companyInfo">
+            <h3>Company's Information</h3>
+            <div>
+                <label>Company's Name: </label>
+                <label>
+                    <b>{{
+                        confirmationInformation.companyInformation.name ? confirmationInformation.companyInformation.name : '-'
+                      }}</b>
+                </label>
+                <br/>
+            </div>
+    
+            <div>
+                <label>Razon Social: </label>
+                <label>
+                    <b>{{
+                        confirmationInformation.companyInformation.razonSocial ? confirmationInformation.companyInformation.razonSocial : '-'
+                      }}</b>
+                </label>
+                <br/>
+            </div>
+    
+            <div>
+                <label>Cuit: </label>
+                <label>
+                    <b>{{
+                        confirmationInformation.companyInformation.cuit ? confirmationInformation.companyInformation.cuit : '-'
+                      }}</b>
+                </label>
+                <br/>
+            </div>
+        </div>
+
+        <div id="employeeInfo">
+            <h3>Employees Information</h3>
+            <div *ngFor="let employee of confirmationInformation.employeeInformation">
+                <div>
+                    <h4>Employee {{confirmationInformation.employeeInformation.indexOf(employee)+1}}</h4>
+                </div>
+                <div>
+                    <label>Name: </label>
+                    <label>{{employee.name}}</label>
+                </div>        
+                <div>
+                    <label>Surname: </label>
+                    <label>{{employee.surname}}</label>
+                </div>
+                <div>
+                    <label>Cuit: </label>
+                    <label>{{employee.cuit ? employee.cuit: ''}}</label>
+                </div>
+                <div>
+                    <label>Position: </label>
+                    <label>{{employee.position}}</label>
+                </div>
+            </div>
+        </div>
+          
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <div class="grid grid-nogutter justify-content-between">
+            <p-button label="Back" (onClick)="prevPage()" icon="pi pi-angle-left"></p-button>
+            <p-button label="Confirm" (onClick)="confirm()" icon="pi pi-angle-right" iconPos="right"></p-button>
+        </div>
+    </ng-template>
+    
+</p-card>
+

@@ -1,0 +1,52 @@
+<p-card>
+    <ng-template pTemplate="title">
+        Company Information
+    </ng-template>
+    <ng-template pTemplate="subtitle">
+        Complete the fields
+    </ng-template>
+
+    <ng-template id="principal" pTemplate="content">
+        <div>
+            Valid: {{form.valid | json}}
+        </div>
+        <div id="inputsForm">
+            <form name="form" #form="ngForm">
+                <div>        
+                    <label for="name">Company's Name</label>
+                    <input id="name" type="text" name="name" [(ngModel)]="companyInformation.name" #name="ngModel" required pInputText> 
+                    <div [hidden]="name.valid || !name.touched" class="errors">
+                        <div *ngIf="name.errors?.['required']">
+                            Name is required.
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label for="razonSocial">Razon Social</label>
+                    <input id="razonSocial" type="text" name="razonSocial" [(ngModel)]="companyInformation.razonSocial" #razonSocial="ngModel" required pInputText> 
+                    <div [hidden]="razonSocial.valid || !razonSocial.touched" class="errors">
+                        <div *ngIf="razonSocial.errors?.['required']">
+                            Razon social is required.
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label for="cuit">Cuit</label>
+                    <input id="cuit" type="number" name="cuit" [(ngModel)]="companyInformation.cuit" #cuit="ngModel" required value="10" pInputText> 
+                    <div [hidden]="cuit.valid || !cuit.touched" class="errors">
+                        <div *ngIf="cuit.errors?.['required']">
+                            Cuit is required.
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </ng-template>
+    
+    <ng-template pTemplate="footer">
+        <div>
+            <p-button label="Next" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right" ></p-button>
+        </div>
+    </ng-template>
+    
+</p-card>

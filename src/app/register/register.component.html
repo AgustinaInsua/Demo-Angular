@@ -1,0 +1,194 @@
+<div>{{user | json}}</div>
+<head>
+    <title>Register</title>
+</head>
+
+<body>
+    <nav>
+        <a routerLink="/login">Home</a>
+    </nav>
+    <h1>Register</h1>
+    <div class="principal">
+        <form class="form"  name="formRegister" (submit)="onSubmit()" #formRegister="ngForm">
+            <div>
+                <div class="labelInput">
+                    <label for="name">Name</label>
+                </div>
+
+                <input type="text" id="name" name="name" [(ngModel)]="user.name" #name="ngModel" required minlength="4" pInputText>
+                <div [hidden]="name.valid || !name.touched" class="errors">
+                    <div>
+                        <span *ngIf="name.errors?.['required']">
+                            Name is required
+                        </span>
+                    </div>
+                    <div>
+                        <span *ngIf="name.errors?.['minlength']">
+                            Name must at least 4 characters
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div>
+                <div class="labelInput">
+                    <label for="surname">Surname</label>
+                </div>
+
+                <input type="text" id="surname" name="surname" [(ngModel)]="user.surname" #surname="ngModel" required minlength="3" pInputText>
+                <div [hidden]="surname.valid || !surname.touched" class="errors">
+                    <div>
+                        <span *ngIf="name.errors?.['required']">
+                            Surname is required
+                        </span>
+                    </div>
+                    <div>
+                        <span *ngIf="name.errors?.['minlength']">
+                            Surname must at least 3 characters
+                        </span>
+                    </div>
+                </div>
+            </div>
+                <!--
+            <div>
+                <div class="labelInput">
+                    <label for="bornDate">Born Date</label>
+                </div>
+
+                <input type="date" id="bornDate" name="bornDate" required pInputText>
+                <div class="errors">
+                    <div>
+                        <span>
+                            Born date is required
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+            -->
+            <div>
+                <div class="labelInput">
+                    <label for="phone">Phone number</label>
+                </div>
+
+                <input type="number" id="phone" name="phone" [(ngModel)]="user.phone" #phone="ngModel"  min="999999999" required pInputText>
+                <div [hidden]="phone.valid || !phone.touched" class="errors">
+                    <div>
+                        <span *ngIf="phone.errors?.['required']">
+                            Phone number is required
+                        </span>
+                    </div>
+                    <div>
+                        <span *ngIf="phone.errors?.['min']">
+                            Phone number is invalid
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <div class="labelInput">
+                    <label for="email">Email</label>
+                </div>
+
+                <input type="text" id="email" name="email" [(ngModel)]="user.email" #email="ngModel" minlength="8" required email pInputText>
+                <div [hidden]="email.valid || !email.touched" class="errors">
+                    <div>
+                        <span *ngIf="email.errors?.['required']">
+                            Email is required
+                        </span>
+                    </div>
+
+                    <div>
+                        <span *ngIf="email.errors?.['minlength']">
+                            Email must at least 8 characters
+                        </span>
+                    </div>
+
+                    <div>
+                        <span *ngIf="email.errors?.['email']">
+                            Email structure incorrect
+                        </span>
+                    </div>
+
+                </div>
+            </div>
+                
+            <div id="passwordDiv">
+                <div class="labelInput">
+                    <label for="password">Password</label>
+                </div>
+
+                <input type="text" id="password" name="password" [(ngModel)]="user.password" #password="ngModel" minlength="6" required appPasswordValidation pwvalidlowerCase pInputText>
+                <div [hidden]="password.valid || !password.touched" class="errors">
+                    <div *ngIf="password.errors?.['required']">
+                        Password is required.
+                    </div>
+
+                    <div *ngIf="password.errors?.['requiresDigit']">
+                        Must at least 1 digit
+                    </div>
+
+                    <div *ngIf="password.errors?.['minlength']">
+                        Must be at least 6 characters
+                    </div>
+
+                    <div *ngIf="password.errors?.['requiresUppercase']">
+                        Must be at least 1 uppercase
+                    </div>
+
+                    <div *ngIf="password.errors?.['requiresLowercase']">
+                        Must be at least 1 lowercase
+                    </div>
+
+                    <div *ngIf="password.errors?.['requiresSpecialChars']">
+                        Must be at least 1 special character
+                    </div>
+                </div>
+                
+            </div>
+            
+            <!--
+            <div id="inputFileDiv">
+                <div>
+                    <input type="file" id="avatar" (change)="captureFile($event)"
+                        accept='image/*' name="avatar" required>
+                </div>
+                <div>
+                    <img [src]="preview" alt="">
+                </div>
+                <div class="errors">
+                    <div *ngIf="!formReg.valid">
+                        Select a image file.
+                    </div>
+                </div>
+            </div>
+
+            <div id="termsDiv">
+                <input class="terms" type="checkbox" name="terms" class="myCheck" id="terms">
+                <label for="terms">
+                    <a for="terms" style="color:black;padding-left:10px;" style="color:blue;" href="/register"> Terms
+                        and Conditions</a>
+                </label>
+
+                <div *ngIf="" class="errors">
+                    <div *ngIf="">
+                        Accepts Terms and Conditions
+                    </div>
+                </div>
+            </div>
+                -->
+            <div>
+                <p-button type="submit" onclick="onSubmit()">Register</p-button>
+            </div>
+        </form>
+    </div>
+
+</body>
+
+<div>
+    Valid: {{formRegister.valid | json}}
+</div>
+

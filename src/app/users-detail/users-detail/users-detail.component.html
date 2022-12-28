@@ -1,0 +1,50 @@
+<app-menu></app-menu>
+<p-table class="Users" #dt [value]="users" [(selection)]="selectedUser">
+
+    <ng-template pTemplate="caption">
+        <div class="table-header">
+            List of Users
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="header">
+        <tr>
+            <th>IDe</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Phone</th>
+            <th>Email</th>
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-user [value]="user">
+    
+            <tr class="p-selectable-row">
+                <td>
+                    <span class="p-column-title"></span>
+                    {{user.id}}
+                </td>
+                <td>
+                    <span class="p-column-title"></span>
+                    {{user.name}}
+                </td>
+                <td>
+                    <span class="p-column-title"></span>
+                    {{user.surname}}
+                </td>
+                <td>
+                    <span class="p-column-title"></span>
+                    {{user.phone}}
+                </td>
+                <td>
+                    <span class="p-column-title"></span>
+                    {{user.email}}
+                </td>
+        </tr>
+    </ng-template>
+
+</p-table>
+<br>
+<div>
+    <p-button  type="p-button">Home</p-button>
+</div>

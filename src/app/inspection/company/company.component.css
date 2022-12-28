@@ -1,0 +1,9 @@
+.errors{
+    color: red;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: small;
+    text-align: left;
+    padding: 0em 1em;
+    margin-left: 90px;
+    margin-top: -3px;
+  }

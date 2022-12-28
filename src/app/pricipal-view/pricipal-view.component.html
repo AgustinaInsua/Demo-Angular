@@ -1,0 +1,26 @@
+<app-menu></app-menu>
+<p-table [value]="companies" [tableStyle]="{'min-width': '50rem'}">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Name</th>
+            <th>Razon Social</th>
+            <th>Cuit</th>
+            <th>Employee Name</th>
+            <th>Employee Surname</th>
+            <th>Employee Cuuit</th>
+            <th>Employee Position</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-company>
+        <tr *ngFor="let employee of company.employees">
+            <td>{{company.name}}</td>
+            <td>{{company.razonSocial}}</td>
+            <td>{{company.cuit}}</td>
+            <td>{{employee.name}}</td>
+            <td>{{employee.surname}}</td>
+            <td>{{employee.cuit}}</td>
+            <td>{{employee.position}}</td>
+        </tr>
+       
+    </ng-template>
+</p-table>
