@@ -38,12 +38,10 @@ export class EmployeeComponent implements OnInit {
         this.router.navigate(['inspection/confirmation']);
         this.submitted = true;
       }
-      
-      
     }
 
     addToEmployeeList(){
-      let em : Employee = new Employee(this.personalInformation.name, this.personalInformation.surname,this.personalInformation.dateOfBirth,this.personalInformation.cuit, this.personalInformation.position);
+      let em : Employee = new Employee(this.personalInformation.name, this.personalInformation.surname,this.personalInformation.dateOfBirth,this.personalInformation.cuit, this.personalInformation.position, this.personalInformation.startDate, this.personalInformation.businessHours);
         this.employees.push(em);
         console.log(this.employees);
         this.personalInformation.name = '';
@@ -51,6 +49,8 @@ export class EmployeeComponent implements OnInit {
         this.personalInformation.cuit = '';
         this.personalInformation.dateOfBirth = '';
         this.personalInformation.position = '';
+        this.personalInformation.startDate = '';
+        this.personalInformation.businessHours = '';
     }
 
 
