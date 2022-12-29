@@ -54,4 +54,8 @@ export class InspectionService {
 
   }
 
+  deleteEmployee(index: number){
+    this.companyService.deleteEmployee(index);
+  }
+
 }

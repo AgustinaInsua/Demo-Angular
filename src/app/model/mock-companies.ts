@@ -18,5 +18,14 @@ export const COMPANIES : Company [] = [{
             {name: 'Lourdes', surname: 'Obregon', cuit: 98231, position: 'Student'},
             {name: 'Lionel', surname: 'Messi', cuit: 2879, position: 'Jogador de fuchibol'}
         ]
+    },
+    {
+        name: 'Dia ',
+        razonSocial: 'Dia SRL ',
+        cuit: 5454,
+        employees: [
+            {name: 'Lourdes', surname: 'Obregon', cuit: 98231, position: 'Student'},
+            {name: 'Lionel', surname: 'Messi', cuit: 2879, position: 'Jogador de fuchibol'}
+        ]
     }
 ]

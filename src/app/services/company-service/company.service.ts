@@ -23,6 +23,9 @@ export class CompanyService {
       console.log(company.employees[0].name);
       COMPANIES.push(company);
     }
-    //COMPANIES.push({name: company.companyInformation.name, razonSocial: company.});
+  }
+
+  deleteEmployee(index: number){
+    
   }
 }

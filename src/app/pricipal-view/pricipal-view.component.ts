@@ -22,6 +22,14 @@ export class PricipalViewComponent implements OnInit {
   ) {}
   ngOnInit(): void {
      this.companies = this.companyService.getCompanies(); 
+     console.log(this.companies[0]);
+     console.log(this.companies[1]);
+     console.log(this.companies[2]);
+     console.log(this.companies.length);
+     //console.log(this.companies.splice(1,1));
+     this.companies.splice(1,1);
+     //console.log(this.companies);
+     console.log(this.companies.length);
   }
 
   newHero(){
