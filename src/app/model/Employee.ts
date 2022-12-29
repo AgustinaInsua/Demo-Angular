@@ -4,6 +4,8 @@ export class Employee{
         public surname?: string,
         public dateOfBirth?: Date,
         public cuit?: number,
-        public position?: string
+        public position?: string,
+        public startDate?: Date,
+        public businessHours?: string,
     ){}
 }

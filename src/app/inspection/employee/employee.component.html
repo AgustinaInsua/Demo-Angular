@@ -53,6 +53,24 @@
                 </div>
             </div>
         </div>
+        <div>        
+            <label for="startDate">StartDate</label>
+            <input id="startDate" type="date" [(ngModel)]="personalInformation.startDate" #startDate="ngModel" required pInputText> 
+            <div [hidden]="startDate.valid || !startDate.touched" class="errors">
+                <div *ngIf="startDate.errors?.['required']">
+                    Start Date is required.
+                </div>
+            </div>
+        </div>
+        <div>        
+            <label for="businessHours">BusinessHours</label>
+            <input id="businessHours" type="text" [(ngModel)]="personalInformation.businessHours" #businessHours="ngModel" required pInputText> 
+            <div [hidden]="businessHours.valid || !businessHours.touched" class="errors">
+                <div *ngIf="businessHours.errors?.['required']">
+                    Business Hours is required.
+                </div>
+            </div>
+        </div>
         <div>
            <h2>Employees list</h2>
         </div>
@@ -64,6 +82,8 @@
                     <th>DateOfBirth</th>
                     <th>Cuit</th>
                     <th>Position</th>
+                    <th>Star Date</th>
+                    <th>Business Hours</th>
                 </tr>
             </ng-template>
             <ng-template pTemplate="body" let-employees>
@@ -73,6 +93,8 @@
                     <td>{{employees.dateOfBirth}}</td>
                     <td>{{employees.cuit}}</td>
                     <td>{{employees.position}}</td>
+                    <td>{{employees.startDate}}</td>
+                    <td>{{employees.businessHours}}</td>
                 </tr>
             </ng-template>
         </p-table>
