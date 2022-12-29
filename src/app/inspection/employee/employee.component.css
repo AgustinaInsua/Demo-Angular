@@ -7,3 +7,12 @@
     margin-left: 90px;
     margin-top: -3px;
   }
+
+  .next {
+    float: right;
+  }
+  
+  .speeddial-linear-demo {
+        left: calc(40% - 2rem);
+        bottom: 0;
+    }
