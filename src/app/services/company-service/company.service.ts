@@ -24,8 +24,4 @@ export class CompanyService {
       COMPANIES.push(company);
     }
   }
-
-  deleteEmployee(index: number){
-    
-  }
 }

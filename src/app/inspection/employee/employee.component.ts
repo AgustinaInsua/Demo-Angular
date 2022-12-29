@@ -41,17 +41,31 @@ export class EmployeeComponent implements OnInit {
     }
 
     addToEmployeeList(){
-      let em : Employee = new Employee(this.personalInformation.name, this.personalInformation.surname,this.personalInformation.dateOfBirth,this.personalInformation.cuit, this.personalInformation.position, this.personalInformation.startDate, this.personalInformation.businessHours);
-        this.employees.push(em);
-        console.log(this.employees);
-        this.personalInformation.name = '';
-        this.personalInformation.surname = '';
-        this.personalInformation.cuit = '';
-        this.personalInformation.dateOfBirth = '';
-        this.personalInformation.position = '';
-        this.personalInformation.startDate = '';
-        this.personalInformation.businessHours = '';
+      let em : Employee = new Employee(this.personalInformation.name, this.personalInformation.surname,this.personalInformation.dateOfBirth,this.personalInformation.cuit, this.personalInformation.position, this.personalInformation.startDate, this.personalInformation.businessHours);      
+      this.employees.push(em);
+      console.log(this.employees);
+      this.personalInformation.name = '';
+      this.personalInformation.surname = '';
+      this.personalInformation.cuit = '';
+      this.personalInformation.dateOfBirth = '';
+      this.personalInformation.position = '';
+      this.personalInformation.startDate = '';
+      this.personalInformation.businessHours = '';
     }
 
+    deleteEmployeeByID(index: number){
+      if(this.indexValid(index)){
+        this.employees.splice(index, 1);
+      }
+      
+    }
+
+    deleteEmployee(employee : Employee){
+      this.employees =this.employees.filter(em => em !== employee);
+    }
+
+    indexValid(index: number){
+      return ((index>=0) && (index<this.employees.length));
+    }
 
 }
