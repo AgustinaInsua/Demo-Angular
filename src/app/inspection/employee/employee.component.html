@@ -27,6 +27,15 @@
             </div> 
         </div>
         <div>        
+            <label for="dateOfBirth">DateOfBirth</label>
+            <input id="dateOfBirth" type="date" [(ngModel)]="personalInformation.dateOfBirth" #dateOfBirth="ngModel" required pInputText>
+            <div [hidden]="dateOfBirth.valid || !dateOfBirth.touched" class="errors">
+                <div *ngIf="dateOfBirth.errors?.['required']">
+                    dateOfBirth is required.
+                </div>
+            </div> 
+        </div>
+        <div>        
             <label for="cuit">Cuit</label>
             <input id="cuit" type="number" [(ngModel)]="personalInformation.cuit" #cuit="ngModel" required pInputText> 
             <div [hidden]="cuit.valid || !cuit.touched" class="errors">
@@ -52,6 +61,7 @@
                 <tr>
                     <th>Name</th>
                     <th>Surname</th>
+                    <th>DateOfBirth</th>
                     <th>Cuit</th>
                     <th>Position</th>
                 </tr>
@@ -60,6 +70,7 @@
                 <tr>
                     <td>{{employees.name}}</td>
                     <td>{{employees.surname}}</td>
+                    <td>{{employees.dateOfBirth}}</td>
                     <td>{{employees.cuit}}</td>
                     <td>{{employees.position}}</td>
                 </tr>

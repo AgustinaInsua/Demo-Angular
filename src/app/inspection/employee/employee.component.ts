@@ -43,12 +43,13 @@ export class EmployeeComponent implements OnInit {
     }
 
     addToEmployeeList(){
-      let em : Employee = new Employee(this.personalInformation.name, this.personalInformation.surname,this.personalInformation.cuit, this.personalInformation.position);
+      let em : Employee = new Employee(this.personalInformation.name, this.personalInformation.surname,this.personalInformation.dateOfBirth,this.personalInformation.cuit, this.personalInformation.position);
         this.employees.push(em);
         console.log(this.employees);
         this.personalInformation.name = '';
         this.personalInformation.surname = '';
         this.personalInformation.cuit = '';
+        this.personalInformation.dateOfBirth = '';
         this.personalInformation.position = '';
     }
 
