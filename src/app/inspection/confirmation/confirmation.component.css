@@ -1,0 +1,15 @@
+
+.labelField{
+    font-weight: bold;
+}
+
+
+
+.confirm{
+    float: right;
+    
+}
+
+.subtitleError{
+    color: red;
+}
