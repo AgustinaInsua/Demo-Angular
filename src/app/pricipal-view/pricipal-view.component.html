@@ -1,6 +1,11 @@
 <app-menu></app-menu>
-<p-table [value]="companies" [tableStyle]="{'min-width': '50rem'}">
+<p-table #dt [value]="companies" [tableStyle]="{'min-width': '50rem'}">
     <ng-template pTemplate="header">
+        <tr>
+            <th>
+                <p-columnFilter type="text" field="name"></p-columnFilter>
+            </th>
+        </tr>
         <tr>
             <th>Name</th>
             <th>Razon Social</th>
@@ -11,6 +16,7 @@
             <th>Employee Cuuit</th>
             <th>Employee Position</th>
         </tr>
+
     </ng-template>
     <ng-template pTemplate="body" let-company>
         <tr *ngFor="let employee of company.employees">
