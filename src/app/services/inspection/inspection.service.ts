@@ -51,7 +51,5 @@ export class InspectionService {
       this.confirmationInformation.companyInformation.razonSocial,
       this.confirmationInformation.companyInformation.cuit, employees
       ));
-
   }
-
 }

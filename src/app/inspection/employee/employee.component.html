@@ -8,44 +8,62 @@
     </ng-template>
 
     <ng-template id="templateMain" pTemplate="content">
+    <div class="section">  
+    <div class="flex-container">
         <div>
-            <label for="name">Name</label>
-            <input id="name" type="text" [(ngModel)]="personalInformation.name" #name="ngModel" required pInputText> 
+            <div class="position">
+            <div><label for="name">Name</label></div>
+            <input type="text" id="name" pInputText  [(ngModel)]="personalInformation.name" #name="ngModel" required pInputText> 
             <div [hidden]="name.valid || !name.touched" class="errors">
                 <div *ngIf="name.errors?.['required']">
                     Name is required.
                 </div>
+             </div>
             </div>
-        </div>
-        <div>        
-            <label for="surname">Surname</label>
+
+            
+            <div><label for="surname">Surname</label></div> 
             <input id="surname" type="text" [(ngModel)]="personalInformation.surname" #surname="ngModel" required pInputText>
             <div [hidden]="surname.valid || !surname.touched" class="errors">
                 <div *ngIf="surname.errors?.['required']">
                     Surname is required.
                 </div>
             </div> 
-        </div>
-        <div>        
-            <label for="dateOfBirth">DateOfBirth</label>
+      
+    </div>
+
+    <div>
+            <div class="position">
+            <div><label for="dateOfBirth">DateOfBirth</label></div>
             <input id="dateOfBirth" type="date" [(ngModel)]="personalInformation.dateOfBirth" #dateOfBirth="ngModel" required pInputText>
             <div [hidden]="dateOfBirth.valid || !dateOfBirth.touched" class="errors">
                 <div *ngIf="dateOfBirth.errors?.['required']">
                     dateOfBirth is required.
                 </div>
-            </div> 
+            </div>
         </div>
-        <div>        
-            <label for="cuit">Cuit</label>
+
+            <div class="position">
+            <div><label for="cuit">Cuit</label></div>
             <input id="cuit" type="number" [(ngModel)]="personalInformation.cuit" #cuit="ngModel" required pInputText> 
             <div [hidden]="cuit.valid || !cuit.touched" class="errors">
                 <div *ngIf="cuit.errors?.['required']">
                     Cuit is required.
                 </div>
             </div>
+
         </div>
-        <div>        
+        </div>
+    </div>
+       
+        <h4>
+            Complete the fields
+        </h4>
+        <div class="flex-container">
+        <div class="position">        
+            <div>
             <label for="position">Position</label>
+            </div>
             <input id="position" type="text" [(ngModel)]="personalInformation.position" #position="ngModel" required pInputText> 
             <div [hidden]="position.valid || !position.touched" class="errors">
                 <div *ngIf="position.errors?.['required']">
@@ -53,8 +71,10 @@
                 </div>
             </div>
         </div>
-        <div>        
+        <div class="position">        
+            <div>
             <label for="startDate">StartDate</label>
+           </div>
             <input id="startDate" type="date" [(ngModel)]="personalInformation.startDate" #startDate="ngModel" required pInputText> 
             <div [hidden]="startDate.valid || !startDate.touched" class="errors">
                 <div *ngIf="startDate.errors?.['required']">
@@ -62,8 +82,10 @@
                 </div>
             </div>
         </div>
-        <div>        
+        <div class="position">        
+            <div>
             <label for="businessHours">BusinessHours</label>
+            </div>
             <input id="businessHours" type="text" [(ngModel)]="personalInformation.businessHours" #businessHours="ngModel" required pInputText> 
             <div [hidden]="businessHours.valid || !businessHours.touched" class="errors">
                 <div *ngIf="businessHours.errors?.['required']">
@@ -71,6 +93,9 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>  
+
         <div>
            <h2>Employees list</h2>
         </div>

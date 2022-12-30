@@ -12,6 +12,38 @@
   float: right;
 }
 
+input {
+  background-color: aliceblue;
+  width: 400px;
+  height: 30px;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  padding: 15px;
+  }
+  
+  .section {
+    margin-top: 0px;
+    right: 200px;
+    margin-left: 20px;
+  }
+
+
+  .flex-container {
+    display: flex;
+    height: 170px;
+    margin-top: 20px;
+  }
+
+  .flex-container > div {
+    width: 10px;
+    margin: 5px;
+    text-align: left;
+    line-height: 40px;
+    
+    flex: 1 1 200px
+  
+  }
+
 .speeddial-linear-demo {
   left: calc(40% - 2rem);
   bottom: 0;
