@@ -7,13 +7,13 @@
     </ng-template>
 
     <ng-template id="principal" pTemplate="content">
-        <div>
-            Valid: {{form.valid | json}}
-        </div>
+      
         <div id="inputsForm">
             <form name="form" #form="ngForm">
                 <div>        
+                    <div>
                     <label for="name">Company's Name</label>
+                    </div>
                     <input id="name" type="text" name="name" [(ngModel)]="companyInformation.name" #name="ngModel" required pInputText> 
                     <div [hidden]="name.valid || !name.touched" class="errors">
                         <div *ngIf="name.errors?.['required']">
@@ -22,7 +22,9 @@
                     </div>
                 </div>
                 <div>
+                    <div>
                     <label for="razonSocial">Razon Social</label>
+                    </div>
                     <input id="razonSocial" type="text" name="razonSocial" [(ngModel)]="companyInformation.razonSocial" #razonSocial="ngModel" required pInputText> 
                     <div [hidden]="razonSocial.valid || !razonSocial.touched" class="errors">
                         <div *ngIf="razonSocial.errors?.['required']">
@@ -31,7 +33,9 @@
                     </div>
                 </div>
                 <div>
+                    <div>
                     <label for="cuit">Cuit</label>
+                    </div>
                     <input id="cuit" type="number" name="cuit" [(ngModel)]="companyInformation.cuit" #cuit="ngModel" required value="10" pInputText> 
                     <div [hidden]="cuit.valid || !cuit.touched" class="errors">
                         <div *ngIf="cuit.errors?.['required']">
