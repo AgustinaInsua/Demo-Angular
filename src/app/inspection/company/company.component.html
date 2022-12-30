@@ -35,7 +35,7 @@
                 <div>
                     <div>
                     <label for="cuit">Cuit</label>
-                    </div>
+                </div>
                     <input id="cuit" type="number" name="cuit" [(ngModel)]="companyInformation.cuit" #cuit="ngModel" required value="10" pInputText> 
                     <div [hidden]="cuit.valid || !cuit.touched" class="errors">
                         <div *ngIf="cuit.errors?.['required']">
