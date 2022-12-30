@@ -3,6 +3,7 @@ import { USERS } from '../model/mock-users';
 import { Usuario } from './usuario';
 import { User } from '../model/User';
 import { CompanyService } from '../services/company-service/company.service';
+import { Table } from 'primeng/table';
 
 
 @Component({
@@ -22,14 +23,6 @@ export class PricipalViewComponent implements OnInit {
   ) {}
   ngOnInit(): void {
      this.companies = this.companyService.getCompanies(); 
-     console.log(this.companies[0]);
-     console.log(this.companies[1]);
-     console.log(this.companies[2]);
-     console.log(this.companies.length);
-     //console.log(this.companies.splice(1,1));
-     this.companies.splice(1,1);
-     //console.log(this.companies);
-     console.log(this.companies.length);
   }
 
   newHero(){
@@ -38,6 +31,11 @@ export class PricipalViewComponent implements OnInit {
   onSubmit(): void{
     this.submitted = true;
   }
+
+  clear(table : Table){
+    table.clear();
+  }
+  
 
   
 }
