@@ -33,8 +33,7 @@ export class EmployeeComponent implements OnInit {
     }
 
     nextPage() {
-      if(this.personalInformation.name =='' || this.personalInformation.surname =='' || this.personalInformation.dateOfBirth =='' ||
-         this.personalInformation.cuit =='' || this.personalInformation.position =='' || this.personalInformation.startDate =='' || this.personalInformation.businessHours ==''){
+      if(this.employees.length==0){
           this.messageService.add({severity:'error', detail:'Company is empty'});
       }else{
         this.inspectionService.setEmployeesInformation(this.employees);
@@ -47,6 +46,11 @@ export class EmployeeComponent implements OnInit {
 
 
     addToEmployeeList(){
+     if (this.personalInformation.name =='' || this.personalInformation.surname =='' || this.personalInformation.dateOfBirth =='' ||
+       this.personalInformation.cuit =='' || this.personalInformation.position =='' || this.personalInformation.startDate =='' || this.personalInformation.businessHours ==''){
+       this.messageService.add({severity:'error', detail:'Company is empty'});
+     }
+     else{
       let em : Employee = new Employee(this.personalInformation.name, this.personalInformation.surname,this.personalInformation.dateOfBirth,this.personalInformation.cuit, this.personalInformation.position, this.personalInformation.startDate, this.personalInformation.businessHours);      
       this.employees.push(em);
       console.log(this.employees);
@@ -57,7 +61,7 @@ export class EmployeeComponent implements OnInit {
       this.personalInformation.position = '';
       this.personalInformation.startDate = '';
       this.personalInformation.businessHours = '';
-    }
+    }}
 
     deleteEmployeeByID(index: number){
       if(this.indexValid(index)){
