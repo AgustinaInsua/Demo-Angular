@@ -7,19 +7,16 @@
                 <div class="searchG">
                     <span class="p-input-icon-left ml-auto">
                         <i class="pi pi-search"></i>
-                        <input pInputText type="text" (input)="dtCompanies.filterGlobal($any($event.target).value, 'contains')" placeholder="Search keyword" />
+                        <input pInputText id="inputSearch" type="text" (input)="dtCompanies.filterGlobal($any($event.target).value, 'contains')" placeholder="Search keyword" />
                     </span>
                 </div>
             </div>
         </ng-template>
         <ng-template pTemplate="header">
             <tr>
-                <th pSortableColumn="name">Name <p-sortIcon field="name"></p-sortIcon> <p-columnFilter type="text" field="name" display="menu" ></p-columnFilter></th>
-                
-        
-    
-                <th pSortableColumn="razonSocial">Razon Social <p-sortIcon field="razonSocial"></p-sortIcon></th>
-                <th pSortableColumn="cuit">Cuit <p-sortIcon field="cuit"></p-sortIcon></th>
+                <th pSortableColumn="name">Nombre <p-sortIcon field="name"></p-sortIcon> <p-columnFilter type="text" field="name" display="menu" ></p-columnFilter></th>   
+                <th pSortableColumn="razonSocial">Razon Social <p-sortIcon field="razonSocial"></p-sortIcon> <p-columnFilter type="text" field="razonSocial" display="menu" ></p-columnFilter></th>
+                <th pSortableColumn="cuit">Cuit <p-sortIcon field="cuit"></p-sortIcon> <p-columnFilter type="text" field="cuit" display="menu" ></p-columnFilter></th>
                 
             </tr>
     
@@ -49,11 +46,11 @@
         </ng-template>
         <ng-template pTemplate="header" >
             <tr>
-                <th>Employee Name</th>
-                <th>Employee Surname</th>
-                <th>Employee DateOfBirth</th>
-                <th>Employee Cuuit</th>
-                <th>Employee Position</th>
+                <th pSortableColumn="name">Nombre <p-sortIcon field="name"></p-sortIcon><p-columnFilter type="text" field="name" display="menu" ></p-columnFilter></th>
+                <th pSortableColumn="surname">Apellido <p-sortIcon field="surname"></p-sortIcon><p-columnFilter type="text" field="surname" display="menu" ></p-columnFilter></th>
+                <th>Fecha de NAC</th>
+                <th pSortableColumn="cuit">Cuit <p-sortIcon field="cuit"></p-sortIcon><p-columnFilter type="text" field="cuit" display="menu" ></p-columnFilter></th>
+                <th pSortableColumn="position">Posicion <p-sortIcon field="position"></p-sortIcon><p-columnFilter type="text" field="position" display="menu" ></p-columnFilter></th>
             </tr>
         </ng-template>
         <ng-template pTemplate="body" let-employee>

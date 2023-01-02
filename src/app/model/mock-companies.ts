@@ -3,7 +3,7 @@ import { Company } from "./Company";
 
 export const COMPANIES : Company [] = [{
         name: 'BDF TECHNOLOGY SOLUTIONS',
-        razonSocial: 'BDF SA ',
+        razonSocial: 'BDF SA',
         cuit: 23232,
         employees:[
             {name: 'Leandro', surname: 'Fernandez', cuit: 458471, position: 'Developer'},
@@ -12,7 +12,7 @@ export const COMPANIES : Company [] = [{
     },
     {
         name: 'Coto',
-        razonSocial: 'Coto C.I.C.S.A.',
+        razonSocial: 'Coto CICSA',
         cuit: 58791,
         employees: [
             {name: 'Juan', surname: 'Perez', cuit: 35481, position: 'Repositor'},
