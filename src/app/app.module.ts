@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LogginComponent } from './loggin/loggin.component';
@@ -26,6 +27,7 @@ import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {ToastModule} from 'primeng/toast';
 import {MessageService} from 'primeng/api';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
 
 @NgModule({
   declarations: [
@@ -43,6 +45,7 @@ import {MessageService} from 'primeng/api';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     InputTextModule,
     ButtonModule,
@@ -56,7 +59,8 @@ import {MessageService} from 'primeng/api';
     CardModule,
     MessageModule,
     MessagesModule,
-    ToastModule
+    ToastModule,
+    ConfirmDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

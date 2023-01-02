@@ -29,7 +29,7 @@ export class CompanyComponent implements OnInit {
 
   nextPage(){
     if(this.companyInformation.name =='' || this.companyInformation.razonSocial =='' || this.companyInformation.cuit ==''){
-      this.messageService.add({severity:'error', detail:'Company is empty'});
+      this.messageService.add({severity:'error', detail:'Company is empty', life:2000});
     }else{
     this.inspectionService.setCompanyInformation(this.companyInformation);
     this.inspectionService.confirmationInformation.companyInformation = this.companyInformation;
