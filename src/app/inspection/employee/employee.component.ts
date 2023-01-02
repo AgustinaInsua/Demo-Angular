@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Employee } from 'src/app/model/Employee';
 import { InspectionService } from 'src/app/services/inspection/inspection.service';
+import { Message, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-employee',
   templateUrl: './employee.component.html',
-  styleUrls: ['./employee.component.css']
+  styleUrls: ['./employee.component.css'],
+  providers: [MessageService]
 })
 export class EmployeeComponent implements OnInit {
   employees!: Employee [];
@@ -16,7 +18,8 @@ export class EmployeeComponent implements OnInit {
 
     constructor(
       private router: Router,
-      private inspectionService: InspectionService) { }
+      private inspectionService: InspectionService,
+      private messageService: MessageService) { }
 
     ngOnInit() { 
         //this.employee = new Employee();
@@ -30,8 +33,9 @@ export class EmployeeComponent implements OnInit {
     }
 
     nextPage() {
-      if(this.employees.length== 0){
-        alert('Employees is empty');
+      if(this.personalInformation.name =='' || this.personalInformation.surname =='' || this.personalInformation.dateOfBirth =='' ||
+         this.personalInformation.cuit =='' || this.personalInformation.position =='' || this.personalInformation.startDate =='' || this.personalInformation.businessHours ==''){
+          this.messageService.add({severity:'error', detail:'Company is empty'});
       }else{
         this.inspectionService.setEmployeesInformation(this.employees);
         console.log(this.inspectionService.getConfirmationInformation());
@@ -39,6 +43,8 @@ export class EmployeeComponent implements OnInit {
         this.submitted = true;
       }
     }
+
+
 
     addToEmployeeList(){
       let em : Employee = new Employee(this.personalInformation.name, this.personalInformation.surname,this.personalInformation.dateOfBirth,this.personalInformation.cuit, this.personalInformation.position, this.personalInformation.startDate, this.personalInformation.businessHours);      

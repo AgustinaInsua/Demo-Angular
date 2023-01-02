@@ -13,3 +13,8 @@
 .subtitleError{
     color: red;
 }
+
+p-messages {
+    text-align: center;
+    top: 200px;
+}

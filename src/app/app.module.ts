@@ -22,6 +22,10 @@ import { CompanyComponent } from './inspection/company/company.component';
 import { EmployeeComponent } from './inspection/employee/employee.component';
 import { ConfirmationComponent } from './inspection/confirmation/confirmation.component';
 import {CardModule} from 'primeng/card';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
+import {ToastModule} from 'primeng/toast';
+import {MessageService} from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -49,7 +53,10 @@ import {CardModule} from 'primeng/card';
     MenuModule,
     TabMenuModule,
     StepsModule,
-    CardModule
+    CardModule,
+    MessageModule,
+    MessagesModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]
