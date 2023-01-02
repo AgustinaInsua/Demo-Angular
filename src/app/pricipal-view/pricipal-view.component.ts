@@ -4,6 +4,8 @@ import { Usuario } from './usuario';
 import { User } from '../model/User';
 import { CompanyService } from '../services/company-service/company.service';
 import { Table } from 'primeng/table';
+import { Employee } from '../model/Employee';
+import { EmployeeService } from '../services/employee-service/employee.service';
 
 
 @Component({
@@ -17,12 +19,16 @@ export class PricipalViewComponent implements OnInit {
   selectedUser!: User[];
   submitted= false;
   companies: any;
+  employees:Employee[] = new Array <Employee>();
   
   constructor(
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    private employeeService :EmployeeService
   ) {}
   ngOnInit(): void {
      this.companies = this.companyService.getCompanies(); 
+     this.employees = this.employeeService.getEmployees();
+     console.log(this.employees);
   }
 
   newHero(){
@@ -35,7 +41,4 @@ export class PricipalViewComponent implements OnInit {
   clear(table : Table){
     table.clear();
   }
-  
-
-  
 }
