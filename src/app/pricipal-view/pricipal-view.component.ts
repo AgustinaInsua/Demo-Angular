@@ -20,6 +20,7 @@ export class PricipalViewComponent implements OnInit {
   submitted= false;
   companies: any;
   employees:Employee[] = new Array <Employee>();
+  filteredValue : any;
   
   constructor(
     private companyService: CompanyService,
@@ -27,8 +28,7 @@ export class PricipalViewComponent implements OnInit {
   ) {}
   ngOnInit(): void {
      this.companies = this.companyService.getCompanies(); 
-     this.employees = this.employeeService.getEmployees();
-     console.log(this.employees);
+
   }
 
   newHero(){
@@ -39,6 +39,17 @@ export class PricipalViewComponent implements OnInit {
   }
 
   clear(table : Table){
+    console.log(this.filteredValue == null);
     table.clear();
+    this.filteredValue = null;
+  }
+
+  onFilter($event : any, dt: Table){
+    this.filteredValue = dt.filteredValue[0];
+    this.employees = this.employeeService.getEmployeesByCompany(this.filteredValue.name);
+  }
+
+  isCompanyFiltered(dt : Table): boolean{
+    return !(this.filteredValue == null);
   }
 }

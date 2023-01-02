@@ -1,3 +1,4 @@
+import { Company } from './../../model/Company';
 import { Injectable } from '@angular/core';
 import { COMPANIES } from 'src/app/model/mock-companies';
 import { Employee } from 'src/app/model/Employee';
@@ -16,7 +17,7 @@ export class EmployeeService {
     )));
     return employees;
   }
-  getEmployeesByID(){
-    
+  getEmployeesByCompany(company :string){
+    return COMPANIES.find(c => c.name == company)?.employees!;
   }
 }
