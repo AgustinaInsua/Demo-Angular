@@ -1,136 +1,190 @@
 <p-toast></p-toast>
 <p-card>
-    <ng-template pTemplate="title">
-        Employee Information
-    </ng-template>
-    <ng-template pTemplate="subtitle">
-        Complete the personal fields
-    </ng-template>
+  <ng-template pTemplate="title"> Employee Information </ng-template>
+  <ng-template pTemplate="subtitle"> Complete the personal fields </ng-template>
 
-    <ng-template pTemplate="content">
-    <div class="section">  
-    <div class="flex-container">
+  <ng-template pTemplate="content">
+    <div class="section">
+      <div class="flex-container">
         <div>
-            <div class="position">
+          <div class="position">
             <div><label for="name">Name</label></div>
-            <input type="text" id="name" pInputText  [(ngModel)]="personalInformation.name" #name="ngModel" required pInputText> 
+            <input
+              type="text"
+              id="name"
+              pInputText
+              [(ngModel)]="personalInformation.name"
+              #name="ngModel"
+              required
+              pInputText
+            />
             <div [hidden]="name.valid || !name.touched" class="errors">
-                <div *ngIf="name.errors?.['required']">
-                    Name is required.
-                </div>
-             </div>
+              <div *ngIf="name.errors?.['required']">Name is required.</div>
             </div>
+          </div>
 
-            
-            <div><label for="surname">Surname</label></div> 
-            <input id="surname" type="text" [(ngModel)]="personalInformation.surname" #surname="ngModel" required pInputText>
-            <div [hidden]="surname.valid || !surname.touched" class="errors">
-                <div *ngIf="surname.errors?.['required']">
-                    Surname is required.
-                </div>
-            </div> 
-      
+          <div><label for="surname">Surname</label></div>
+          <input
+            id="surname"
+            type="text"
+            [(ngModel)]="personalInformation.surname"
+            #surname="ngModel"
+            required
+            pInputText
+          />
+          <div [hidden]="surname.valid || !surname.touched" class="errors">
+            <div *ngIf="surname.errors?.['required']">Surname is required.</div>
+          </div>
+        </div>
+
+        <div>
+          <div class="position">
+            <div><label for="dateOfBirth">DateOfBirth</label></div>
+            <input
+              id="dateOfBirth"
+              type="date"
+              [(ngModel)]="personalInformation.dateOfBirth"
+              #dateOfBirth="ngModel"
+              required
+              pInputText
+            />
+            <div
+              [hidden]="dateOfBirth.valid || !dateOfBirth.touched"
+              class="errors"
+            >
+              <div *ngIf="dateOfBirth.errors?.['required']">
+                dateOfBirth is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="position">
+            <div><label for="cuit">Cuit</label></div>
+            <input
+              id="cuit"
+              type="number"
+              [(ngModel)]="personalInformation.cuit"
+              #cuit="ngModel"
+              required
+              pInputText
+            />
+            <div [hidden]="cuit.valid || !cuit.touched" class="errors">
+              <div *ngIf="cuit.errors?.['required']">Cuit is required.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h4>Complete in the position fields</h4>
+      <div class="flex-container">
+        <div class="position">
+          <div>
+            <label for="position">Position</label>
+          </div>
+          <input
+            id="position"
+            type="text"
+            [(ngModel)]="personalInformation.position"
+            #position="ngModel"
+            required
+            pInputText
+          />
+          <div [hidden]="position.valid || !position.touched" class="errors">
+            <div *ngIf="position.errors?.['required']">
+              Position is required.
+            </div>
+          </div>
+        </div>
+        <div class="position">
+          <div>
+            <label for="startDate">StartDate</label>
+          </div>
+          <input
+            id="startDate"
+            type="date"
+            [(ngModel)]="personalInformation.startDate"
+            #startDate="ngModel"
+            required
+            pInputText
+          />
+          <div [hidden]="startDate.valid || !startDate.touched" class="errors">
+            <div *ngIf="startDate.errors?.['required']">
+              Start Date is required.
+            </div>
+          </div>
+        </div>
+        <div class="position">
+          <div>
+            <label for="businessHours">BusinessHours</label>
+          </div>
+          <input
+            id="businessHours"
+            type="text"
+            [(ngModel)]="personalInformation.businessHours"
+            #businessHours="ngModel"
+            required
+            pInputText
+          />
+          <div
+            [hidden]="businessHours.valid || !businessHours.touched"
+            class="errors"
+          >
+            <div *ngIf="businessHours.errors?.['required']">
+              Business Hours is required.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div>
-            <div class="position">
-            <div><label for="dateOfBirth">DateOfBirth</label></div>
-            <input id="dateOfBirth" type="date" [(ngModel)]="personalInformation.dateOfBirth" #dateOfBirth="ngModel" required pInputText>
-            <div [hidden]="dateOfBirth.valid || !dateOfBirth.touched" class="errors">
-                <div *ngIf="dateOfBirth.errors?.['required']">
-                    dateOfBirth is required.
-                </div>
-            </div>
-        </div>
-
-            <div class="position">
-            <div><label for="cuit">Cuit</label></div>
-            <input id="cuit" type="number" [(ngModel)]="personalInformation.cuit" #cuit="ngModel" required pInputText> 
-            <div [hidden]="cuit.valid || !cuit.touched" class="errors">
-                <div *ngIf="cuit.errors?.['required']">
-                    Cuit is required.
-                </div>
-            </div>
-
-        </div>
-        </div>
+      <h2>Employees list</h2>
     </div>
-       
-        <h4>
-            Complete in the position fields
-        </h4>
-        <div class="flex-container">
-        <div class="position">        
-            <div>
-            <label for="position">Position</label>
-            </div>
-            <input id="position" type="text" [(ngModel)]="personalInformation.position" #position="ngModel" required pInputText> 
-            <div [hidden]="position.valid || !position.touched" class="errors">
-                <div *ngIf="position.errors?.['required']">
-                    Position is required.
-                </div>
-            </div>
-        </div>
-        <div class="position">        
-            <div>
-            <label for="startDate">StartDate</label>
-           </div>
-            <input id="startDate" type="date" [(ngModel)]="personalInformation.startDate" #startDate="ngModel" required pInputText> 
-            <div [hidden]="startDate.valid || !startDate.touched" class="errors">
-                <div *ngIf="startDate.errors?.['required']">
-                    Start Date is required.
-                </div>
-            </div>
-        </div>
-        <div class="position">        
-            <div>
-            <label for="businessHours">BusinessHours</label>
-            </div>
-            <input id="businessHours" type="text" [(ngModel)]="personalInformation.businessHours" #businessHours="ngModel" required pInputText> 
-            <div [hidden]="businessHours.valid || !businessHours.touched" class="errors">
-                <div *ngIf="businessHours.errors?.['required']">
-                    Business Hours is required.
-                </div>
-            </div>
-        </div>
-    </div>
-</div>  
+    <p-table [value]="employees">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>DateOfBirth</th>
+          <th>Cuit</th>
+          <th>Position</th>
+          <th>Star Date</th>
+          <th>Business Hours</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-employees>
+        <tr>
+          <td>{{ employees.name }}</td>
+          <td>{{ employees.surname }}</td>
+          <td>{{ employees.dateOfBirth }}</td>
+          <td>{{ employees.cuit }}</td>
+          <td>{{ employees.position }}</td>
+          <td>{{ employees.startDate }}</td>
+          <td>{{ employees.businessHours }}</td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </ng-template>
 
-        <div>
-           <h2>Employees list</h2>
-        </div>
-        <p-table [value]="employees">
-            <ng-template pTemplate="header">
-                <tr>
-                    <th>Name</th>
-                    <th>Surname</th>
-                    <th>DateOfBirth</th>
-                    <th>Cuit</th>
-                    <th>Position</th>
-                    <th>Star Date</th>
-                    <th>Business Hours</th>
-                </tr>
-            </ng-template>
-            <ng-template pTemplate="body" let-employees>
-                <tr>
-                    <td>{{employees.name}}</td>
-                    <td>{{employees.surname}}</td>
-                    <td>{{employees.dateOfBirth}}</td>
-                    <td>{{employees.cuit}}</td>
-                    <td>{{employees.position}}</td>
-                    <td>{{employees.startDate}}</td>
-                    <td>{{employees.businessHours}}</td>
-                </tr>
-            </ng-template>
-        </p-table>
-    </ng-template>
-
-    <ng-template pTemplate="footer">
-        <div class="grid grid-nogutter justify-content-between">
-            <p-button label="Back" (onClick)="prevPage()" icon="pi pi-angle-left"></p-button>
-            <p-button class="speeddial-linear-demo" (onClick)="addToEmployeeList()" icon="pi pi-plus"></p-button>
-            <p-button class="next" label="Next" (onClick)="nextPage()" icon="pi pi-angle-right" iconPos="right"></p-button>
+  <ng-template pTemplate="footer">
+    <div class="grid grid-nogutter justify-content-between">
+      <p-button
+        label="Back"
+        (onClick)="prevPage()"
+        icon="pi pi-angle-left"
+      ></p-button>
+      <p-button
+        class="speeddial-linear-demo"
+        (onClick)="addToEmployeeList()"
+        icon="pi pi-plus"
+      ></p-button>
+      <p-button
+        class="next"
+        label="Next"
+        (onClick)="nextPage()"
+        icon="pi pi-angle-right"
+        iconPos="right"
+      ></p-button>
     </div>
-    </ng-template>
-    
+  </ng-template>
 </p-card>

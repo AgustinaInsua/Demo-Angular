@@ -1,29 +1,30 @@
 import { Component, OnInit } from '@angular/core';
-import {MenuItem} from 'primeng/api';
+import { MenuItem } from 'primeng/api';
 
 @Component({
   selector: 'app-inspection',
   templateUrl: './inspection.component.html',
-  styleUrls: ['./inspection.component.css']
+  styleUrls: ['./inspection.component.css'],
 })
 export class InspectionComponent implements OnInit {
-  items !: MenuItem[];
+  items!: MenuItem[];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit(): void {
-    this.items = [{
+    this.items = [
+      {
         label: 'Company',
-        routerLink: 'company'},
+        routerLink: 'company',
+      },
       {
         label: 'Employees',
-        routerLink: 'employee'
+        routerLink: 'employee',
       },
       {
         label: 'Confirmation',
-        routerLink: 'confirmation'
-      }
+        routerLink: 'confirmation',
+      },
     ];
   }
-
 }

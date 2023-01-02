@@ -1,20 +1,16 @@
-
-.labelField{
-    font-weight: bold;
+.labelField {
+  font-weight: bold;
 }
 
-
-
-.confirm{
-    float: right;
-    
+.confirm {
+  float: right;
 }
 
-.subtitleError{
-    color: red;
+.subtitleError {
+  color: red;
 }
 
 p-messages {
-    text-align: center;
-    top: 200px;
+  text-align: center;
+  top: 200px;
 }

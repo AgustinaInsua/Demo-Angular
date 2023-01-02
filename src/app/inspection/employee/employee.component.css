@@ -14,7 +14,7 @@
 
 .section h4 {
   position: relative;
-  top:  15px;
+  top: 15px;
   right: 20px;
 }
 
@@ -25,47 +25,45 @@ input {
   margin-top: -20px;
   margin-bottom: 0px;
   padding: 15px;
-  }
+}
 
 .position input {
   margin-top: 0px;
 }
 
-  
-  .section {
-   position: relative;
-   left: 25px;
-   top: -35px;
-  }
+.section {
+  position: relative;
+  left: 25px;
+  top: -35px;
+}
 
-  .flex-container {
-    display: flex;
-    height: 170px;
-    margin-top: 20px;
-  }
+.flex-container {
+  display: flex;
+  height: 170px;
+  margin-top: 20px;
+}
 
-  .flex-container > div {
-    width: 10px;
-    margin: 5px;
-    text-align: left;
-    line-height: 40px;
-    flex: 1 1 200px
-  }
+.flex-container > div {
+  width: 10px;
+  margin: 5px;
+  text-align: left;
+  line-height: 40px;
+  flex: 1 1 200px;
+}
 
 .speeddial-linear-demo {
   left: calc(40% - 2rem);
   bottom: 0;
-  height: 500px; 
+  height: 500px;
   position: relative;
 }
-p-button , p-table{
+p-button,
+p-table {
   position: relative;
   top: -95px;
 }
 
 h2 {
   position: relative;
-  top:  -100px;
+  top: -100px;
 }
-
-

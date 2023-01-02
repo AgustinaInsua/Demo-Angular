@@ -11,29 +11,39 @@ import { Message, MessageService } from 'primeng/api';
   selector: 'app-company',
   templateUrl: './company.component.html',
   styleUrls: ['./company.component.css'],
-  providers: [MessageService]
+  providers: [MessageService],
 })
 export class CompanyComponent implements OnInit {
-  companyInformation : any;
+  companyInformation: any;
   companies: any;
   constructor(
-              private router: Router,
-              private inspectionService: InspectionService,
-              private companyService: CompanyService,
-              private messageService: MessageService) { }
+    private router: Router,
+    private inspectionService: InspectionService,
+    private companyService: CompanyService,
+    private messageService: MessageService
+  ) {}
 
   ngOnInit(): void {
     this.companyInformation = this.inspectionService.getCompanyInformation();
     this.companies = this.companyService.getCompanies();
   }
 
-  nextPage(){
-    if(this.companyInformation.name =='' || this.companyInformation.razonSocial =='' || this.companyInformation.cuit ==''){
-      this.messageService.add({severity:'error', detail:'Company is empty', life:2000});
-    }else{
-    this.inspectionService.setCompanyInformation(this.companyInformation);
-    this.inspectionService.confirmationInformation.companyInformation = this.companyInformation;
-    this.router.navigate(['inspection/employee']);
+  nextPage() {
+    if (
+      this.companyInformation.name == '' ||
+      this.companyInformation.razonSocial == '' ||
+      this.companyInformation.cuit == ''
+    ) {
+      this.messageService.add({
+        severity: 'error',
+        detail: 'Company is empty',
+        life: 2000,
+      });
+    } else {
+      this.inspectionService.setCompanyInformation(this.companyInformation);
+      this.inspectionService.confirmationInformation.companyInformation =
+        this.companyInformation;
+      this.router.navigate(['inspection/employee']);
+    }
   }
-}
 }

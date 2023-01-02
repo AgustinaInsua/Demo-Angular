@@ -1,92 +1,125 @@
-<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000" rejectButtonStyleClass="p-button-text"></p-confirmDialog>
+<p-confirmDialog
+  [style]="{ width: '50vw' }"
+  [baseZIndex]="10000"
+  rejectButtonStyleClass="p-button-text"
+></p-confirmDialog>
 <p-card>
-    <ng-template pTemplate="title">
-        Confirm Information
-    </ng-template>
-    <ng-template pTemplate="subtitle">
-        Check all information before continue
-    </ng-template>
+  <ng-template pTemplate="title"> Confirm Information </ng-template>
+  <ng-template pTemplate="subtitle">
+    Check all information before continue
+  </ng-template>
 
-    <ng-template pTemplate="content">
-        <div id="companyInfo">
-            
-            <h3><i class="pi pi-building" style="font-size: 1.3rem"></i> Company's Information</h3>
-            <div>
-                <label class="labelField">Company's Name: </label>
-                <label>
-                    {{
-                        confirmationInformation.companyInformation.name ? confirmationInformation.companyInformation.name : '-'
-                      }}
-                </label>
-                <br/>
-            </div>
-    
-            <div>
-                <label class="labelField">Razon Social: </label>
-                <label>
-                    {{
-                        confirmationInformation.companyInformation.razonSocial ? confirmationInformation.companyInformation.razonSocial : '-'
-                      }}
-                </label>
-                <br/>
-            </div>
-    
-            <div>
-                <label class="labelField">Cuit: </label>
-                <label>
-                    {{
-                        confirmationInformation.companyInformation.cuit ? confirmationInformation.companyInformation.cuit : '-'
-                      }}
-                </label>
-                <br/>
-            </div>
-        </div>
-        <h3 class="subtitleError" [hidden]="confirmationInformation.employeeInformation.length > 0"><i class="pi pi-ban" style="font-size: 1.2rem"></i> There are'nt employees</h3>
-        <div id="employeeInfo" [hidden]="confirmationInformation.employeeInformation.length == 0">
-            <h3><i class="pi pi-briefcase" style="font-size: 1.2rem"></i> Employees Information</h3>
-            <div *ngFor="let employee of confirmationInformation.employeeInformation">
-                <div>
-                    <h4><i class="pi pi-user" style="font-size: 1rem"></i> Employee {{confirmationInformation.employeeInformation.indexOf(employee)+1}}</h4>
-                </div>
-                <div>
-                    <label class="labelField">Name: </label>
-                    <label>{{employee.name}}</label>
-                </div>        
-                <div>
-                    <label class="labelField">Surname: </label>
-                    <label>{{employee.surname}}</label>
-                </div>
-                <div>
-                    <label class="labelField">Date of Birth: </label>
-                    <label>{{employee.dateOfBirth}}</label>
-                </div>
-                <div>
-                    <label class="labelField">Cuit: </label>
-                    <label>{{employee.cuit ? employee.cuit: ''}}</label>
-                </div>
-                <div>
-                    <label class="labelField">Position: </label>
-                    <label>{{employee.position}}</label>
-                </div>
-                <div>
-                    <label class="labelField">Start Date: </label>
-                    <label>{{employee.startDate}}</label>
-                </div>
-                <div>
-                    <label class="labelField">Business Hours: </label>
-                    <label>{{employee.businessHours}}</label>
-                </div>
-            </div>
-        </div>
-          
-    </ng-template>
+  <ng-template pTemplate="content">
+    <div id="companyInfo">
+      <h3>
+        <i class="pi pi-building" style="font-size: 1.3rem"></i> Company's
+        Information
+      </h3>
+      <div>
+        <label class="labelField">Company's Name: </label>
+        <label>
+          {{
+            confirmationInformation.companyInformation.name
+              ? confirmationInformation.companyInformation.name
+              : "-"
+          }}
+        </label>
+        <br />
+      </div>
 
-    <ng-template pTemplate="footer">
-        <div class="grid grid-nogutter justify-content-between">
-            <p-button label="Back" (onClick)="prevPage()" icon="pi pi-angle-left"></p-button>
-            <p-button class="confirm" label="Confirm" (onClick)="confirm()" icon="pi pi-check-square" iconPos="right"></p-button>
-        </div>
-    </ng-template>
+      <div>
+        <label class="labelField">Razon Social: </label>
+        <label>
+          {{
+            confirmationInformation.companyInformation.razonSocial
+              ? confirmationInformation.companyInformation.razonSocial
+              : "-"
+          }}
+        </label>
+        <br />
+      </div>
 
+      <div>
+        <label class="labelField">Cuit: </label>
+        <label>
+          {{
+            confirmationInformation.companyInformation.cuit
+              ? confirmationInformation.companyInformation.cuit
+              : "-"
+          }}
+        </label>
+        <br />
+      </div>
+    </div>
+    <h3
+      class="subtitleError"
+      [hidden]="confirmationInformation.employeeInformation.length > 0"
+    >
+      <i class="pi pi-ban" style="font-size: 1.2rem"></i> There are'nt employees
+    </h3>
+    <div
+      id="employeeInfo"
+      [hidden]="confirmationInformation.employeeInformation.length == 0"
+    >
+      <h3>
+        <i class="pi pi-briefcase" style="font-size: 1.2rem"></i> Employees
+        Information
+      </h3>
+      <div *ngFor="let employee of confirmationInformation.employeeInformation">
+        <div>
+          <h4>
+            <i class="pi pi-user" style="font-size: 1rem"></i> Employee
+            {{
+              confirmationInformation.employeeInformation.indexOf(employee) + 1
+            }}
+          </h4>
+        </div>
+        <div>
+          <label class="labelField">Name: </label>
+          <label>{{ employee.name }}</label>
+        </div>
+        <div>
+          <label class="labelField">Surname: </label>
+          <label>{{ employee.surname }}</label>
+        </div>
+        <div>
+          <label class="labelField">Date of Birth: </label>
+          <label>{{ employee.dateOfBirth }}</label>
+        </div>
+        <div>
+          <label class="labelField">Cuit: </label>
+          <label>{{ employee.cuit ? employee.cuit : "" }}</label>
+        </div>
+        <div>
+          <label class="labelField">Position: </label>
+          <label>{{ employee.position }}</label>
+        </div>
+        <div>
+          <label class="labelField">Start Date: </label>
+          <label>{{ employee.startDate }}</label>
+        </div>
+        <div>
+          <label class="labelField">Business Hours: </label>
+          <label>{{ employee.businessHours }}</label>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+
+  <ng-template pTemplate="footer">
+    <div class="grid grid-nogutter justify-content-between">
+      <p-button
+        label="Back"
+        (onClick)="prevPage()"
+        icon="pi pi-angle-left"
+      ></p-button>
+      <p-button
+        class="confirm"
+        label="Confirm"
+        (onClick)="confirm()"
+        icon="pi pi-check-square"
+        iconPos="right"
+      ></p-button>
+    </div>
+  </ng-template>
 </p-card>
-
