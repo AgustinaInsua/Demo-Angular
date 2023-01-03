@@ -1,6 +1,6 @@
 <app-menu></app-menu>
 <body>
-    <p-table id="tableCompanies" #dtCompanies [value]="companies" [tableStyle]="{'min-width': '50rem'}" [paginator]="true" [rows]="5"  [globalFilterFields]="['name','razonSocial', 'cuit','']" (onFilter)="onFilter($event, dtCompanies)">
+    <p-table id="tableCompanies" #dtCompanies [value]="companies" [tableStyle]="{'min-width': '50rem'}" [paginator]="true" [rows]="1" [rowsPerPageOptions]='[1,2,3]' [globalFilterFields]="['name','razonSocial', 'cuit','']" (onFilter)="onFilter($event, dtCompanies)">
         <ng-template pTemplate="caption">
             <div class="flex">
                 <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(dtCompanies)" ></button>
@@ -32,7 +32,7 @@
     
         
     </p-table>
-    <p-table #dtEmployee [value]="employees" [tableStyle]="{'min-width': '50rem'}" [globalFilterFields]="['name','surname', 'cuit','position']" [paginator]="true" [rows]="5" [hidden]="!isCompanyFiltered(dtEmployee)">
+    <p-table #dtEmployee [value]="employees" [tableStyle]="{'min-width': '50rem'}" [globalFilterFields]="['name','surname', 'cuit','position']" [paginator]="true" [rows]="1" [rowsPerPageOptions]='[1,2,3]' pageLinkSize='4' [hidden]="!isCompanyFiltered(dtEmployee)">
         <ng-template pTemplate="caption">
             <div>
                 <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(dtEmployee)"></button>
