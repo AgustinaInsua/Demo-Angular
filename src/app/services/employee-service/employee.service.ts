@@ -20,4 +20,5 @@ export class EmployeeService {
   getEmployeesByCompany(company :string){
     return COMPANIES.find(c => c.name == company)?.employees!;
   }
+
 }

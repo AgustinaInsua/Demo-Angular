@@ -46,10 +46,9 @@ export class InspectionService {
   }
 
   addCompany(){
-    let employees: Employee[] = this.confirmationInformation.employeeInformation;
     this.companyService.addCompany(new Company (this.confirmationInformation.companyInformation.name,
       this.confirmationInformation.companyInformation.razonSocial,
-      this.confirmationInformation.companyInformation.cuit, employees
+      this.confirmationInformation.companyInformation.cuit, this.confirmationInformation.employeeInformation
       ));
   }
 }

@@ -9,6 +9,7 @@ import { LogginComponent } from './loggin/loggin.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PricipalViewComponent } from './pricipal-view/pricipal-view.component';
+import { TableEmployeeComponent } from './inspection/employee/table-employee/table-employee.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -21,7 +22,8 @@ const routes: Routes = [
       {path:'', redirectTo: 'company', pathMatch: 'full'},
       {path:'employee', component: EmployeeComponent},
       {path:'company', component: CompanyComponent},
-      {path:'confirmation', component: ConfirmationComponent}
+      {path:'confirmation', component: ConfirmationComponent},
+      {path:'table-employee', component: TableEmployeeComponent}
   ]}
 ]
 

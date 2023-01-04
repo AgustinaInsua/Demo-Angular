@@ -14,3 +14,10 @@ p-messages {
   text-align: center;
   top: 200px;
 }
+
+.speeddial-linear-demo {
+  left: calc(40% - 2rem);
+  bottom: 0;
+  height: 500px;
+  position: relative;
+}

@@ -4,6 +4,7 @@ import { Employee } from 'src/app/model/Employee';
 import { InspectionService } from 'src/app/services/inspection/inspection.service';
 import { MenuItem, Message, MessageService } from 'primeng/api';
 import { CompanyService } from 'src/app/services/company-service/company.service';
+import { EmployeeService } from 'src/app/services/employee-service/employee.service';
 
 @Component({
   selector: 'app-employee',
@@ -21,8 +22,7 @@ export class EmployeeComponent implements OnInit {
   constructor(
     private router: Router,
     private inspectionService: InspectionService,
-    private messageService: MessageService,
-    private companyService: CompanyService
+    private messageService: MessageService
   ) {}
 
   ngOnInit() {
@@ -38,6 +38,7 @@ export class EmployeeComponent implements OnInit {
           tooltip: 'Delete',
           icon: 'pi pi-trash',
           command: () => {
+              
               this.messageService.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted' });
           }
       }
@@ -46,6 +47,20 @@ export class EmployeeComponent implements OnInit {
     this.personalInformation = this.inspectionService.getEmployeesInformation();
     this.employees = new Array<Employee>();
     //this.personalInformation.cuit = null;
+  }
+
+  deleteEmployeeByID(index: number) {
+    if (this.indexValid(index)) {
+      this.employees.splice(index, 1);
+    }
+  }
+
+  deleteEmployee(employee: Employee) {
+    this.employees = this.employees.filter((em) => em !== employee);
+  }
+
+  indexValid(index: number) {
+    return index >= 0 && index < this.employees.length;
   }
   showBasicDialog() {
     this.displayBasic = true;
@@ -106,17 +121,4 @@ export class EmployeeComponent implements OnInit {
     }
   }
 
-  deleteEmployeeByID(index: number) {
-    if (this.indexValid(index)) {
-      this.employees.splice(index, 1);
-    }
-  }
-
-  deleteEmployee(employee: Employee) {
-    this.employees = this.employees.filter((em) => em !== employee);
-  }
-
-  indexValid(index: number) {
-    return index >= 0 && index < this.employees.length;
-  }
 }
