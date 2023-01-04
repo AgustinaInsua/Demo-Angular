@@ -1,5 +1,12 @@
-<app-menu></app-menu>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 <body>
+  <app-menu></app-menu>
   <div>
     <h2>Companies</h2>
     <p-table
@@ -12,6 +19,8 @@
       [rowsPerPageOptions]="[1, 2, 3]"
       [globalFilterFields]="['name', 'razonSocial', 'cuit', '']"
       (onFilter)="onFilter($event, dtCompanies)"
+      selectionMode="single" [(selection)]="selectedUser"
+      [exportHeader]="'customExportHeader'"
     >
       <ng-template pTemplate="caption">
         <div class="flex">
@@ -41,6 +50,15 @@
               />
             </span>
           </div>
+          <button type="button" pButton pRipple icon="pi pi-file-excel"  class="p-button-success mr-2" (click)="exportExcel()"  pTooltip="XLS" tooltipPosition="bottom"></button>
+          <button type="button" 
+                    pButton pRipple 
+                    icon="pi pi-file-pdf" 
+                    (click)="exportPdf()"
+                    class="p-button-success mr-2" 
+                    pTooltip="PDF" 
+                    tooltipPosition="bottom">
+          </button>PDF
         </div>
       </ng-template>
       <ng-template pTemplate="subtitle"> Complete the fields </ng-template>
@@ -172,4 +190,8 @@
       </ng-template>
     </p-table>
   </div>
+
+
+  
 </body>
+</html>
