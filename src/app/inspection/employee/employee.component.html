@@ -158,19 +158,19 @@
           <td>{{ employees.cuit }}</td>
           <td>
             <div class="card">
-              <div style="height: 20px; right:70px; top:0px; position: relative;" class="speeddial-circle-demo">
-                  <p-speedDial buttonStyle="height: 2.5rem; top:-10px; right:7px; position:relative; width: 2.5rem;" [model]="items" direction="left" ></p-speedDial>
+              <div style="height: 20px; right:70px; top:-10px; position: relative;" class="speeddial-circle-demo">
+                  <p-speedDial style="height: 2.5rem; top:0px; right:7px; position:relative; width: 2.5rem;" buttonStyle="height: 2.5rem; width: 2.5rem; top:0px; right:0px; position:relative; " [model]="items" direction="left" ></p-speedDial>
               </div>
           </div>
       </td>
       <td>
         <div class="card">
           <div style="height: 20px; right:20px; top:0px; position: relative;" class="speeddial-circle-demo">
-              <p-speedDial (click)="showBasicDialog()" buttonStyle="height: 2.5rem; top:-10px; right:7px; position:relative; width: 2.5rem;" direction="left" ></p-speedDial>
+              <p-speedDial (click)="showBasicDialog()" buttonStyle="height: 2.5rem; top:-10px; right:7px; position:relative; width: 2.5rem;" direction="left" showIcon="pi pi-search"  ></p-speedDial>
           </div>
           <p-dialog header="Information Employee" [(visible)]="displayBasic" [style]="{width: '50vw'}">
             <p>
-              
+
                {{ employees.name }}  
                {{ employees.surname }} 
                {{ employees.cuit }}

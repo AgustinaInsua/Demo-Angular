@@ -29,7 +29,7 @@ export class EmployeeComponent implements OnInit {
     this.items =[
       {
           tooltip: 'Update',
-          icon: 'pi pi-refresh',
+          icon: 'pi pi-pencil',
           command: () => {
               this.messageService.add({ severity: 'success', summary: 'Update', detail: 'Data Updated' });
           }
