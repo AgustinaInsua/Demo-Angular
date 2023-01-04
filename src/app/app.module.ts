@@ -30,6 +30,7 @@ import {MessageService} from 'primeng/api';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {SpeedDialModule} from 'primeng/speeddial';
 import {DialogModule} from 'primeng/dialog';
+import { TableEmployeeComponent } from './inspection/employee/table-employee/table-employee.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {DialogModule} from 'primeng/dialog';
     InspectionComponent,
     CompanyComponent,
     EmployeeComponent,
-    ConfirmationComponent
+    ConfirmationComponent,
+    TableEmployeeComponent
   ],
   imports: [
     BrowserModule,

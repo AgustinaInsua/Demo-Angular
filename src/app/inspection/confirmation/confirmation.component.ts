@@ -23,6 +23,9 @@ export class ConfirmationComponent implements OnInit {
     console.log(this.confirmationInformation.employeeInformation);
     console.log(this.confirmationInformation.employeeInformation.length);
   }
+  showInfo(){
+    this.router.navigate(['inspection/table-employee']);
+  }
   confirm() {
     this.confirmationService.confirm({
       message: 'Are you sure that you want to perform this action?',
