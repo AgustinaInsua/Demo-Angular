@@ -80,13 +80,13 @@ export class EmployeeComponent implements OnInit {
       this.personalInformation.businessHours
     );
     if (
-     this.personalInformation.name == undefined /* ||
+     this.personalInformation.name == undefined  ||
       this.personalInformation.surname == undefined ||
       this.personalInformation.dateOfBirth == undefined ||
       this.personalInformation.cuit == undefined ||
       this.personalInformation.position == undefined ||
       this.personalInformation.startDate == undefined ||
-      this.personalInformation.businessHours == undefined */
+      this.personalInformation.businessHours == undefined 
     ) {
       this.messageService.add({
         severity: 'error',
