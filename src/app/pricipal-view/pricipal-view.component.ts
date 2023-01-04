@@ -6,6 +6,7 @@ import { CompanyService } from '../services/company-service/company.service';
 import { Table } from 'primeng/table';
 import { Employee } from '../model/Employee';
 import { EmployeeService } from '../services/employee-service/employee.service';
+import { formatCurrency } from '@angular/common';
 
 
 @Component({
@@ -14,6 +15,8 @@ import { EmployeeService } from '../services/employee-service/employee.service';
   styleUrls: ['./pricipal-view.component.css']
 })
 export class PricipalViewComponent implements OnInit {
+  searchValue!: string;
+  searchValueEmployee!: string;
   users= USERS;
   model = new Usuario('', '', false, '');
   selectedUser!: User[];
@@ -39,9 +42,14 @@ export class PricipalViewComponent implements OnInit {
   }
 
   clear(table : Table){
-    console.log(this.filteredValue == null);
     table.clear();
     this.filteredValue = null;
+    this.searchValue = '';
+  }
+
+  clearEmployee(table : Table){
+    table.clear();
+    this.searchValueEmployee = '';
   }
 
   onFilter($event : any, dt: Table){
