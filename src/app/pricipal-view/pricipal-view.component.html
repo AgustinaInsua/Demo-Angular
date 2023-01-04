@@ -1,7 +1,7 @@
 <app-menu></app-menu>
 <body>
   <div>
-    <h3>Companies</h3>
+    <h2>Companies</h2>
     <p-table
       id="tableCompanies"
       #dtCompanies
@@ -81,8 +81,9 @@
       </ng-template>
     </p-table>
   </div>
-  <div>
-    <h3>Employees</h3>
+
+  <div [hidden]="!isCompanyFiltered(dtEmployee)">
+    <h2>Employees</h2>
     <p-table
       id="tableEmployees"
       #dtEmployee
@@ -93,7 +94,7 @@
       [rows]="1"
       [rowsPerPageOptions]="[1, 2, 3]"
       pageLinkSize="4"
-      [hidden]="!isCompanyFiltered(dtEmployee)"
+      
     >
       <ng-template pTemplate="caption">
         <div>

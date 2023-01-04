@@ -32,3 +32,9 @@ table {
  .searchG{
    float: right;
  }
+
+ h2{
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #495057;
+  padding-left: 20px;
+ }
