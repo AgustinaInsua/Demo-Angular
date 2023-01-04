@@ -140,33 +140,54 @@
     <div>
       <h2>Employees list</h2>
     </div>
+
     <p-table [value]="employees">
       <ng-template pTemplate="header">
         <tr>
           <th>Name</th>
           <th>Surname</th>
-          <th>DateOfBirth</th>
           <th>Cuit</th>
-          <th>Position</th>
-          <th>Star Date</th>
-          <th>Business Hours</th>
+          <th></th>
+          <th></th>
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-employees>
         <tr>
           <td>{{ employees.name }}</td>
           <td>{{ employees.surname }}</td>
-          <td>{{ employees.dateOfBirth }}</td>
           <td>{{ employees.cuit }}</td>
-          <td>{{ employees.position }}</td>
-          <td>{{ employees.startDate }}</td>
-          <td>{{ employees.businessHours }}</td>
+          <td>
+            <div class="card">
+              <div style="height: 20px; right:70px; top:0px; position: relative;" class="speeddial-circle-demo">
+                  <p-speedDial buttonStyle="height: 2.5rem; top:-10px; right:7px; position:relative; width: 2.5rem;" [model]="items" direction="left" ></p-speedDial>
+              </div>
+          </div>
+      </td>
+      <td>
+        <div class="card">
+          <div style="height: 20px; right:20px; top:0px; position: relative;" class="speeddial-circle-demo">
+              <p-speedDial (click)="showBasicDialog()" buttonStyle="height: 2.5rem; top:-10px; right:7px; position:relative; width: 2.5rem;" direction="left" ></p-speedDial>
+          </div>
+          <p-dialog header="Information Employee" [(visible)]="displayBasic" [style]="{width: '50vw'}">
+            <p>
+              
+               {{ employees.name }}  
+               {{ employees.surname }} 
+               {{ employees.cuit }}
+               {{ employees.dateOfBirth }}
+               {{ employees.position }}
+               {{ employees.startDate }}
+               {{ employees.businessHours }}
+              </p>
+            <ng-template pTemplate="footer">
+                <p-button icon="pi pi-check" (click)="displayBasic=false" label="Ok" styleClass="p-button-text"></p-button>
+            </ng-template>
+        </p-dialog>
+      </div>
+       </td>
         </tr>
       </ng-template>
     </p-table>
-  </ng-template>
-
-  <ng-template pTemplate="footer">
     <div class="grid grid-nogutter justify-content-between">
       <p-button
         label="Back"
@@ -187,4 +208,6 @@
       ></p-button>
     </div>
   </ng-template>
+ 
+
 </p-card>

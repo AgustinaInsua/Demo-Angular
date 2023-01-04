@@ -57,13 +57,20 @@ input {
   height: 500px;
   position: relative;
 }
-p-button,
+
 p-table {
   position: relative;
   top: -95px;
 }
-
+p-button {
+  position: relative;
+  top: 20px;
+}
 h2 {
   position: relative;
   top: -100px;
+}
+
+.speeddial-tooltip-demo{
+      height: 0px; top:-140px; left:20px; width: 20px; position: relative;
 }
