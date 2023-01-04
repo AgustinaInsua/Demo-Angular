@@ -14,6 +14,7 @@ export class UsersDetailComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 exportExcel() {

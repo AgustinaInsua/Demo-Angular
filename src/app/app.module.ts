@@ -28,6 +28,8 @@ import {MessageModule} from 'primeng/message';
 import {ToastModule} from 'primeng/toast';
 import {MessageService} from 'primeng/api';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
+import {SpeedDialModule} from 'primeng/speeddial';
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
   declarations: [
@@ -60,7 +62,9 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
     MessageModule,
     MessagesModule,
     ToastModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    SpeedDialModule,
+    DialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
