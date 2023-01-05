@@ -81,6 +81,7 @@ export class EmployeeComponent implements OnInit {
   }
   deleteEmployeeInModal() {
    this.deleteEmployee(this.selectedEmployee);
+   this.displayBasic = false;
   }
 
   deleteEmployee(employee: Employee) {
