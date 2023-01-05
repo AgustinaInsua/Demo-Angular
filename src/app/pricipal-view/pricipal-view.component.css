@@ -38,3 +38,8 @@ table {
   color: #495057;
   padding-left: 20px;
  }
+
+ div#divTables{
+  width: 95%;
+  margin: 1% auto;
+ }

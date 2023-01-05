@@ -1,11 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 div#banner{
-    width: 100%;   
-    height: 50%;
+    width: 100%;  
+    height:100%;
 }
 img#imgBanner{
     display: block;
     margin: auto;
-    width: 1000px;
-    height: -700px;
+    background-size: cover;
+    position: relative;
+    left: 0%;
+    display: flex;
+    width: 100%;
+    height: 100%;
 }
