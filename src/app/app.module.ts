@@ -31,6 +31,7 @@ import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {SpeedDialModule} from 'primeng/speeddial';
 import {DialogModule} from 'primeng/dialog';
 import { TableEmployeeComponent } from './inspection/employee/table-employee/table-employee.component';
+import {DynamicDialogModule} from 'primeng/dynamicdialog';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { TableEmployeeComponent } from './inspection/employee/table-employee/tab
     ToastModule,
     ConfirmDialogModule,
     SpeedDialModule,
-    DialogModule
+    DialogModule,
+    DynamicDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
