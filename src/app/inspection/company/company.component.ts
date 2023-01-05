@@ -42,7 +42,7 @@ export class CompanyComponent implements OnInit {
     } else {
       this.inspectionService.setCompanyInformation(this.companyInformation);
       this.inspectionService.confirmationInformation.companyInformation =
-        this.companyInformation;
+      this.companyInformation;
       this.router.navigate(['inspection/employee']);
     }
   }

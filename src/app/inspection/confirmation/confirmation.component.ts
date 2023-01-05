@@ -34,6 +34,10 @@ export class ConfirmationComponent implements OnInit {
       accept: () => {
         this.inspectionService.addCompany();
         this.router.navigate(['inspection/company']);
+        this.confirmationInformation.companyInformation.name ='';
+        this.confirmationInformation.companyInformation.razonSocial ='';
+        this.confirmationInformation.companyInformation.cuit ='';
+        this.inspectionService.setCompanyInformation(this.confirmationInformation.companyInformation);
       },
     });
   }
