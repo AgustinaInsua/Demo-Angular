@@ -7,6 +7,7 @@ import { USERS } from 'src/app/model/mock-users';
   providedIn: 'root'
 })
 export class UsersValidationsService {
+  userLogin!: User;
   constructor() { }
 
   existUser(email: string) {
@@ -15,14 +16,18 @@ export class UsersValidationsService {
     });
   }
 
-  validateLoggin(email: string, password: string) {
+  validateLoggin(user: User) {
     return USERS.some((obj) => {
-      return (obj.email === email) && (obj.password === password)
+      return (obj.email === user.email) && (obj.password === user.password)
     });
   }
 
-  public fieldValue(form: FormGroup, field: string) {
-    return form.get(field)?.value;
+  saveUser(user: User){
+    for(let i=0; i<USERS.length; i++) {
+      if(USERS[i].email == user.email && USERS[i].password== user.password){
+        this.userLogin = USERS[i];
+      }
+    }
   }
 
   registerUser(user: User) {

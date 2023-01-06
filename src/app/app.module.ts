@@ -32,6 +32,9 @@ import {SpeedDialModule} from 'primeng/speeddial';
 import {DialogModule} from 'primeng/dialog';
 import { TableEmployeeComponent } from './inspection/employee/table-employee/table-employee.component';
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
+import {AvatarModule} from 'primeng/avatar';
+import {AvatarGroupModule} from 'primeng/avatargroup';
+
 
 @NgModule({
   declarations: [
@@ -68,7 +71,9 @@ import {DynamicDialogModule} from 'primeng/dynamicdialog';
     ConfirmDialogModule,
     SpeedDialModule,
     DialogModule,
-    DynamicDialogModule
+    DynamicDialogModule,
+    AvatarGroupModule,
+    AvatarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
+import { Menu } from 'primeng/menu';
+import { Employee } from 'src/app/model/Employee';
+import { User } from 'src/app/model/User';
+import { UsersValidationsService } from 'src/app/services/users-validation/users-validations.service';
 
 @Component({
   selector: 'app-menu',
@@ -8,7 +12,12 @@ import { MenuItem } from 'primeng/api';
 })
 export class MenuComponent implements OnInit {
   items !: MenuItem[];
-  constructor() { }
+  avatar!: any;
+  selectedEmployee!: User;
+  mostrar = false;
+  displayBasic!: boolean;
+
+  constructor(private userService: UsersValidationsService) { }
 
   ngOnInit(): void {
     this.items = [
@@ -16,6 +25,14 @@ export class MenuComponent implements OnInit {
       {label: 'Users', icon: 'pi pi-fw pi-calendar', routerLink: ['/usersDetail']},
       {label: 'Inspection', icon: 'pi pi-fw pi-pencil', routerLink: ['/inspection']}
   ];
+  }
+
+
+  avatarMostrar(){
+    this.mostrar=true;
+    this.selectedEmployee = this.userService.userLogin;
+    this.displayBasic = true;
+    console.log(this.selectedEmployee);
   }
 
 }

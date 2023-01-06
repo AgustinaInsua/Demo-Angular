@@ -1,56 +1,67 @@
 <h1>Login</h1>
 <div>
-    <form class="form" [formGroup]="formLogin" (submit)="loggin()">
-
+    <form class="form"  name="formRegister" (submit)="onSubmit()" #formRegister="ngForm">
         <div>
-            <input type="text" id="email" pInputText placeholder="Email" formControlName="email" />
-            <div class="errors" *ngIf="isNotValidAndIsDirtyOrIsTouched('email')">
-                <div *ngIf="!fieldRequiredValid('email')">
-                    Email is required
+            
+                <div class="labelInput">
+                    <label for="email">Email</label>
                 </div>
-
+            <input tabindex="1" type="text" id="email" name="email" [(ngModel)]="user.email" #email="ngModel" minlength="8" required email pInputText>
+            <div [hidden]="email.valid || !email.touched" class="errors">
                 <div>
-                    <span *ngIf="!fieldMinLengthValid('email')">
+                    <span *ngIf="email.errors?.['required']">
+                        Email is required
+                    </span>
+                </div>
+                <div>
+                    <span *ngIf="email.errors?.['minlength']">
                         Email must at least 8 characters
                     </span>
                 </div>
 
                 <div>
-                    <span *ngIf="!emailValidateStructure">
+                    <span *ngIf="email.errors?.['email']">
                         Email structure incorrect
                     </span>
                 </div>
             </div>
-        </div>
+       
 
-        <div>
-            <input type="password" id="password" formControlName="password" pInputText placeholder="Password" />
-            <div *ngIf="isNotValidAndIsDirtyOrIsTouched('password')" class="errors">
-                <div *ngIf="!fieldRequiredValid('password')">
+        <div id="passwordDiv">
+            <div class="labelInput">
+                <label for="password">Password</label>
+            </div>
+
+            <input tabindex="2" type="text" id="password" name="password" [(ngModel)]="user.password" #password="ngModel" minlength="6" required appPasswordValidation pwvalidlowerCase pInputText>
+            <div [hidden]="password.valid || !password.touched" class="errors">
+                <div *ngIf="password.errors?.['required']">
                     Password is required.
                 </div>
 
-                <div *ngIf="!requiresDigitValid">
-                    Debe tener un numero
+                <div *ngIf="password.errors?.['requiresDigit']">
+                    Must at least 1 digit
                 </div>
 
-                <div *ngIf="!minLengthValid">
-                    Debe tener un minimo de 6 caracteres
+                <div *ngIf="password.errors?.['minlength']">
+                    Must be at least 6 characters
                 </div>
 
-                <div *ngIf="!requiresUpperCaseValid">
-                    Debe tener una letra mayuscula
+                <div *ngIf="password.errors?.['requiresUppercase']">
+                    Must be at least 1 uppercase
                 </div>
 
-                <div *ngIf="!requiresLowerCaseValid">
-                    Debe tener una letra minuscula
+                <div *ngIf="password.errors?.['requiresLowercase']">
+                    Must be at least 1 lowercase
                 </div>
 
-                <div *ngIf="!requiresSpecialCharsValid">
-                    Debe tener un caracter especial
+                <div *ngIf="password.errors?.['requiresSpecialChars']">
+                    Must be at least 1 special character
                 </div>
             </div>
+            
         </div>
+
+    </div>
 
         <button pButton type="submit">Login</button>
 
@@ -61,8 +72,4 @@
             </div>
         </div>
     </form>
-</div>
-
-<div>
-    Valid: {{formLogin.valid | json}}
 </div>
