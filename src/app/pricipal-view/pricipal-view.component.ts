@@ -1,3 +1,4 @@
+import { MenuItem } from 'primeng/api';
 import { Component, OnInit } from '@angular/core';
 import { USERS } from '../model/mock-users';
 import { Usuario } from './usuario';
@@ -10,12 +11,14 @@ import { formatCurrency } from '@angular/common';
 import * as FileSaver from 'file-saver';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
+import { MessageService } from 'primeng/api';
 
 
 @Component({
   selector: 'app-pricipal-view',
   templateUrl: './pricipal-view.component.html',
-  styleUrls: ['./pricipal-view.component.css']
+  styleUrls: ['./pricipal-view.component.css'],
+  providers: [MessageService]
 })
 export class PricipalViewComponent implements OnInit {
   searchValue!: string;
@@ -28,10 +31,12 @@ export class PricipalViewComponent implements OnInit {
   employees: Employee[] = new Array<Employee>();
   filteredValue: any;
   exportColumns!: any[];
+  items !: MenuItem [];
 
   constructor(
     private companyService: CompanyService,
-    private employeeService: EmployeeService
+    private employeeService: EmployeeService,
+    private messageService: MessageService
   ) { }
   ngOnInit(): void {
     this.companies = this.companyService.getCompanies();
@@ -40,6 +45,22 @@ export class PricipalViewComponent implements OnInit {
       { title: "Razon", dataKey: "razonSocial" },
       { title: "Cuit", dataKey: "cuit" }
     ];
+    this.items = [
+      {
+          icon: 'pi pi-file-excel',
+          command: () => {
+              this.exportExcel();
+              this.messageService.add({ severity: 'info', summary: 'Add', detail: 'Data Added' });
+          },
+      },
+      {
+        icon: 'pi pi-file-pdf',
+        command: () => {
+            this.exportPdf();
+            this.messageService.add({ severity: 'info', summary: 'Add', detail: 'Data Added' });
+        },
+    }
+  ];
   }
 
   newHero() {

@@ -1,199 +1,217 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-  <app-menu></app-menu>
-  <div id="divTables">
-    <div id="divCompanies">
-      <h2>Companies</h2>
-      <p-table
-        id="tableCompanies"
-        #dtCompanies
-        [value]="companies"
-        [tableStyle]="{ 'min-width': '50rem' }"
-        [paginator]="true"
-        [rows]="1"
-        [rowsPerPageOptions]="[1, 2, 3]"
-        [globalFilterFields]="['name', 'razonSocial', 'cuit', '']"
-        (onFilter)="onFilter($event, dtCompanies)"
-        selectionMode="single" [(selection)]="selectedUser"
-        [exportHeader]="'customExportHeader'"
-      >
-        <ng-template pTemplate="caption">
-          <div class="flex">
-            <button
-              pButton
-              label="Clear"
-              class="p-button-outlined"
-              icon="pi pi-filter-slash"
-              (click)="clear(dtCompanies)"
-            ></button>
-            <div class="searchG">
-              <span class="p-input-icon-left ml-auto">
-                <i class="pi pi-search"></i>
-                <input
-                  pInputText
-                  id="inputSearch"
-                  #inputSearch="ngModel"
-                  [(ngModel)]="searchValue"
-                  type="text"
-                  (input)="
-                    dtCompanies.filterGlobal(
-                      $any($event.target).value,
-                      'contains'
-                    )
-                  "
-                  placeholder="Search keyword"
-                />
-              </span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <app-menu></app-menu>
+    <div id="divTables">
+      <div id="divCompanies">
+        <h2>Companies</h2>
+        <p-table
+          id="tableCompanies"
+          #dtCompanies
+          [value]="companies"
+          [tableStyle]="{ 'min-width': '50rem' }"
+          [paginator]="true"
+          [rows]="1"
+          [rowsPerPageOptions]="[1, 2, 3]"
+          [globalFilterFields]="['name', 'razonSocial', 'cuit', '']"
+          (onFilter)="onFilter($event, dtCompanies)"
+          selectionMode="single"
+          [(selection)]="selectedUser"
+          [exportHeader]="'customExportHeader'"
+          autocomplete="off"
+        >
+          <ng-template pTemplate="caption">
+            <div class="flex">
+              <button
+                pButton
+                label="Clear"
+                class="p-button-outlined"
+                icon="pi pi-filter-slash"
+                (click)="clear(dtCompanies)"
+              ></button>
+              
+              <button
+                type="button"
+                pButton
+                pRipple
+                icon="pi pi-file-excel"
+                class="p-button-success mr-2"
+                (click)="exportExcel()"
+                pTooltip="XLS"
+                tooltipPosition="bottom"
+              ></button>
+              <button
+                type="button"
+                pButton
+                pRipple
+                icon="pi pi-file-pdf"
+                (click)="exportPdf()"
+                class="p-button-success mr-2"
+                pTooltip="PDF"
+                tooltipPosition="bottom"
+              ></button>
+              <div class="searchG">
+                <span class="p-input-icon-left ml-auto">
+                  <i class="pi pi-search"></i>
+                  <input
+                    pInputText
+                    id="inputSearch"
+                    #inputSearch="ngModel"
+                    [(ngModel)]="searchValue"
+                    type="text"
+                    (input)="
+                      dtCompanies.filterGlobal(
+                        $any($event.target).value,
+                        'contains'
+                      )
+                    "
+                    placeholder="Search keyword"
+                  />
+                </span>
+                
+              </div>
+              <div class="containerSpeed">
+                <p-speedDial  buttonStyle="height: 2.5rem; width: 2.5rem; position:relative" [model]="items" type="linear" direction="down" showIcon="pi pi-print" ></p-speedDial>
+              </div>
             </div>
-            <button type="button" pButton pRipple icon="pi pi-file-excel"  class="p-button-success mr-2" (click)="exportExcel()"  pTooltip="XLS" tooltipPosition="bottom"></button>
-            <button type="button" 
-                      pButton pRipple 
-                      icon="pi pi-file-pdf" 
-                      (click)="exportPdf()"
-                      class="p-button-success mr-2" 
-                      pTooltip="PDF" 
-                      tooltipPosition="bottom">
-            </button>PDF
-          </div>
-        </ng-template>
-        <ng-template pTemplate="subtitle"> Complete the fields </ng-template>
-        <ng-template pTemplate="header">
-          <tr>
-            <th pSortableColumn="name">
-              Nombre <p-sortIcon field="name"></p-sortIcon>
-              <p-columnFilter
-                type="text"
-                field="name"
-                display="menu"
-              ></p-columnFilter>
-            </th>
-            <th pSortableColumn="razonSocial">
-              Razon Social <p-sortIcon field="razonSocial"></p-sortIcon>
-              <p-columnFilter
-                type="text"
-                field="razonSocial"
-                display="menu"
-              ></p-columnFilter>
-            </th>
-            <th pSortableColumn="cuit">
-              Cuit <p-sortIcon field="cuit"></p-sortIcon>
-              <p-columnFilter
-                type="text"
-                field="cuit"
-                display="menu"
-              ></p-columnFilter>
-            </th>
-          </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-company>
-          <tr>
-            <td>{{ company.name }}</td>
-            <td>{{ company.razonSocial }}</td>
-            <td>{{ company.cuit }}</td>
-          </tr>
-        </ng-template>
-      </p-table>
-    </div>
-  
-    <div id="divEmployee" [hidden]="!isCompanyFiltered(dtEmployee)">
-      <h2>Employees</h2>
-      <p-table
-        id="tableEmployees"
-        #dtEmployee
-        [value]="employees"
-        [tableStyle]="{ 'min-width': '50rem' }"
-        [globalFilterFields]="['name', 'surname', 'cuit', 'position']"
-        [paginator]="true"
-        [rows]="1"
-        [rowsPerPageOptions]="[1, 2, 3]"
-        pageLinkSize="4"
-        
-      >
-        <ng-template pTemplate="caption">
-          <div>
-            <button
-              pButton
-              label="Clear"
-              class="p-button-outlined"
-              icon="pi pi-filter-slash"
-              (click)="clearEmployee(dtEmployee)"
-            ></button>
-            <div class="searchG">
-              <span class="p-input-icon-left ml-auto">
-                <i class="pi pi-search"></i>
-                <input
-                  pInputText
-                  pInputText
-                  id="inputSearchEmployee"
-                  #inputSearchEmployee="ngModel"
-                  [(ngModel)]="searchValueEmployee"
+          </ng-template>
+          <ng-template pTemplate="subtitle"> Complete the fields </ng-template>
+          <ng-template pTemplate="header">
+            <tr>
+              <th pSortableColumn="name">
+                Nombre <p-sortIcon field="name"></p-sortIcon>
+                <p-columnFilter
                   type="text"
-                  (input)="
-                    dtEmployee.filterGlobal($any($event.target).value, 'contains')
-                  "
-                  placeholder="Search keyword"
-                />
-              </span>
+                  field="name"
+                  display="menu"
+                ></p-columnFilter>
+              </th>
+              <th pSortableColumn="razonSocial">
+                Razon Social <p-sortIcon field="razonSocial"></p-sortIcon>
+                <p-columnFilter
+                  type="text"
+                  field="razonSocial"
+                  display="menu"
+                ></p-columnFilter>
+              </th>
+              <th pSortableColumn="cuit">
+                Cuit <p-sortIcon field="cuit"></p-sortIcon>
+                <p-columnFilter
+                  type="text"
+                  field="cuit"
+                  display="menu"
+                ></p-columnFilter>
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-company>
+            <tr>
+              <td>{{ company.name }}</td>
+              <td>{{ company.razonSocial }}</td>
+              <td>{{ company.cuit }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+
+      <div id="divEmployee" [hidden]="!isCompanyFiltered(dtEmployee)">
+        <h2>Employees</h2>
+        <p-table
+          id="tableEmployees"
+          #dtEmployee
+          [value]="employees"
+          [tableStyle]="{ 'min-width': '50rem' }"
+          [globalFilterFields]="['name', 'surname', 'cuit', 'position']"
+          [paginator]="true"
+          [rows]="1"
+          [rowsPerPageOptions]="[1, 2, 3]"
+          pageLinkSize="4"
+          autocomplete="off"
+        >
+          <ng-template pTemplate="caption">
+            <div>
+              <button
+                pButton
+                label="Clear"
+                class="p-button-outlined"
+                icon="pi pi-filter-slash"
+                (click)="clearEmployee(dtEmployee)"
+              ></button>
+              <div class="searchG">
+                <span class="p-input-icon-left ml-auto">
+                  <i class="pi pi-search"></i>
+                  <input
+                    pInputText
+                    pInputText
+                    id="inputSearchEmployee"
+                    #inputSearchEmployee="ngModel"
+                    [(ngModel)]="searchValueEmployee"
+                    type="text"
+                    (input)="
+                      dtEmployee.filterGlobal(
+                        $any($event.target).value,
+                        'contains'
+                      )
+                    "
+                    placeholder="Search keyword"
+                  />
+                </span>
+              </div>
             </div>
-          </div>
-        </ng-template>
-        <ng-template pTemplate="header">
-          <tr>
-            <th pSortableColumn="name">
-              Nombre <p-sortIcon field="name"></p-sortIcon
-              ><p-columnFilter
-                type="text"
-                field="name"
-                display="menu"
-              ></p-columnFilter>
-            </th>
-            <th pSortableColumn="surname">
-              Apellido <p-sortIcon field="surname"></p-sortIcon
-              ><p-columnFilter
-                type="text"
-                field="surname"
-                display="menu"
-              ></p-columnFilter>
-            </th>
-            <th>Fecha de NAC</th>
-            <th pSortableColumn="cuit">
-              Cuit <p-sortIcon field="cuit"></p-sortIcon
-              ><p-columnFilter
-                type="text"
-                field="cuit"
-                display="menu"
-              ></p-columnFilter>
-            </th>
-            <th pSortableColumn="position">
-              Posicion <p-sortIcon field="position"></p-sortIcon
-              ><p-columnFilter
-                type="text"
-                field="position"
-                display="menu"
-              ></p-columnFilter>
-            </th>
-          </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-employee>
-          <tr>
-            <td>{{ employee.name }}</td>
-            <td>{{ employee.surname }}</td>
-            <td>{{ employee.dateOfBirth }}</td>
-            <td>{{ employee.cuit }}</td>
-            <td>{{ employee.position }}</td>
-          </tr>
-        </ng-template>
-      </p-table>
+          </ng-template>
+          <ng-template pTemplate="header">
+            <tr>
+              <th pSortableColumn="name">
+                Nombre <p-sortIcon field="name"></p-sortIcon
+                ><p-columnFilter
+                  type="text"
+                  field="name"
+                  display="menu"
+                ></p-columnFilter>
+              </th>
+              <th pSortableColumn="surname">
+                Apellido <p-sortIcon field="surname"></p-sortIcon
+                ><p-columnFilter
+                  type="text"
+                  field="surname"
+                  display="menu"
+                ></p-columnFilter>
+              </th>
+              <th>Fecha de NAC</th>
+              <th pSortableColumn="cuit">
+                Cuit <p-sortIcon field="cuit"></p-sortIcon
+                ><p-columnFilter
+                  type="text"
+                  field="cuit"
+                  display="menu"
+                ></p-columnFilter>
+              </th>
+              <th pSortableColumn="position">
+                Posicion <p-sortIcon field="position"></p-sortIcon
+                ><p-columnFilter
+                  type="text"
+                  field="position"
+                  display="menu"
+                ></p-columnFilter>
+              </th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-employee>
+            <tr>
+              <td>{{ employee.name }}</td>
+              <td>{{ employee.surname }}</td>
+              <td>{{ employee.dateOfBirth }}</td>
+              <td>{{ employee.cuit }}</td>
+              <td>{{ employee.position }}</td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
     </div>
-  </div>
-
-
-  
-</body>
+  </body>
 </html>
