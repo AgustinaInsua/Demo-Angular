@@ -30,6 +30,14 @@ export class UsersValidationsService {
     }
   }
 
+  updateUserBySalary(user: User){
+    for(let i=0; i<USERS.length; i++) {
+      if(this.existUser(user.email!)){
+        USERS[i].salary = user.salary;
+      }
+    }
+  }
+
   registerUser(user: User) {
     if (!this.existUser(user.email!)) {
       USERS.push({id : USERS.length+1, name: user.name, surname : user.surname, phone: user.phone, email: user.email, password: user.password});  

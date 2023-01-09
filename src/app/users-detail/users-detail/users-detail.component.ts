@@ -10,12 +10,19 @@ import * as FileSaver from 'file-saver';
 })
 export class UsersDetailComponent implements OnInit {
   users= USERS;
-  selectedUser!: User[];
+  selectedUser!: User;
   constructor() { }
 
   ngOnInit(): void {
-
   }
+
+  onSelect(user: User): void {
+    this.selectedUser = user;
+    console.log(this.selectedUser);
+  }
+
+
+
 
 exportExcel() {
      import("xlsx").then(xlsx => {
