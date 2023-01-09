@@ -21,9 +21,6 @@ export class UsersDetailComponent implements OnInit {
     console.log(this.selectedUser);
   }
 
-
-
-
 exportExcel() {
      import("xlsx").then(xlsx => {
         const worksheet = xlsx.utils.json_to_sheet(this.users);
