@@ -16,6 +16,8 @@ export class MenuComponent implements OnInit {
   selectedEmployee!: User;
   mostrar = false;
   displayBasic!: boolean;
+  
+  position !:string;
 
   constructor(private userService: UsersValidationsService) { }
 
@@ -28,10 +30,11 @@ export class MenuComponent implements OnInit {
   }
 
 
-  avatarMostrar(){
+  avatarMostrar(position: string){
     this.mostrar=true;
     this.selectedEmployee = this.userService.userLogin;
     this.displayBasic = true;
+    this.position = position;
     console.log(this.selectedEmployee);
   }
 

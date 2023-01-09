@@ -1,16 +1,16 @@
 
 <p-tabMenu [model]="items">
 </p-tabMenu>
-<div class="col-12 md:col-4">
-    <div class="card">
-        <p-button styleClass="mr-2" (click)="avatarMostrar()" icon="pi pi-user" style="height: 3.0rem; top:-50px; float: right; position:relative; width: 3.0rem;" shape="circle"></p-button>
-    </div>
-    </div>
 
+    <div class="grid flex-column">
+        <div class="col mb-2">
+            <p-button (click)="avatarMostrar('right')" icon="pi pi-user" style="height: 3.0rem; top:-50px; float: right; position:relative; width: 3.0rem;" shape="circle"></p-button>
+        </div>
+    </div>
 <div *ngIf="selectedEmployee">
-<p-dialog [(visible)]="displayBasic" [style]="{width: '30vw', height:'10vw', float:'right', position: 'relative'}">
-    <p>{{selectedEmployee.name}}</p>
-    <p>{{selectedEmployee.surname}}</p>
-    <p-button icon="pi pi-check" (click)="displayBasic=false" label="Ok" styleClass="p-button-text"></p-button>
+<p-dialog [(visible)]="displayBasic" [position]="position" [modal]="true" [style]="{width: '20vw', height: '15vw'}"
+[draggable]="false" [resizable]="false">
+    <p>{{selectedEmployee.name}}  {{selectedEmployee.surname}}</p>
+    <p>{{selectedEmployee.email}}</p>
 </p-dialog>
 </div>
