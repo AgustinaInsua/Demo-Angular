@@ -1,8 +1,9 @@
+import { Employee } from './../../model/Employee';
 import { ConfirmationComponent } from './../../inspection/confirmation/confirmation.component';
 import { Injectable } from '@angular/core';
 import { CompanyService } from '../company-service/company.service';
 import { Company } from 'src/app/model/Company';
-import { Employee } from 'src/app/model/Employee';
+import { EmployeeService } from '../employee-service/employee.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,8 @@ export class InspectionService {
   };
 
   constructor(
-    private companyService: CompanyService
+    private companyService: CompanyService,
+    private employeeService: EmployeeService
   ) { }
 
   getConfirmationInformation(){
@@ -50,5 +52,13 @@ export class InspectionService {
       this.confirmationInformation.companyInformation.razonSocial,
       this.confirmationInformation.companyInformation.cuit, this.confirmationInformation.employeeInformation
       ));
+  }
+
+  getCompanies (): Company[]{
+    return this.companyService.getCompanies();
+  }
+
+  getEmployees(): Employee[]{
+    return this.employeeService.getEmployees();
   }
 }

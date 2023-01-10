@@ -1,3 +1,4 @@
+import { Company } from './../model/Company';
 import { MenuItem } from 'primeng/api';
 import { Component, OnInit } from '@angular/core';
 import { USERS } from '../model/mock-users';
@@ -7,11 +8,11 @@ import { CompanyService } from '../services/company-service/company.service';
 import { Table } from 'primeng/table';
 import { Employee } from '../model/Employee';
 import { EmployeeService } from '../services/employee-service/employee.service';
-import { formatCurrency } from '@angular/common';
 import * as FileSaver from 'file-saver';
 import jsPDF from 'jspdf';
 import autoTable from 'jspdf-autotable';
 import { MessageService } from 'primeng/api';
+import { InspectionService } from '../services/inspection/inspection.service';
 
 
 @Component({
@@ -33,12 +34,17 @@ export class PricipalViewComponent implements OnInit {
   exportColumns!: any[];
   items !: MenuItem [];
   textSearch!: string;
-  results!: string[] ;
+  textEmployeeSearch!: string;
+  suggestionsCompanies!: string[] ;
+  suggestionsEmployees!: string[] ;
+  companyNames: string[] = [];
+  employeeInfo!: string[];
 
   constructor(
     private companyService: CompanyService,
     private employeeService: EmployeeService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private inspectionService: InspectionService
   ) { }
   ngOnInit(): void {
     this.companies = this.companyService.getCompanies();
@@ -63,6 +69,7 @@ export class PricipalViewComponent implements OnInit {
         },
     }
   ];
+  this.companyNames = this.getNames(this.inspectionService.getCompanies());
   }
 
   newHero() {
@@ -81,12 +88,13 @@ export class PricipalViewComponent implements OnInit {
 
   clearEmployee(table: Table) {
     table.clear();
-    this.searchValueEmployee = '';
+    this.textEmployeeSearch = '';
   }
 
   onFilter($event: any, dt: Table) {
     this.filteredValue = dt.filteredValue[0];
     this.employees = this.employeeService.getEmployeesByCompany(this.filteredValue.name);
+    this.employeeInfo = this.getDataEmployees(this.employees);
   }
 
   isCompanyFiltered(dt: Table): boolean {
@@ -122,7 +130,30 @@ export class PricipalViewComponent implements OnInit {
     doc.save('companies.pdf');
   }
 
-  search(event: any){
-    this.results = ['Dia', 'Coto', 'BDF'];
+  searchCompanies(event: any){
+    this.suggestionsCompanies = this.companyNames.filter(el =>
+      el.toLowerCase().indexOf(event.query.toLowerCase()) > -1
+    )
+    //this.suggestionsCompanies = [... new Set(this.suggestionsCompanies)]; // Por si las sugerencias no se deberian repetir, podriamos convertir a SET
+  }
+
+  searchEmployees(event: any){
+    this.suggestionsEmployees = this.employeeInfo.filter(el =>
+      el.toLowerCase().indexOf(event.query.toLowerCase()) > -1
+    )
+    //this.suggestionsEmployees = [... new Set(this.suggestionsEmployees)]; // Por si las sugerencias no se deberian repetir, podriamos convertir a SET
+  }
+  
+  getNames(object: any[]): string[]{
+    let names: string[] = [];
+    object.forEach(o => names.push(o.name));
+    return names;
+  }
+
+  getDataEmployees(employees: Employee[]){
+    let data: string[] = [];
+    employees.forEach(employees => data.push(employees.name!));
+    return data;
   }
 }
+

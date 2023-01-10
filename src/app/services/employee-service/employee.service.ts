@@ -21,7 +21,6 @@ export class EmployeeService {
   }
   getEmployeesByCompany(company :string){
     this.employees = COMPANIES.find(c => c.name == company)?.employees!;
-    console.log(COMPANIES.filter(c => c.name == company));
     return this.employees;
   }
 

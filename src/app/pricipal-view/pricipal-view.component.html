@@ -42,11 +42,12 @@
                   type="text"
                   placeholder="Search keyword"
                   [(ngModel)]="textSearch" 
-                  [suggestions]="results" 
-                  (completeMethod)="search($event);dtCompanies.filterGlobal($any($event.target).value,'contains')"
+                  [suggestions]="suggestionsCompanies" 
+                  (completeMethod)="searchCompanies($event);dtCompanies.filterGlobal($any($event.target).value,'contains')"
                   (input)="dtCompanies.filterGlobal($any($event.target).value,'contains')"
                   (onFocus)="dtCompanies.filterGlobal($any($event.target).value,'contains')"
-                  (onBlur)="dtCompanies.filterGlobal($any($event.target).value,'contains')"></p-autoComplete>
+                  (onBlur)="dtCompanies.filterGlobal($any($event.target).value,'contains')">
+                </p-autoComplete>
                   
                 </span>
                 
@@ -121,21 +122,17 @@
               <div class="searchG">
                 <span class="p-input-icon-left ml-auto">
                   <i class="pi pi-search"></i>
-                  <input
-                    pInputText
-                    pInputText
-                    id="inputSearchEmployee"
-                    #inputSearchEmployee="ngModel"
-                    [(ngModel)]="searchValueEmployee"
-                    type="text"
-                    (input)="
-                      dtEmployee.filterGlobal(
-                        $any($event.target).value,
-                        'contains'
-                      )
-                    "
-                    placeholder="Search keyword"
-                  />
+                  <p-autoComplete
+                  type="text"
+                  placeholder="Search keyword"
+                  [(ngModel)]="textEmployeeSearch" 
+                  [suggestions]="suggestionsEmployees" 
+                  (completeMethod)="searchEmployees($event);dtEmployee.filterGlobal($any($event.target).value,'contains')"
+                  (input)="dtEmployee.filterGlobal($any($event.target).value,'contains')"
+                  (onFocus)="dtEmployee.filterGlobal($any($event.target).value,'contains')"
+                  (onBlur)="dtEmployee.filterGlobal($any($event.target).value,'contains')">
+                </p-autoComplete>
+
                 </span>
               </div>
             </div>
