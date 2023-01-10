@@ -34,6 +34,7 @@ import { TableEmployeeComponent } from './inspection/employee/table-employee/tab
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
+import {AutoCompleteModule} from 'primeng/autocomplete';
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import {AvatarGroupModule} from 'primeng/avatargroup';
     DialogModule,
     DynamicDialogModule,
     AvatarGroupModule,
-    AvatarModule
+    AvatarModule,
+    AutoCompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -32,6 +32,8 @@ export class PricipalViewComponent implements OnInit {
   filteredValue: any;
   exportColumns!: any[];
   items !: MenuItem [];
+  textSearch!: string;
+  results!: string[] ;
 
   constructor(
     private companyService: CompanyService,
@@ -74,6 +76,7 @@ export class PricipalViewComponent implements OnInit {
     table.clear();
     this.filteredValue = null;
     this.searchValue = '';
+    this.textSearch = '';
   }
 
   clearEmployee(table: Table) {
@@ -117,5 +120,9 @@ export class PricipalViewComponent implements OnInit {
       }
     });
     doc.save('companies.pdf');
+  }
+
+  search(event: any){
+    this.results = ['Dia', 'Coto', 'BDF'];
   }
 }

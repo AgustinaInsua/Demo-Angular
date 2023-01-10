@@ -34,44 +34,20 @@
                 icon="pi pi-filter-slash"
                 (click)="clear(dtCompanies)"
               ></button>
-              
-              <button
-                type="button"
-                pButton
-                pRipple
-                icon="pi pi-file-excel"
-                class="p-button-success mr-2"
-                (click)="exportExcel()"
-                pTooltip="XLS"
-                tooltipPosition="bottom"
-              ></button>
-              <button
-                type="button"
-                pButton
-                pRipple
-                icon="pi pi-file-pdf"
-                (click)="exportPdf()"
-                class="p-button-success mr-2"
-                pTooltip="PDF"
-                tooltipPosition="bottom"
-              ></button>
+
               <div class="searchG">
                 <span class="p-input-icon-left ml-auto">
                   <i class="pi pi-search"></i>
-                  <input
-                    pInputText
-                    id="inputSearch"
-                    #inputSearch="ngModel"
-                    [(ngModel)]="searchValue"
-                    type="text"
-                    (input)="
-                      dtCompanies.filterGlobal(
-                        $any($event.target).value,
-                        'contains'
-                      )
-                    "
-                    placeholder="Search keyword"
-                  />
+                  <p-autoComplete
+                  type="text"
+                  placeholder="Search keyword"
+                  [(ngModel)]="textSearch" 
+                  [suggestions]="results" 
+                  (completeMethod)="search($event);dtCompanies.filterGlobal($any($event.target).value,'contains')"
+                  (input)="dtCompanies.filterGlobal($any($event.target).value,'contains')"
+                  (onFocus)="dtCompanies.filterGlobal($any($event.target).value,'contains')"
+                  (onBlur)="dtCompanies.filterGlobal($any($event.target).value,'contains')"></p-autoComplete>
+                  
                 </span>
                 
               </div>
