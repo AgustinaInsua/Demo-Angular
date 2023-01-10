@@ -34,8 +34,8 @@ import { TableEmployeeComponent } from './inspection/employee/table-employee/tab
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
 import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
+import {DropdownModule} from 'primeng/dropdown';
 import {AutoCompleteModule} from 'primeng/autocomplete';
-
 
 @NgModule({
   declarations: [
@@ -75,6 +75,7 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
     DynamicDialogModule,
     AvatarGroupModule,
     AvatarModule,
+    DropdownModule,
     AutoCompleteModule
   ],
   providers: [],
