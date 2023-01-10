@@ -8,6 +8,8 @@ import { Employee } from 'src/app/model/Employee';
 })
 export class EmployeeService {
 
+  employees!: Employee[];
+
   constructor() { }
 
   getEmployees(){
@@ -18,7 +20,18 @@ export class EmployeeService {
     return employees;
   }
   getEmployeesByCompany(company :string){
-    return COMPANIES.find(c => c.name == company)?.employees!;
+    this.employees = COMPANIES.find(c => c.name == company)?.employees!;
+    console.log(COMPANIES.filter(c => c.name == company));
+    return this.employees;
+  }
+
+  getPositionByCompany(){
+    let position;
+      for(let i=0; i<this.employees.length; i++) {
+        position = this.employees[i].position;
+       console.log(position);
+      }
+    return position;
   }
 
 }

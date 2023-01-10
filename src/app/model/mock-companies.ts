@@ -6,8 +6,8 @@ export const COMPANIES : Company [] = [{
         razonSocial: 'BDF SA',
         cuit: 23232,
         employees:[
-            {name: 'Leandro', surname: 'Fernandez', cuit: 458471, position: 'Developer'},
-            {name: 'Agustina', surname: 'Insua', cuit: 17136, position: 'Developer'}
+            {name: 'Leandro', surname: 'Fernandez', cuit: 458471, position: 'Frontend Developer'},
+            {name: 'Agustina', surname: 'Insua', cuit: 17136, position: 'Backend Developer'}
         ]
     },
     {

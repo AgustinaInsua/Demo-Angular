@@ -6,6 +6,7 @@ import { Company } from 'src/app/model/Company';
 import { InspectionService } from 'src/app/services/inspection/inspection.service';
 import { CompanyService } from 'src/app/services/company-service/company.service';
 import { Message, MessageService } from 'primeng/api';
+import { EmployeeService } from 'src/app/services/employee-service/employee.service';
 
 @Component({
   selector: 'app-company',
@@ -19,6 +20,7 @@ export class CompanyComponent implements OnInit {
   constructor(
     private router: Router,
     private inspectionService: InspectionService,
+    private employeeService: EmployeeService,
     private companyService: CompanyService,
     private messageService: MessageService
   ) {}
@@ -40,6 +42,7 @@ export class CompanyComponent implements OnInit {
         life: 2000,
       });
     } else {
+      this.employeeService.getEmployeesByCompany(this.companyInformation.name);
       this.inspectionService.setCompanyInformation(this.companyInformation);
       this.inspectionService.confirmationInformation.companyInformation =
       this.companyInformation;

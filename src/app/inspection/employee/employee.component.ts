@@ -23,10 +23,13 @@ export class EmployeeComponent implements OnInit {
   displayBasic!: boolean;
   ref!: DynamicDialogRef;
   selectedEmployee!: Employee;
+  positions: any;
+  selectedPosition: any;
 
   constructor(
     private router: Router,
     private inspectionService: InspectionService,
+    private employeeService: EmployeeService,
     private messageService: MessageService,
     public dialogService: DialogService
   ) {}
@@ -53,6 +56,7 @@ export class EmployeeComponent implements OnInit {
     //this.employee = new Employee();
     this.personalInformation = this.inspectionService.getEmployeesInformation();
     this.employees = new Array<Employee>();
+    this.positions = this.employeeService.getPositionByCompany();
     //this.personalInformation.cuit = null;
   }
 
@@ -118,6 +122,7 @@ export class EmployeeComponent implements OnInit {
   }
 
   addToEmployeeList() {
+
     let em: Employee = new Employee(
       this.personalInformation.name,
       this.personalInformation.surname,
