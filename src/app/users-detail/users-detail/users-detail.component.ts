@@ -2,23 +2,34 @@ import { Component, OnInit } from '@angular/core';
 import { USERS } from 'src/app/model/mock-users';
 import { User } from 'src/app/model/User';
 import * as FileSaver from 'file-saver';
+import { MessageService } from 'primeng/api';
+import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { UsersValidationsService } from 'src/app/services/users-validation/users-validations.service';
 
 @Component({
   selector: 'app-users-detail',
   templateUrl: './users-detail.component.html',
-  styleUrls: ['./users-detail.component.css']
+  styleUrls: ['./users-detail.component.css'],
+  providers: [MessageService]
 })
 export class UsersDetailComponent implements OnInit {
   users= USERS;
   selectedUser!: User;
-  constructor() { }
-
+  constructor(public messageService: MessageService, private userService: UsersValidationsService) { }
+  displayResponsive!: boolean;
+  displayEdit!: boolean;
   ngOnInit(): void {
   }
 
+  showResponsiveDialog() {
+    this.displayEdit = true;
+    this.displayResponsive = true;
+}
+
   onSelect(user: User): void {
     this.selectedUser = user;
-    console.log(this.selectedUser);
+    this.userService.updateUser(user);
+   // console.log(this.selectedUser);
   }
 
 exportExcel() {
