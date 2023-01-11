@@ -30,7 +30,7 @@ export class EmployeeService {
         position = this.employees[i].position;
        console.log(position);
       }
-    return position;
+    return ["A", "B"];
   }
 
 }

@@ -85,10 +85,8 @@
           <div>
             <label for="position">Position</label>
           </div>
-
-          <select ng-model="selectedEmployee">
-            <option ng-repeat="positions" value="{{positions}}">{{positions}}</option>
-            </select>
+          <p-dropdown [options]="positions" [(ngModel)]="selectedPosition" placeholder="Select a City" [showClear]="true"></p-dropdown>
+          
             
          <!---<input
             tabindex="5"
