@@ -57,7 +57,6 @@ export class EmployeeComponent implements OnInit {
     this.personalInformation = this.inspectionService.getEmployeesInformation();
     this.employees = new Array<Employee>();
     this.positions = this.employeeService.getPositionByCompany();
-    console.log(this.positions);
     //this.personalInformation.cuit = null;
   }
 

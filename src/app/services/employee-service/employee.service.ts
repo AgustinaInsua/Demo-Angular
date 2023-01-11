@@ -25,12 +25,9 @@ export class EmployeeService {
   }
 
   getPositionByCompany(){
-    let position;
-      for(let i=0; i<this.employees.length; i++) {
-        position = this.employees[i].position;
-       console.log(position);
-      }
-    return ["A", "B"];
+    let positions: any[] = [];
+    this.employees.forEach(em => positions.push(em.position));
+    return positions;
   }
 
 }
