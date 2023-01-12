@@ -11,8 +11,7 @@ import { EmployeeService } from 'src/app/services/employee-service/employee.serv
   selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css'],
-  providers: [MessageService,DialogService],
-  encapsulation: ViewEncapsulation.Emulated
+  providers: [MessageService,DialogService]
 })
 export class EmployeeComponent implements OnInit {
 

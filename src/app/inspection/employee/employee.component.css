@@ -18,14 +18,6 @@
   right: 20px;
 }
 
-input {
-  background-color: aliceblue;
-  width: 400px;
-  height: 30px;
-  margin-top: -20px;
-  margin-bottom: 0px;
-  padding: 15px;
-}
 
 select {
   background-color: aliceblue;
@@ -35,12 +27,16 @@ select {
   margin-bottom: 0px;
   padding: 15px;
 }
-.p-dropdown .p-dropdown-label.p-placeholder{
-  background-color: aliceblue;
-  width: 175px;
-  height: 35px;
-  padding: 0rem 1.25rem;
+
+:host ::ng-deep .p-dropdown .p-dropdown-label.p-placeholder {
+    background-color: aliceblue;
+    width: 175px;
+    height: 35px;
+    padding: 0rem 1.25rem;
+  
 }
+
+:host ::ng-deep 
 .p-dropdown-item {
   cursor: pointer;
   font-weight: 400;
@@ -50,6 +46,8 @@ select {
   position: relative;
   overflow: hidden;
 }
+
+:host ::ng-deep 
 .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
   margin: 0;
   padding: 0rem 1.25rem;
@@ -61,7 +59,12 @@ select {
 }
 
 .position input {
-  margin-top: 0px;
+  background-color: aliceblue;
+  width: 400px;
+  height: 30px;
+  margin-top: -20px;
+  margin-bottom: 0px;
+  padding: 15px;
 }
 
 .section {
@@ -99,7 +102,7 @@ p-button {
   position: relative;
   top: 20px;
 }
-h2 {
+.listEmployee {
   position: relative;
   top: -100px;
 }
