@@ -28,8 +28,8 @@ export class ConfirmationComponent implements OnInit {
   }
   confirm() {
     this.confirmationService.confirm({
-      message: 'Are you sure that you want to perform this action?',
-      header: 'Confirmation',
+      message: 'Estas seguro que deseas confirmar la información?',
+      header: 'Confirmación',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
         this.inspectionService.addCompany();
