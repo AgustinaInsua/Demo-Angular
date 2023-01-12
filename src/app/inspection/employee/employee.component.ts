@@ -37,23 +37,6 @@ export class EmployeeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.items =[
-      {
-          tooltip: 'Update',
-          icon: 'pi pi-pencil',
-          command: () => {
-              this.messageService.add({ severity: 'success', summary: 'Update', detail: 'Data Updated' });
-          }
-      },
-      {
-          tooltip: 'Delete',
-          icon: 'pi pi-trash',
-          command: () => {
-              
-              this.messageService.add({ severity: 'error', summary: 'Delete', detail: 'Data Deleted' });
-          }
-      }
-  ];
 
     //this.employee = new Employee();
     this.personalInformation = this.inspectionService.getEmployeesInformation();
