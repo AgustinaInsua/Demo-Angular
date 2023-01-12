@@ -6,11 +6,13 @@ import { User } from 'src/app/model/User';
 import { UsersValidationsService } from 'src/app/services/users-validation/users-validations.service';
 import { Router } from '@angular/router';
 import { USERS } from 'src/app/model/mock-users';
+import { Message, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  styleUrls: ['./menu.component.css'],
+  providers: [MessageService]
 })
 export class MenuComponent implements OnInit {
   items !: MenuItem[];
@@ -21,8 +23,11 @@ export class MenuComponent implements OnInit {
   
   position !:string;
 
-  constructor(private userService: UsersValidationsService,
-    private router : Router) { }
+  constructor(
+    private userService: UsersValidationsService,
+    private router : Router,
+    private messageService: MessageService
+    ) { }
 
   ngOnInit(): void {
     this.items = [
@@ -42,7 +47,14 @@ export class MenuComponent implements OnInit {
   }
 
   signOff(){
-    this.selectedEmployee = new User();
-    this.router.navigate(["/login"]);
+    //this.selectedEmployee = new User();   
+    
+    this.messageService.add({
+      severity: 'error',
+      detail: 'Plis complete the fields',
+      life: 2000,
+    });
+    //this.router.navigate(["/login"]); 
+    //this.messageService.add({severity:'info', summary:'Sesion cerrada', detail:'La sesion ha sido cerrada.'});
   }
 }
