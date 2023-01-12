@@ -58,7 +58,7 @@ select {
   border-radius: 0;
 }
 
-.position input {
+.sectionField input {
   background-color: aliceblue;
   width: 400px;
   height: 30px;
@@ -108,6 +108,7 @@ p-button {
   position: relative;
   top: -100px;
 }
+
 #items{
   height: 20px; 
   right:70px; 

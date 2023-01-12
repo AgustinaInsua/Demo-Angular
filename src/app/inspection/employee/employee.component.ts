@@ -46,8 +46,6 @@ export class EmployeeComponent implements OnInit {
 
   onSelect(employee: Employee): void {
     this.selectedEmployee = employee;
-    this.employeeService.updateEmployee(employee);
-    console.log(this.selectedEmployee);
   }
 
 
@@ -56,21 +54,9 @@ export class EmployeeComponent implements OnInit {
       this.employees.splice(index, 1);
     }
   }
-  show() {
-    this.ref = this.dialogService.open(Employee, {
-        header: 'Choose a Product',
-        width: '70%',
-        contentStyle: {"max-height": "500px", "overflow": "auto"},
-        baseZIndex: 10000
-    });
 
-    this.ref.onClose.subscribe((employee: Employee) =>{
-        if (employee) {
-            this.messageService.add({severity:'info', summary: 'Product Selected', detail: employee.name});
-        }
-    });
-  }
-  deleteEmployeeInModal() {
+  deleteEmployeeInModal(i:string) {
+  this.onSelect(this.employees[parseInt(i)]);
    this.deleteEmployee(this.selectedEmployee);
    this.displayBasic = false;
   }
@@ -84,10 +70,10 @@ export class EmployeeComponent implements OnInit {
   }
   
   showBasicDialog(i: string) {
-    let indice = parseInt(i);
     this.displayBasic = true;
-    this.onSelect(this.employees[indice]);
-    console.log(this.employees[indice]);
+    this.onSelect(this.employees[parseInt(i)]);
+    this.employeeService.updateEmployee(this.employees[parseInt(i)]);
+    console.log(this.employees[parseInt(i)]);
     }
 
   prevPage() {
@@ -110,7 +96,6 @@ export class EmployeeComponent implements OnInit {
   }
 
   addToEmployeeList() {
-
     let em: Employee = new Employee(
       this.personalInformation.name,
       this.personalInformation.surname,
