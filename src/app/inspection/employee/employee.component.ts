@@ -98,7 +98,8 @@ export class EmployeeComponent implements OnInit {
     if (this.employees.length == 0) {
       this.messageService.add({
         severity: 'error',
-        detail: 'Employee is empty',
+        summary: "No hay Empleados",
+        detail: 'Agregue aunque sea un empleado.',
       });
     } else {
       this.inspectionService.setEmployeesInformation(this.employees);
@@ -130,7 +131,8 @@ export class EmployeeComponent implements OnInit {
     ) {
       this.messageService.add({
         severity: 'error',
-        detail: 'Plis complete the fields',
+        summary: "Empleado incorrecto",
+        detail: 'Complete los campos requeridos.',
         life: 2000,
       });
     } else {

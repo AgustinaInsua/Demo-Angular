@@ -1,14 +1,14 @@
 <p-toast></p-toast>
 <p-card>
-  <ng-template pTemplate="title"> Company Information </ng-template>
-  <ng-template pTemplate="subtitle"> Complete the fields </ng-template>
+  <ng-template pTemplate="title"> Información de compañía </ng-template>
+  <ng-template pTemplate="subtitle"> Complete los campos </ng-template>
 
   <ng-template id="principal" pTemplate="content">
     <div id="inputsForm">
       <form name="form" #form="ngForm">
         <div>
           <div>
-            <label for="name">Company's Name</label>
+            <label for="name">Nombre de Compañia</label>
           </div>
           <input
             id="name"
@@ -20,7 +20,7 @@
             pInputText
           />
           <div [hidden]="name.valid || !name.touched" class="errors">
-            <div *ngIf="name.errors?.['required']">Name is required.</div>
+            <div *ngIf="name.errors?.['required']">Nombre de Compañia es requerido</div>
           </div>
         </div>
         <div>
@@ -41,7 +41,7 @@
             class="errors"
           >
             <div *ngIf="razonSocial.errors?.['required']">
-              Razon social is required.
+              Razon social es requerido
             </div>
           </div>
         </div>
@@ -60,7 +60,7 @@
             pInputText
           />
           <div [hidden]="cuit.valid || !cuit.touched" class="errors">
-            <div *ngIf="cuit.errors?.['required']">Cuit is required.</div>
+            <div *ngIf="cuit.errors?.['required']">Cuit es requerido</div>
           </div>
         </div>
       </form>
@@ -70,7 +70,7 @@
   <ng-template pTemplate="footer">
     <div>
       <p-button
-        label="Next"
+        label="Siguiente"
         (onClick)="nextPage()"
         icon="pi pi-angle-right"
         iconPos="right"

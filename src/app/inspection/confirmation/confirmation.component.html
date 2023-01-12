@@ -4,19 +4,18 @@
   rejectButtonStyleClass="p-button-text"
 ></p-confirmDialog>
 <p-card>
-  <ng-template pTemplate="title"> Confirm Information </ng-template>
+  <ng-template pTemplate="title"> Confirmar Información </ng-template>
   <ng-template pTemplate="subtitle">
-    Check all information before continue
+    Verifique la Información a continuación
   </ng-template>
 
   <ng-template pTemplate="content">
     <div id="companyInfo">
       <h3>
-        <i class="pi pi-building" style="font-size: 1.3rem"></i> Company's
-        Information
+        <i class="pi pi-building" style="font-size: 1.3rem"></i> Información de Compañia
       </h3>
       <div>
-        <label class="labelField">Company's Name: </label>
+        <label class="labelField">Nombre de Compañia: </label>
         <label>
           {{
             confirmationInformation.companyInformation.name
@@ -55,35 +54,34 @@
       class="subtitleError"
       [hidden]="confirmationInformation.employeeInformation.length > 0"
     >
-      <i class="pi pi-ban" style="font-size: 1.2rem"></i> There are'nt employees
+      <i class="pi pi-ban" style="font-size: 1.2rem"></i> No hay empleados que mostrar.
     </h3>
     <div
       id="employeeInfo"
       [hidden]="confirmationInformation.employeeInformation.length == 0"
     >
       <h3>
-        <i class="pi pi-briefcase" style="font-size: 1.2rem"></i> Employees
-        Information
+        <i class="pi pi-briefcase" style="font-size: 1.2rem"></i> Información de Empleados
       </h3>
       <div *ngFor="let employee of confirmationInformation.employeeInformation">
         <div>
           <h4>
-            <i class="pi pi-user" style="font-size: 1rem"></i> Employee
+            <i class="pi pi-user" style="font-size: 1rem"></i> Empleado 
             {{
               confirmationInformation.employeeInformation.indexOf(employee) + 1
             }}
           </h4>
         </div>
         <div>
-          <label class="labelField">Name: </label>
+          <label class="labelField">Nombre: </label>
           <label>{{ employee.name }}</label>
         </div>
         <div>
-          <label class="labelField">Surname: </label>
+          <label class="labelField">Apellido: </label>
           <label>{{ employee.surname }}</label>
         </div>
         <div>
-          <label class="labelField">Date of Birth: </label>
+          <label class="labelField">Fecha de Nacimiento: </label>
           <label>{{ employee.dateOfBirth }}</label>
         </div>
         <div>
@@ -91,15 +89,15 @@
           <label>{{ employee.cuit ? employee.cuit : "" }}</label>
         </div>
         <div>
-          <label class="labelField">Position: </label>
+          <label class="labelField">Puesto de trabajo: </label>
           <label>{{ employee.position }}</label>
         </div>
         <div>
-          <label class="labelField">Start Date: </label>
+          <label class="labelField">Fecha de comienzo: </label>
           <label>{{ employee.startDate }}</label>
         </div>
         <div>
-          <label class="labelField">Business Hours: </label>
+          <label class="labelField">Carga Horaria: </label>
           <label>{{ employee.businessHours }}</label>
         </div>
       </div>
@@ -109,19 +107,19 @@
   <ng-template pTemplate="footer">
     <div class="grid grid-nogutter justify-content-between">
       <p-button
-        label="Back"
+        label="Atrás"
         (onClick)="prevPage()"
         icon="pi pi-angle-left"
       ></p-button>
       <p-button
       class="speeddial-linear-demo"
-      label="Viuw Employees"
+      label="Ver Empleados"
       (onClick)="showInfo()"
       icon="pi pi-user"
     ></p-button>
       <p-button
         class="confirm"
-        label="Confirm"
+        label="Confirmar"
         (onClick)="confirm()"
         icon="pi pi-check-square"
         iconPos="right"

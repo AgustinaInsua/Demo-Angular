@@ -14,15 +14,15 @@ export class InspectionComponent implements OnInit {
   ngOnInit(): void {
     this.items = [
       {
-        label: 'Company',
+        label: 'Compañia',
         routerLink: 'company',
       },
       {
-        label: 'Employees',
+        label: 'Empleados',
         routerLink: 'employee',
       },
       {
-        label: 'Confirmation',
+        label: 'Confirmación',
         routerLink: 'confirmation',
       },
     ];

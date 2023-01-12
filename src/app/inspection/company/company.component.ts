@@ -38,8 +38,9 @@ export class CompanyComponent implements OnInit {
     ) {
       this.messageService.add({
         severity: 'error',
-        detail: 'Company is empty',
-        life: 2000,
+        summary: "Compañia invalida",
+        detail: 'Ingrese los campos requeridos.',
+        life: 2500,
       });
     } else {
       this.employeeService.getEmployeesByCompany(this.companyInformation.name);

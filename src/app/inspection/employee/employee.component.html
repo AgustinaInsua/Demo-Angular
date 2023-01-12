@@ -1,14 +1,14 @@
 <p-toast></p-toast>
 <p-card>
-  <ng-template pTemplate="title"> Employee Information </ng-template>
-  <ng-template pTemplate="subtitle"> Complete the personal fields </ng-template>
+  <ng-template pTemplate="title"> Información de Empleado </ng-template>
 
   <ng-template pTemplate="content">
     <div class="section">
+      <h4>Complete datos de empleado</h4>
       <div class="flex-container">
         <div>
           <div class="position">
-            <div><label for="name">Name</label></div>
+            <div><label for="name">Nombre</label></div>
             <input
               tabindex="1"
               type="text"
@@ -20,10 +20,10 @@
               pInputText
             />
             <div [hidden]="name.valid || !name.touched" class="errors">
-              <div *ngIf="name.errors?.['required']">Name is required.</div>
+              <div *ngIf="name.errors?.['required']">Nombre es requerido</div>
             </div>
           </div>
-          <div class="position">
+
           <div><label for="surname">Surname</label></div>
           <input
             tabindex="2"
@@ -35,13 +35,13 @@
             pInputText
           />
           <div [hidden]="surname.valid || !surname.touched" class="errors">
-            <div *ngIf="surname.errors?.['required']">Surname is required.</div>
+            <div *ngIf="surname.errors?.['required']">Apellido es requerido</div>
           </div>
         </div>
       </div>
         <div>
           <div class="position">
-            <div><label for="dateOfBirth">DateOfBirth</label></div>
+            <div><label for="dateOfBirth">Fecha de Nacimiento</label></div>
             <input
               tabindex="3"
               id="dateOfBirth"
@@ -56,7 +56,7 @@
               class="errors"
             >
               <div *ngIf="dateOfBirth.errors?.['required']">
-                dateOfBirth is required.
+                Fecha de nacimiento es requerido
               </div>
             </div>
           </div>
@@ -73,19 +73,19 @@
               pInputText
             />
             <div [hidden]="cuit.valid || !cuit.touched" class="errors">
-              <div *ngIf="cuit.errors?.['required']">Cuit is required.</div>
+              <div *ngIf="cuit.errors?.['required']">Cuit es requerido</div>
             </div>
           </div>
         </div>
       </div>
 
-      <h4>Complete in the position fields</h4>
+      <h4>Datos relacionados a la compañia</h4>
       <div class="flex-container">
         <div class="position">
           <div>
-            <label for="position">Position</label>
+            <label for="position">Puesto de trabajo</label>
           </div>
-          <p-dropdown styleClass="p-dropdown" [options]="positions" [(ngModel)]="selectedPosition" placeholder="Select a position" [showClear]="true"></p-dropdown>
+          <p-dropdown [options]="positions" [(ngModel)]="selectedPosition" placeholder="Select a position" [showClear]="true"></p-dropdown>
           
             
          <!---<input
@@ -105,7 +105,7 @@
         </div>
         <div class="position">
           <div>
-            <label for="startDate">StartDate</label>
+            <label for="startDate">Fecha de comienzo</label>
           </div>
           <input
             tabindex="7"
@@ -118,13 +118,13 @@
           />
           <div [hidden]="startDate.valid || !startDate.touched" class="errors">
             <div *ngIf="startDate.errors?.['required']">
-              Start Date is required.
+              Fecha de comienzo es requerida
             </div>
           </div>
         </div>
         <div class="position">
           <div>
-            <label for="businessHours">BusinessHours</label>
+            <label for="businessHours">Carga Horaria</label>
           </div>
           <input
             tabindex="6"
@@ -140,14 +140,14 @@
             class="errors"
           >
             <div *ngIf="businessHours.errors?.['required']">
-              Business Hours is required.
+              Carga horaria es requerida
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="listEmployee">
+    <div>
       <h2>Employees list</h2>
     </div>
 
@@ -158,8 +158,8 @@
           <th style="width: 3rem">
             <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
           </th>
-          <th>Name</th>
-          <th>Surname</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
           <th>Cuit</th>
           <th></th>
           <th></th>
@@ -193,7 +193,7 @@
   </div>
 
     <div class="grid grid-nogutter justify-content-between">
-      <p-button 
+      <p-button
         label="Back"
         (onClick)="prevPage()"
         icon="pi pi-angle-left"
@@ -205,7 +205,7 @@
       ></p-button>
       <p-button 
         class="next"
-        label="Next"
+        label="Siguiente"
         (onClick)="nextPage()"
         icon="pi pi-angle-right"
         iconPos="right"
@@ -214,7 +214,7 @@
   </ng-template>
 
   <div *ngIf="selectedEmployee">
-  <p-dialog header="Information Employee" [(visible)]="displayBasic" [style]="{width: '50vw'}">
+  <p-dialog header="Información de empleado" [(visible)]="displayBasic" [style]="{width: '50vw'}">
     <ng-template pTemplate="body" >
       <tr >
           <td>
@@ -242,7 +242,7 @@
               #position="ngModel" (keyup.enter)="onSelect(selectedEmployee)"  pInputText [disabled]="displayEdit">
           </td>
      
-          <p-button (click)="displayEdit=false" label="Edit" styleClass="p-button-text"></p-button>
+          <p-button (click)="displayEdit=false" label="Editar" styleClass="p-button-text"></p-button>
         </tr>
       </ng-template>
   <ng-template pTemplate="footer">
