@@ -21,16 +21,13 @@ export class EmployeeService {
   }
   getEmployeesByCompany(company :string){
     this.employees = COMPANIES.find(c => c.name == company)?.employees!;
-    console.log(COMPANIES.filter(c => c.name == company));
     return this.employees;
   }
 
   getPositionByCompany(){
-    let position;
-      for(let i=0; i<this.employees.length; i++) {
-        position = this.employees[i].position;
-      }
-    return position;
+    let positions: any[] = [];
+    this.employees.forEach(em => positions.push(em.position));
+    return positions;
   }
 
   updateEmployee(employee: Employee){

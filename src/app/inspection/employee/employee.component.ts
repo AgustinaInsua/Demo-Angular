@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { Employee } from 'src/app/model/Employee';
 import { InspectionService } from 'src/app/services/inspection/inspection.service';
@@ -11,7 +11,8 @@ import { EmployeeService } from 'src/app/services/employee-service/employee.serv
   selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css'],
-  providers: [MessageService,DialogService]
+  providers: [MessageService,DialogService],
+  encapsulation: ViewEncapsulation.None
 })
 export class EmployeeComponent implements OnInit {
 
@@ -63,9 +64,8 @@ export class EmployeeComponent implements OnInit {
 
   onSelect(employee: Employee): void {
     this.selectedEmployee = employee;
-    this.selectedEmployee = employee;
     this.employeeService.updateEmployee(employee);
-   // console.log(this.selectedUser);
+    console.log(this.selectedEmployee);
   }
 
 

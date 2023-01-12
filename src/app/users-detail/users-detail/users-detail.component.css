@@ -3,7 +3,7 @@ p-table {
     width: 50%;
  }
  th, td {
-    width: 0%;
+    width: 0%; 
     text-align: center;
     border: 1px solid #000;
     border-collapse: collapse;

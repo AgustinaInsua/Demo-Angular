@@ -26,17 +26,6 @@ input {
   margin-bottom: 0px;
   padding: 15px;
 }
-th, td {
-  width: 0%; 
-  text-align: center;
-  border-collapse: collapse;
-  padding: 0.3em;
-  caption-side: bottom;
-}
-
-th {
-  background: #eee;
-}
 
 select {
   background-color: aliceblue;
@@ -45,6 +34,30 @@ select {
   margin-top: -30px;
   margin-bottom: 0px;
   padding: 15px;
+}
+.p-dropdown .p-dropdown-label.p-placeholder{
+  background-color: aliceblue;
+  width: 175px;
+  height: 35px;
+  padding: 0rem 1.25rem;
+}
+.p-dropdown-item {
+  cursor: pointer;
+  font-weight: 400;
+  height: 35px;
+  text-align: initial;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+}
+.p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+  margin: 0;
+  padding: 0rem 1.25rem;
+  border: 0 none;
+  color: #495057;
+  background: transparent;
+  transition: box-shadow 0.2s;
+  border-radius: 0;
 }
 
 .position input {
