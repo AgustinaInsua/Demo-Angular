@@ -94,14 +94,16 @@ select {
   position: relative;
 }
 
-p-table {
+.p-table {
   position: relative;
   top: -95px;
 }
+
 p-button {
   position: relative;
   top: 20px;
 }
+
 .listEmployee {
   position: relative;
   top: -100px;
