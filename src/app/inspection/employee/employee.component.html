@@ -154,6 +154,9 @@
     <p-table [value]="employees">
       <ng-template pTemplate="header">
         <tr>
+          <th style="width: 3rem">
+            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+          </th>
           <th>Name</th>
           <th>Surname</th>
           <th>Cuit</th>
@@ -163,6 +166,9 @@
       </ng-template>
       <ng-template pTemplate="body" let-employees let-i="rowIndex" >
         <tr>
+          <td>
+            <p-tableCheckbox [value]="employees"></p-tableCheckbox>
+          </td>
           <td>{{ employees.name }}</td>
           <td>{{ employees.surname }}</td>
           <td>{{ employees.cuit }}</td>
@@ -206,14 +212,36 @@
 
   <div *ngIf="selectedEmployee">
   <p-dialog header="Information Employee" [(visible)]="displayBasic" [style]="{width: '50vw'}">
-    <p>
-      {{selectedEmployee.name}}
-      {{selectedEmployee.surname}}
-      {{selectedEmployee.dateOfBirth}}
-      {{selectedEmployee.cuit}}
-      {{selectedEmployee.position}}
-      {{selectedEmployee.startDate}}
-    </p>
+    <ng-template pTemplate="body" >
+      <tr >
+          <td>
+              <input type="text" id="name" name="name" [(ngModel)]="selectedEmployee.name" 
+              #name="ngModel" (keyup.enter)="onSelect(selectedEmployee)"  pInputText [disabled]="displayEdit">
+          </td>
+
+          <td> 
+              <input type="text" id="surname" name="surname" [(ngModel)]="selectedEmployee.surname" 
+              #surname="ngModel" (keyup.enter)="onSelect(selectedEmployee)"  pInputText [disabled]="displayEdit">
+          </td>
+
+          <td>
+            <input type="number" id="dateOfBirth" name="dateOfBirth" [(ngModel)]="selectedEmployee.dateOfBirth" 
+            #dateOfBirth="ngModel" (keyup.enter)="onSelect(selectedEmployee)"  pInputText [disabled]="displayEdit">
+          </td>
+
+          <td>
+              <input type="number" id="cuit" name="cuit" [(ngModel)]="selectedEmployee.cuit" 
+              #cuit="ngModel" (keyup.enter)="onSelect(selectedEmployee)"  pInputText [disabled]="displayEdit">
+          </td>
+
+          <td>
+              <input type="email" id="position" name="position" [(ngModel)]="selectedEmployee.position" 
+              #position="ngModel" (keyup.enter)="onSelect(selectedEmployee)"  pInputText [disabled]="displayEdit">
+          </td>
+     
+          <p-button (click)="displayEdit=false" label="Edit" styleClass="p-button-text"></p-button>
+        </tr>
+      </ng-template>
   <ng-template pTemplate="footer">
       <p-button label="Delete" (click)="deleteEmployeeInModal()"> </p-button>
       <p-button icon="pi pi-check" (click)="displayBasic=false" label="Ok" styleClass="p-button-text"></p-button>

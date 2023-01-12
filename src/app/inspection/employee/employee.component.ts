@@ -25,6 +25,7 @@ export class EmployeeComponent implements OnInit {
   selectedEmployee!: Employee;
   positions: any;
   selectedPosition: any;
+  displayEdit!: boolean;
 
   constructor(
     private router: Router,
@@ -62,7 +63,11 @@ export class EmployeeComponent implements OnInit {
 
   onSelect(employee: Employee): void {
     this.selectedEmployee = employee;
+    this.selectedEmployee = employee;
+    this.employeeService.updateEmployee(employee);
+   // console.log(this.selectedUser);
   }
+
 
   deleteEmployeeByID(index: number) {
     if (this.indexValid(index)) {
@@ -98,10 +103,10 @@ export class EmployeeComponent implements OnInit {
   
   showBasicDialog(i: string) {
     let indice = parseInt(i);
+    this.displayBasic = true;
     this.onSelect(this.employees[indice]);
     console.log(this.employees[indice]);
-    this.displayBasic = true;
-}
+    }
 
   prevPage() {
     this.router.navigate(['inspection/company']);
