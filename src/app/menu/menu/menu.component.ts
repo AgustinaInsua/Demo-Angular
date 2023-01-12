@@ -1,4 +1,3 @@
-import { LogginComponent } from './../../loggin/loggin.component';
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Menu } from 'primeng/menu';
@@ -13,7 +12,7 @@ import { Message, MessageService } from 'primeng/api';
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css'],
-  providers: [MessageService]
+  providers: []
 })
 export class MenuComponent implements OnInit {
   items !: MenuItem[];
@@ -48,11 +47,8 @@ export class MenuComponent implements OnInit {
   }
 
   signOff(){
-    this.selectedEmployee = new User();   
-    
-    
-    this.router.navigate(["/login"]); 
-    LogginComponent.siggOff();
-    //this.messageService.add({severity:'info', summary:'Sesion cerrada', detail:'La sesion ha sido cerrada.'});
+    this.selectedEmployee = new User();    
+    this.messageService.add({severity:'info', summary:'Sesion cerrada', key:'mainToast',detail:'La sesion ha sido cerrada.'});
+    this.router.navigate(["/login"]);   
   }
 }

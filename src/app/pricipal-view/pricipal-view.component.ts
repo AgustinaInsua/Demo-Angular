@@ -19,7 +19,7 @@ import { InspectionService } from '../services/inspection/inspection.service';
   selector: 'app-pricipal-view',
   templateUrl: './pricipal-view.component.html',
   styleUrls: ['./pricipal-view.component.css'],
-  providers: [MessageService]
+  providers: []
 })
 export class PricipalViewComponent implements OnInit {
   searchValue!: string;

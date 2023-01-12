@@ -78,7 +78,7 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
     DropdownModule,
     AutoCompleteModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
