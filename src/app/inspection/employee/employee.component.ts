@@ -12,7 +12,7 @@ import { EmployeeService } from 'src/app/services/employee-service/employee.serv
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css'],
   providers: [MessageService,DialogService],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class EmployeeComponent implements OnInit {
 

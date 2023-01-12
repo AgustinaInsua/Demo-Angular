@@ -11,7 +11,7 @@ import { UsersValidationsService } from 'src/app/services/users-validation/users
   templateUrl: './users-detail.component.html',
   styleUrls: ['./users-detail.component.css'],
   providers: [MessageService],
- encapsulation: ViewEncapsulation.None
+ encapsulation: ViewEncapsulation.Emulated
 })
 
 export class UsersDetailComponent implements OnInit {

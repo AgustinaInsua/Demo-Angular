@@ -4,11 +4,13 @@ import { Router } from '@angular/router';
 import { User } from '../model/User';
 import { CustomValidationsService } from '../services/custon-validations/custom-validations.service';
 import { UsersValidationsService } from '../services/users-validation/users-validations.service';
+import { Message, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-loggin',
   templateUrl: './loggin.component.html',
-  styleUrls: ['./loggin.component.css']
+  styleUrls: ['./loggin.component.css'],
+  providers: [MessageService]
 })
 export class LogginComponent implements OnInit {
   user!: User;
@@ -16,7 +18,8 @@ export class LogginComponent implements OnInit {
   constructor(
     private router: Router,
     private customValidations: CustomValidationsService,
-    private usersValidation: UsersValidationsService
+    private usersValidation: UsersValidationsService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit(): void {
@@ -30,6 +33,16 @@ export class LogginComponent implements OnInit {
       console.log(this.user);
     } else
       alert('User or Password incorrect');
+  }
+
+  static siggOff(){
+    let messageService = new MessageService();
+    console.log('MMMM');
+    messageService.add({
+      severity: 'error',
+      detail: 'Plis complete the fields',
+      life: 2000
+    });
   }
 
 }

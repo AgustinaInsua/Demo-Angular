@@ -1,3 +1,4 @@
+import { LogginComponent } from './../../loggin/loggin.component';
 import { Component, OnInit } from '@angular/core';
 import { MenuItem } from 'primeng/api';
 import { Menu } from 'primeng/menu';
@@ -47,14 +48,11 @@ export class MenuComponent implements OnInit {
   }
 
   signOff(){
-    //this.selectedEmployee = new User();   
+    this.selectedEmployee = new User();   
     
-    this.messageService.add({
-      severity: 'error',
-      detail: 'Plis complete the fields',
-      life: 2000,
-    });
-    //this.router.navigate(["/login"]); 
+    
+    this.router.navigate(["/login"]); 
+    LogginComponent.siggOff();
     //this.messageService.add({severity:'info', summary:'Sesion cerrada', detail:'La sesion ha sido cerrada.'});
   }
 }
