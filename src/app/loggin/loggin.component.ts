@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { User } from '../model/User';
 import { CustomValidationsService } from '../services/custon-validations/custom-validations.service';
 import { UsersValidationsService } from '../services/users-validation/users-validations.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-loggin',
@@ -16,7 +17,8 @@ export class LogginComponent implements OnInit {
   constructor(
     private router: Router,
     private customValidations: CustomValidationsService,
-    private usersValidation: UsersValidationsService
+    private usersValidation: UsersValidationsService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit(): void {
@@ -29,6 +31,6 @@ export class LogginComponent implements OnInit {
       this.router.navigate(['/home'])
       console.log(this.user);
     } else
-      alert('User or Password incorrect');
+      this.messageService.add({severity:'error', summary:'Usuario y/o Contraseña incorrecta', key:'mainToast',detail:'Verifique los datos ingresados.', life:2000})
   }
 }

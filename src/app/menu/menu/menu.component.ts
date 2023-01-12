@@ -31,9 +31,9 @@ export class MenuComponent implements OnInit {
 
   ngOnInit(): void {
     this.items = [
-      {label: 'Home', icon: 'pi pi-fw pi-home', routerLink: ['/home']},
-      {label: 'Users', icon: 'pi pi-fw pi-calendar', routerLink: ['/usersDetail']},
-      {label: 'Inspection', icon: 'pi pi-fw pi-pencil', routerLink: ['/inspection']}
+      {label: 'Inicio', icon: 'pi pi-fw pi-home', routerLink: ['/home']},
+      {label: 'Usuarios', icon: 'pi pi-fw pi-calendar', routerLink: ['/usersDetail']},
+      {label: 'Fiscalización', icon: 'pi pi-fw pi-pencil', routerLink: ['/inspection']}
   ];
   this.selectedEmployee = USERS[0];
   }
@@ -48,7 +48,7 @@ export class MenuComponent implements OnInit {
 
   signOff(){
     this.selectedEmployee = new User();    
-    this.messageService.add({severity:'info', summary:'Sesion cerrada', key:'mainToast',detail:'La sesion ha sido cerrada.'});
+    this.messageService.add({severity:'info', summary:'Sesion cerrada', key:'mainToast',detail:'Se ha cerrado la sesion.', life:2000});
     this.router.navigate(["/login"]);   
   }
 }

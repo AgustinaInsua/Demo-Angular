@@ -12,7 +12,7 @@ import { EmployeeService } from 'src/app/services/employee-service/employee.serv
   selector: 'app-company',
   templateUrl: './company.component.html',
   styleUrls: ['./company.component.css'],
-  providers: [MessageService],
+  providers: [],
 })
 export class CompanyComponent implements OnInit {
   companyInformation: any;

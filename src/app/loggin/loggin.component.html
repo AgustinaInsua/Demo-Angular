@@ -1,4 +1,4 @@
-<h1>Login</h1>
+<h1>Iniciar Sesión</h1>
 <div>
     
     <form class="form"  name="formRegister" (submit)="onSubmit()" #formRegister="ngForm">
@@ -11,18 +11,18 @@
             <div [hidden]="email.valid || !email.touched" class="errors">
                 <div>
                     <span *ngIf="email.errors?.['required']">
-                        Email is required
+                        Email es requerido
                     </span>
                 </div>
                 <div>
                     <span *ngIf="email.errors?.['minlength']">
-                        Email must at least 8 characters
+                        Email debe tener al menos 8 caracteres
                     </span>
                 </div>
 
                 <div>
                     <span *ngIf="email.errors?.['email']">
-                        Email structure incorrect
+                        Email incorrecto
                     </span>
                 </div>
             </div>
@@ -30,33 +30,33 @@
 
         <div id="passwordDiv">
             <div class="labelInput">
-                <label for="password">Password</label>
+                <label for="password">Contraseña</label>
             </div>
 
             <input tabindex="2" type="text" id="password" name="password" [(ngModel)]="user.password" #password="ngModel" minlength="6" required appPasswordValidation pwvalidlowerCase pInputText>
             <div [hidden]="password.valid || !password.touched" class="errors">
                 <div *ngIf="password.errors?.['required']">
-                    Password is required.
+                    Contraseña es requerida
                 </div>
 
                 <div *ngIf="password.errors?.['requiresDigit']">
-                    Must at least 1 digit
+                    Debe tener al menos 1 digito
                 </div>
 
                 <div *ngIf="password.errors?.['minlength']">
-                    Must be at least 6 characters
+                    Debe tener al menos 6 caracteres
                 </div>
 
                 <div *ngIf="password.errors?.['requiresUppercase']">
-                    Must be at least 1 uppercase
+                    Debe tener al menos una letra mayúscula
                 </div>
 
                 <div *ngIf="password.errors?.['requiresLowercase']">
-                    Must be at least 1 lowercase
+                    Debe tener al menos una letra minuscula
                 </div>
 
                 <div *ngIf="password.errors?.['requiresSpecialChars']">
-                    Must be at least 1 special character
+                    Debe tener al menos un caracter especial
                 </div>
             </div>
             
@@ -64,12 +64,12 @@
 
     </div>
 
-        <button pButton type="submit">Login</button>
+        <button pButton type="submit">Entrar</button>
 
         <div>
-            <label class="labelRegister">New user?</label>
+            <label class="labelRegister">Nuevo usuario?</label>
             <div>
-                <a class="linkRegister" routerLink="/register">Create a new account</a>
+                <a class="linkRegister" routerLink="/register">Crea una nueva cuenta</a>
             </div>
         </div>
     </form>

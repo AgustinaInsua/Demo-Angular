@@ -9,7 +9,7 @@
     <app-menu></app-menu>
     <div id="divTables">
       <div id="divCompanies">
-        <h2>Companies</h2>
+        <h2>Compañias</h2>
         <p-table
           id="tableCompanies"
           #dtCompanies
@@ -40,7 +40,7 @@
                   <i class="pi pi-search"></i>
                   <p-autoComplete
                   type="text"
-                  placeholder="Search keyword"
+                  placeholder="Buscar"
                   [(ngModel)]="textSearch" 
                   [suggestions]="suggestionsCompanies" 
                   (completeMethod)="searchCompanies($event);dtCompanies.filterGlobal($any($event.target).value,'contains')"
@@ -57,7 +57,6 @@
               </div>
             </div>
           </ng-template>
-          <ng-template pTemplate="subtitle"> Complete the fields </ng-template>
           <ng-template pTemplate="header">
             <tr>
               <th pSortableColumn="name">
@@ -97,7 +96,7 @@
       </div>
 
       <div id="divEmployee" [hidden]="!isCompanyFiltered(dtEmployee)">
-        <h2>Employees</h2>
+        <h2>Empleados</h2>
         <p-table
           id="tableEmployees"
           #dtEmployee
