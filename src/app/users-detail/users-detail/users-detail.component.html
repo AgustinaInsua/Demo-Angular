@@ -24,7 +24,7 @@
       </ng-template>
     </p-table>
 
-    <p-table class="Users" #dt [value]="users" [(selection)]="selectedUser">
+    <p-table class="Users" #dt [value]="users"  styleClass="p-datatable-table" [(selection)]="selectedUser" responsiveLayout="scroll">
       <ng-template pTemplate="caption">
         <div class="table-header">List of Users</div>
       </ng-template>
@@ -78,14 +78,14 @@
 
 <h5>Responsive</h5>
 <p-button (click)="showResponsiveDialog()" icon="pi pi-external-link" label="Show"></p-button>
-<p-dialog header="Header" [(visible)]="displayResponsive" [breakpoints]="{'960px': '75vw'}" [style]="{width: '50vw'}"
+<p-dialog header="Header" [(visible)]="displayResponsive" [breakpoints]="{'960px': '75vw'}" [style]="{width: '50vw',height: '40vw' }"
     [draggable]="false" [resizable]="false">
      
-    <p-table class="Users" #dt [value]="users" [(selection)]="selectedUser">
+    <p-table class="Users" #dt [value]="users" [(selection)]="selectedUser" styleClass="p-datatable-gridlines" responsiveLayout="scroll" [tableStyle]="{'min-width': '50rem'}">
 
       <ng-template pTemplate="body" let-user [value]="user">
 
-            <tr class="p-selectable-row">
+            <tr >
 
                 <td>
                     <input type="text" id="name" name="name" [(ngModel)]="user.name" 

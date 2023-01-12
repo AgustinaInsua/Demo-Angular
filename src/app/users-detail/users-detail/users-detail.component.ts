@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { USERS } from 'src/app/model/mock-users';
 import { User } from 'src/app/model/User';
 import * as FileSaver from 'file-saver';
@@ -10,8 +10,10 @@ import { UsersValidationsService } from 'src/app/services/users-validation/users
   selector: 'app-users-detail',
   templateUrl: './users-detail.component.html',
   styleUrls: ['./users-detail.component.css'],
-  providers: [MessageService]
+  providers: [MessageService],
+ encapsulation: ViewEncapsulation.None
 })
+
 export class UsersDetailComponent implements OnInit {
   users= USERS;
   selectedUser!: User;
