@@ -28,11 +28,27 @@ select {
   padding: 15px;
 }
 
+
+.sectionField input {
+  background-color: aliceblue;
+  width: 230px;
+  height: 30px;
+  margin-top: -20px;
+  margin-bottom: 0px;
+  padding: 15px;
+}
+:host ::ng-deep .p-speeddial-button.p-button.p-button-icon-only {
+  height: 2.5rem; width: 2.5rem; top:0px; right:0px; position:relative;
+}
+
 :host ::ng-deep .p-dropdown .p-dropdown-label.p-placeholder {
-    background-color: aliceblue;
-    width: 175px;
-    height: 35px;
-    padding: 0rem 1.25rem;
+
+  background-color: aliceblue;
+  width: 175px;
+  height: 30px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0rem 1.25rem;
   
 }
 
@@ -56,15 +72,6 @@ select {
   background: transparent;
   transition: box-shadow 0.2s;
   border-radius: 0;
-}
-
-.sectionField input {
-  background-color: aliceblue;
-  width: 400px;
-  height: 30px;
-  margin-top: -20px;
-  margin-bottom: 0px;
-  padding: 15px;
 }
 
 .section {
@@ -99,9 +106,32 @@ select {
   top: -95px;
 }
 
-p-button {
+:host ::ng-deep .p-button.p-button-icon-only {
   position: relative;
-  top: 20px;
+  top: 0px;
+  border-radius: 100%;
+}
+
+:host ::ng-deep .p-dialog .p-dialog-footer {
+  border-top: 0 none;
+  background: #ffffff;
+  color: #495057;
+  padding: 0rem;
+  height: 50px;
+  text-align: right;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+}
+
+:host ::ng-deep .p-dialog .p-dialog-footer button {
+  margin: 1 1.5rem;
+  width: auto;
+  position: relative;
+}
+:host ::ng-deep .p-inputtext {
+  margin: 0;
+  width: 140px;
+  height: 40px;
 }
 
 .listEmployee {
@@ -111,10 +141,23 @@ p-button {
 
 #items{
   height: 20px; 
-  right:70px; 
-  top:-10px; 
+  float: right;
+  top: -15px;
   position: relative;
 }
+
+#lupa{
+  height: 20px; 
+  float: right;
+  top: -15px;
+  position: relative;
+}
+
+.optionsButtons {
+  float: right;
+  top: -15px;
+}
+
 .speeddial-tooltip-demo{
-      height: 0px; top:-140px; left:20px; width: 20px; position: relative;
+  height: 0px; top:-140px; left:20px; width: 20px; position: relative;
 }

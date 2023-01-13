@@ -25,7 +25,7 @@
           </div>
 
           <div class="sectionField">
-          <div><label for="surname">Surname</label></div>
+          <div><label for="surname">Apellido</label></div>
           <input
             tabindex="2"
             id="surname"
@@ -88,24 +88,10 @@
           <div>
             <label for="position">Puesto de trabajo</label>
           </div>
-          <p-dropdown [options]="positions" [(ngModel)]="selectedPosition" placeholder="Select a position" [showClear]="true"></p-dropdown>
+          <p-dropdown [options]="positions" [(ngModel)]="selectedPosition" #position="ngModel" requerid placeholder="Select a position" [showClear]="true"></p-dropdown>
           
-            
-         <!---<input
-            tabindex="5"
-            id="position"
-            type="text"
-            [(ngModel)]="personalInformation.position"
-            #position="ngModel"
-            required
-            pInputText
-          />
-          <div [hidden]="position.valid || !position.touched" class="errors">
-            <div *ngIf="position.errors?.['required']">
-              Position is required.
-            </div>
-          </div>--->
         </div>
+
         <div class="sectionField">
           <div>
             <label for="startDate">Fecha de comienzo</label>
@@ -173,25 +159,25 @@
       <ng-template pTemplate="body" let-employees let-i="rowIndex" >
         <tr>
           <td>
-            <p-tableCheckbox [value]="employees"></p-tableCheckbox>
+            <p-tableCheckbox [value]="employees" ></p-tableCheckbox>
           </td>
           <td>{{ employees.name }}</td>
           <td>{{ employees.surname }}</td>
           <td>{{ employees.cuit }}</td>
-          <div class="card">
           <td>
+            <div class="optionsButtons">
               <div id="items" class="speeddial-circle-demo">
-                  <p-speedDial style="height: 2.5rem; top:0px; right:7px; position:relative; width: 2.5rem;" showIcon="pi pi-trash" buttonStyle="height: 2.5rem; width: 2.5rem; top:0px; right:0px; position:relative; " (click)="deleteEmployeeInModal(i)"  direction="left" ></p-speedDial>
+              <p-button (click)="deleteEmployeeInModal(i)" icon="pi pi-trash" ></p-button>
               </div>
-          </td>
-          <td>
-          <div style="height: 20px; right:10px; top:0px; position: relative;" class="speeddial-circle-demo">
-              <p-speedDial style="height: 2.5rem; top:0px; right:7px; position:relative; width: 2.5rem;" [class.selected]="employees === selectedEmployee" (click)="showBasicDialog(i)" buttonStyle="height: 2.5rem; top:-10px; right:7px; position:relative; width: 2.5rem;" direction="left" showIcon="pi pi-search"  ></p-speedDial>
-          </div>
+              <div id="lupa" class="speeddial-circle-demo">
+              <p-button [class.selected]="employees === selectedEmployee" (click)="showBasicDialog(i)"  icon="pi pi-search"  ></p-button>
+              </div>
+            </div>
        </td>
-      </div>
-
         </tr>
+        <!--- <div *ngIf="selectedCheckBox">
+          <p-button icon="pi pi-trash" ></p-button>
+        </div>!-->
       </ng-template>
     </p-table>
   </div>
@@ -218,7 +204,7 @@
   </ng-template>
 
   <div *ngIf="selectedEmployee">
-  <p-dialog header="Información de empleado" [(visible)]="displayBasic" [style]="{width: '50vw'}">
+  <p-dialog header="Información de empleado" [(visible)]="displayBasic" [style]="{width: '50vw', height: '20vw'}">
     <ng-template pTemplate="body" >
       <tr >
           <td>
@@ -245,12 +231,10 @@
               <input type="email" id="position" name="position" [(ngModel)]="selectedEmployee.position" 
               #position="ngModel" (keyup.enter)="onSelect(selectedEmployee)"  pInputText [disabled]="displayEdit">
           </td>
-     
-          <p-button (click)="displayEdit=false" label="Editar" styleClass="p-button-text"></p-button>
         </tr>
       </ng-template>
   <ng-template pTemplate="footer">
-      <p-button class="p-button" icon="pi pi-check" (click)="displayBasic=false" label="Ok" styleClass="p-button-text"></p-button>
+      <p-button icon="pi pi-save" (click)="displayBasic=false" label="Guardar"></p-button>
   </ng-template>
 </p-dialog>
 </div>
