@@ -88,7 +88,7 @@
           <div>
             <label for="position">Puesto de trabajo</label>
           </div>
-          <p-dropdown [options]="positions" [(ngModel)]="selectedPosition" #position="ngModel" requerid placeholder="Select a position" [showClear]="true"></p-dropdown>
+          <p-dropdown (onChange)="selectPosition()" [options]="positions" [(ngModel)]="selectedPosition" #position="ngModel" requerid placeholder="Select a position" [showClear]="true"></p-dropdown>
           
         </div>
 
@@ -204,35 +204,59 @@
   </ng-template>
 
   <div *ngIf="selectedEmployee">
-  <p-dialog header="Información de empleado" [(visible)]="displayBasic" [style]="{width: '50vw', height: '20vw'}">
+  <p-dialog header="Información de empleado" [(visible)]="displayBasic" [style]="{width: '50vw', height: '17vw'}">
+    
+    <p-table [value]="employees" [(selection)]="selectedEmployee">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Cuit</th>
+          <th>Fecha de Nacimiento</th>
+          <th>Puesto</th>
+          <th>Fecha de comienzo</th>
+          <th>Carga horaria</th>
+        </tr>
+      </ng-template>
     <ng-template pTemplate="body" >
       <tr >
           <td>
               <input type="text" id="name" name="name" [(ngModel)]="selectedEmployee.name" 
-              #name="ngModel" (keyup.enter)="onSelect(selectedEmployee)"  pInputText [disabled]="displayEdit">
+              #name="ngModel"  pInputText [disabled]="displayEdit">
           </td>
 
           <td> 
               <input type="text" id="surname" name="surname" [(ngModel)]="selectedEmployee.surname" 
-              #surname="ngModel" (keyup.enter)="onSelect(selectedEmployee)"  pInputText [disabled]="displayEdit">
+              #surname="ngModel"  pInputText [disabled]="displayEdit">
           </td>
 
           <td>
-            <input type="number" id="dateOfBirth" name="dateOfBirth" [(ngModel)]="selectedEmployee.dateOfBirth" 
-            #dateOfBirth="ngModel" (keyup.enter)="onSelect(selectedEmployee)"  pInputText [disabled]="displayEdit">
+            <input type="number" id="cuit" name="cuit" [(ngModel)]="selectedEmployee.cuit" 
+            #cuit="ngModel" pInputText [disabled]="displayEdit">
+        </td>
+
+          <td>
+            <input type="date" id="dateOfBirth" name="dateOfBirth" [(ngModel)]="selectedEmployee.dateOfBirth" 
+            #dateOfBirth="ngModel" pInputText [disabled]="displayEdit">
           </td>
 
           <td>
-              <input type="number" id="cuit" name="cuit" [(ngModel)]="selectedEmployee.cuit" 
-              #cuit="ngModel" (keyup.enter)="onSelect(selectedEmployee)"  pInputText [disabled]="displayEdit">
+            <p-dropdown (onChange)="selectPosition()" [options]="positions" [(ngModel)]="selectedPosition"
+             #position="ngModel" requerid placeholder="Select a position" [showClear]="true"></p-dropdown>
+          </td>
+          <td>
+            <input type="date" id="startDate" name="startDate" [(ngModel)]="selectedEmployee.startDate" 
+            #startDate="ngModel" pInputText [disabled]="displayEdit">
+          </td>
+          <td>
+            <input type="number" id="businessHours" name="businessHours" [(ngModel)]="selectedEmployee.businessHours" 
+            #businessHours="ngModel" pInputText [disabled]="displayEdit">
           </td>
 
-          <td>
-              <input type="email" id="position" name="position" [(ngModel)]="selectedEmployee.position" 
-              #position="ngModel" (keyup.enter)="onSelect(selectedEmployee)"  pInputText [disabled]="displayEdit">
-          </td>
         </tr>
       </ng-template>
+    </p-table>   
+
   <ng-template pTemplate="footer">
       <p-button icon="pi pi-save" (click)="displayBasic=false" label="Guardar"></p-button>
   </ng-template>

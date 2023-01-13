@@ -26,6 +26,7 @@ export class EmployeeComponent implements OnInit {
   positions: any;
   selectedPosition: any;
   displayEdit!: boolean;
+  selectedCheckBox!:boolean;
 
   constructor(
     private router: Router,
@@ -47,7 +48,12 @@ export class EmployeeComponent implements OnInit {
   onSelect(employee: Employee): void {
     this.selectedEmployee = employee;
   }
-
+  selectCheckBox(){
+    this.selectedCheckBox =true;
+  }
+  selectPosition(){
+    console.log(this.selectedPosition);
+  }
 
   deleteEmployeeByID(index: number) {
     if (this.indexValid(index)) {
@@ -73,7 +79,7 @@ export class EmployeeComponent implements OnInit {
     this.displayBasic = true;
     this.onSelect(this.employees[parseInt(i)]);
     this.employeeService.updateEmployee(this.employees[parseInt(i)]);
-    console.log(this.employees[parseInt(i)]);
+    console.log(this.selectedEmployee);
     }
 
   prevPage() {
@@ -89,7 +95,6 @@ export class EmployeeComponent implements OnInit {
       });
     } else {
       this.inspectionService.setEmployeesInformation(this.employees);
-      console.log(this.inspectionService.getConfirmationInformation());
       this.router.navigate(['inspection/confirmation']);
       this.submitted = true;
     }
@@ -122,8 +127,7 @@ export class EmployeeComponent implements OnInit {
       });
     } else {
       this.employees.push(em);
-      console.log(this.employees);
-      console.log(this.i);
+
       this.personalInformation.name = '';
       this.personalInformation.surname = '';
       this.personalInformation.cuit = '';
