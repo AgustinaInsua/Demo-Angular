@@ -7,8 +7,8 @@
   </head>
   <body>
     <app-menu></app-menu>
-    <div id="divTables">
-      <div id="divCompanies">
+    <div class="mainTable">
+      <div class="mainTable__companies">
         <h2>Compañias</h2>
         <p-table
           id="tableCompanies"
@@ -26,16 +26,19 @@
           autocomplete="off"
         >
           <ng-template pTemplate="caption">
-            <div class="flex">
-              <button
+            <div class="companies__flex">
+              <div class="flex__clear">
+                <button
                 pButton
                 label="Limpiar"
                 class="p-button-outlined"
                 icon="pi pi-filter-slash"
                 (click)="clear(dtCompanies)"
               ></button>
+              </div>
+              
 
-              <div class="searchG">
+              <div class="flex__search">
                 <span class="p-input-icon-left ml-auto">
                   <i class="pi pi-search"></i>
                   <p-autoComplete
@@ -52,7 +55,7 @@
                 </span>
                 
               </div>
-              <div class="containerSpeed">
+              <div class="flex__print">
                 <p-speedDial  buttonStyle="height: 2.5rem; width: 2.5rem; position:relative" [model]="items" type="linear" direction="down" showIcon="pi pi-print" ></p-speedDial>
               </div>
             </div>

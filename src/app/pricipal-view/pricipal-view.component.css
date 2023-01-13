@@ -1,8 +1,9 @@
-
+/*
 table {
     width: 50%;
     border: 1px solid #000;
  }
+ /*
  th, td {
     width: 25%;
     text-align: center;
@@ -21,19 +22,15 @@ table {
     background: #eee;
  }
 
- .ng-valid[required], .ng-valid.required  {
-   border-left: 5px solid #42A948; /* green */
- }
+
  
- .ng-invalid:not(form)  {
-   border-left: 5px solid #a94442; /* red */
- }
 .flex{
    width: 100%;
    height: 47px;
    position: relative;
     
 }
+
  .searchG{
    width: 21.3%;
     height: 48px;
@@ -49,15 +46,57 @@ table {
     display: inline;
     float: right;
  }
-
+  div#divTables{
+   width: 95%;
+   margin: 1% auto;
+  }
+*/
  h2{
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #495057;
   padding-left: 20px;
  }
 
- div#divTables{
-  width: 95%;
-  margin: 1% auto;
+
+.mainTable{
+   width: 100vw;
  }
 
+
+ .mainTable__companies{
+   width: 100%;
+ }
+
+ .companies__flex{
+   width: 100%;
+   height: 47px;
+   display: flex;
+   flex-direction: row;
+   align-items: stretch;
+}
+
+.flex__clear{
+   width: 130px;
+   display: inline-block;
+}
+
+.flex__print{
+   width: 47px;
+   display: inline-block;
+}
+
+.flex__search{
+   width: 207px;
+   display: inline-block;
+}
+
+
+ @media screen and (min-width: 1329px){
+   html{
+       width: 1328px;
+       /*margin: 0vh 20vh 0vh 20vh;*/
+   }
+   .mainTable{
+       width: 1328px;
+   }
+}
