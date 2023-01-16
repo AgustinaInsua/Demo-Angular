@@ -59,7 +59,7 @@ table {
 
 
 .mainTable{
-   width: 100vw;
+   width: 97.5vw;;
  }
 
 
@@ -78,16 +78,20 @@ table {
 .flex__clear{
    width: 130px;
    display: inline-block;
+   flex-basis: auto;
+   flex-grow: 1;
 }
 
 .flex__print{
    width: 47px;
    display: inline-block;
+   flex-basis: auto;
 }
 
 .flex__search{
    width: 207px;
    display: inline-block;
+   flex-basis: auto;
 }
 
 
