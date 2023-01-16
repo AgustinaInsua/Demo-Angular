@@ -147,7 +147,6 @@ select {
 }
 :host ::ng-deep .p-inputtext {
   margin: 0;
-  width: 13%;
   height: 40px;
 }
 :host ::ng-deep  .p-dialog .p-dialog-header .p-dialog-title {
