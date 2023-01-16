@@ -1,4 +1,12 @@
 <p-toast></p-toast>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  </head>
+  <body>
 <p-card>
   <ng-template pTemplate="title"> Información de Empleado </ng-template>
 
@@ -80,6 +88,8 @@
             </div>
           </div>
         </div>
+
+
       </div>
 
       <h4>Datos relacionados a la compañia</h4>
@@ -93,9 +103,7 @@
         </div>
 
         <div class="sectionField">
-          <div>
-            <label for="startDate">Fecha de comienzo</label>
-          </div>
+          <div><label for="startDate">Fecha de comienzo</label></div>
           <input
             tabindex="7"
             id="startDate"
@@ -111,6 +119,8 @@
             </div>
           </div>
         </div>
+
+
         <div class="sectionField">
           <div>
             <label for="businessHours">Carga Horaria</label>
@@ -147,7 +157,7 @@
       <ng-template pTemplate="header">
         <tr>
           <th style="width: 3rem">
-            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            <p-tableHeaderCheckbox inputId="check"></p-tableHeaderCheckbox>
           </th>
           <th>Nombre</th>
           <th>Apellido</th>
@@ -159,7 +169,7 @@
       <ng-template pTemplate="body" let-employees let-i="rowIndex" >
         <tr>
           <td>
-            <p-tableCheckbox [value]="employees" ></p-tableCheckbox>
+            <p-tableCheckbox [value]="employees"  [index]="i"></p-tableCheckbox>
           </td>
           <td>{{ employees.name }}</td>
           <td>{{ employees.surname }}</td>
@@ -263,4 +273,5 @@
 </p-dialog>
 </div>
 </p-card>
-
+</body>
+</html>
