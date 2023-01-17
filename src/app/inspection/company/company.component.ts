@@ -8,6 +8,7 @@ import { CompanyService } from 'src/app/services/company-service/company.service
 import { Message, MessageService } from 'primeng/api';
 import { EmployeeService } from 'src/app/services/employee-service/employee.service';
 
+
 @Component({
   selector: 'app-company',
   templateUrl: './company.component.html',
@@ -17,6 +18,7 @@ import { EmployeeService } from 'src/app/services/employee-service/employee.serv
 export class CompanyComponent implements OnInit {
   companyInformation: any;
   companies: any;
+  statusDetail: 'loading' | 'success' | 'error' | 'init' = 'init';
   constructor(
     private router: Router,
     private inspectionService: InspectionService,
@@ -28,8 +30,32 @@ export class CompanyComponent implements OnInit {
   ngOnInit(): void {
     this.companyInformation = this.inspectionService.getCompanyInformation();
     this.companies = this.companyService.getCompanies();
-    this.companyService.getCompa().subscribe((compas) => 
-    console.log(compas));
+    this.statusDetail = 'loading';
+    /*
+    this.companyService.getCompa().subscribe({
+      next: (compas) => {   
+        console.log(compas);
+        this.statusDetail = 'success';
+      },
+      error: (response : any) =>{
+        console.log(response);
+        this.messageService.add({severity:'error', summary:'Error con compania', key:'mainToast',detail:'No hay companias', life:2000});
+        this.statusDetail = 'error';
+      }
+    }
+    );*/
+    this.companyService.getCompas(0).subscribe({
+      next: (compas) => {   
+        console.log(compas);
+        this.statusDetail = 'success';
+      },
+      error: (response : any) =>{
+        console.log(response);
+        this.messageService.add({severity:'error', summary:'Error con compania', key:'mainToast',detail:'No hay companias', life:2000});
+        this.statusDetail = 'error';
+      }
+    }
+    );
   }
 
   nextPage() {
