@@ -113,20 +113,23 @@
           autocomplete="off"
         >
           <ng-template pTemplate="caption">
-            <div>
-              <button
+            <div class="companies__flex">
+              <div class="flex__clear">
+                <button
                 pButton
-                label="Clear"
+                label="Limpiar"
                 class="p-button-outlined"
                 icon="pi pi-filter-slash"
                 (click)="clearEmployee(dtEmployee)"
               ></button>
-              <div class="searchG">
+              </div>
+              
+              <div class="flex__search">
                 <span class="p-input-icon-left ml-auto">
                   <i class="pi pi-search"></i>
                   <p-autoComplete
                   type="text"
-                  placeholder="Search keyword"
+                  placeholder="Buscar"
                   [(ngModel)]="textEmployeeSearch" 
                   [suggestions]="suggestionsEmployees" 
                   (completeMethod)="searchEmployees($event);dtEmployee.filterGlobal($any($event.target).value,'contains')"

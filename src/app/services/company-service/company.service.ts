@@ -1,16 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Company } from 'src/app/model/Company';
 import { COMPANIES } from './../../model/mock-companies';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CompanyService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getCompanies(){
     return COMPANIES;
+  }
+  getCompa(): Observable<Company[]> {
+    return this.http.get<Company[]>(environment.apiURL+'companies');
   }
 
   getEmployeeByCompany(company: string){

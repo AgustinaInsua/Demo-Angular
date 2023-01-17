@@ -104,3 +104,46 @@ table {
        width: 1328px;
    }
 }
+@media screen and (max-width:1328px){
+   h2{
+      font-size: large;
+   }
+}
+
+@media screen and (max-width:960px){
+   h2{
+      font-size: medium;
+   }
+}
+@media screen and (max-width:480px){
+   h2{
+      font-size: small;
+   }
+   .p-button {
+      font-size: small;
+      padding: 0.4rem 0.4rem;
+  }
+   .companies__flex{
+      height: 35px;
+   }
+   .flex__clear{
+      width: 130px;
+      display: inline-block;
+      flex-basis: auto;
+      flex-grow: 1;
+   }
+   
+   .flex__print{
+      width: 47px;
+      display: inline-block;
+      flex-basis: auto;
+   }
+   
+   .flex__search{
+      width: 207px;
+      display: inline-block;
+      flex-basis: auto;
+   }
+}
+
+

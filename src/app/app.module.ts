@@ -36,6 +36,7 @@ import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
 import {DropdownModule} from 'primeng/dropdown';
 import {AutoCompleteModule} from 'primeng/autocomplete';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
     AvatarGroupModule,
     AvatarModule,
     DropdownModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    HttpClientModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

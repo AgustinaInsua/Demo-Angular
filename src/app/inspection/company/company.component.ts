@@ -28,6 +28,8 @@ export class CompanyComponent implements OnInit {
   ngOnInit(): void {
     this.companyInformation = this.inspectionService.getCompanyInformation();
     this.companies = this.companyService.getCompanies();
+    this.companyService.getCompa().subscribe((compas) => 
+    console.log(compas));
   }
 
   nextPage() {
