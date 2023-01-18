@@ -18,7 +18,7 @@ export class CompanyService {
   }
 
   getCompa(): Observable<Company[]> {
-    return this.http.get<Company[]>(environment.apiURL+'companies')
+    return this.http.get<Company[]>(environment.apiURLCompany+'companies')
     .pipe(
       catchError((error: HttpErrorResponse) => {
         if (error.status === HttpStatusCode.NotFound){
@@ -31,7 +31,7 @@ export class CompanyService {
   }
 
   getCompas(cuit : number): Observable<Company> {
-    return this.http.get<Company>(environment.apiURL+'companies'+'/' + cuit)
+    return this.http.get<Company>(environment.apiURLCompany+'companies'+'/' + cuit)
     .pipe(
       catchError((error: HttpErrorResponse) => {
         if (error.status === HttpStatusCode.NotFound){

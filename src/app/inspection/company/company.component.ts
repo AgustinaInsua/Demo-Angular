@@ -31,7 +31,7 @@ export class CompanyComponent implements OnInit {
     this.companyInformation = this.inspectionService.getCompanyInformation();
     this.companies = this.companyService.getCompanies();
     this.statusDetail = 'loading';
-    /*
+    
     this.companyService.getCompa().subscribe({
       next: (compas) => {   
         console.log(compas);
@@ -43,7 +43,8 @@ export class CompanyComponent implements OnInit {
         this.statusDetail = 'error';
       }
     }
-    );*/
+    );
+    /*
     this.companyService.getCompas(1111).subscribe({
       next: (compas) => {   
         console.log(compas);
@@ -55,7 +56,7 @@ export class CompanyComponent implements OnInit {
         this.statusDetail = 'error';
       }
     }
-    );
+    );*/
   }
 
   nextPage() {

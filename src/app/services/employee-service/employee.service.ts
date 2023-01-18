@@ -18,7 +18,7 @@ export class EmployeeService {
   constructor(private http: HttpClient) { }
 
   getEmployeeByCompas(cuit : number): Observable<Employee> {
-    return this.http.get<Employee>(environment.apiURL+'companies'+'/' + 'employee'+'/'+cuit)
+    return this.http.get<Employee>(environment.apiURLEmployee+'companies'+'/' + 'employee'+'/'+cuit)
     .pipe(
       catchError((error: HttpErrorResponse) => {
         if (error.status === HttpStatusCode.NotFound){

@@ -37,6 +37,7 @@ import {AvatarGroupModule} from 'primeng/avatargroup';
 import {DropdownModule} from 'primeng/dropdown';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import { HttpClientModule } from '@angular/common/http';
+import { TestingApiGenericComponent } from './testing-api-generic/testing-api-generic.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { HttpClientModule } from '@angular/common/http';
     CompanyComponent,
     EmployeeComponent,
     ConfirmationComponent,
-    TableEmployeeComponent
+    TableEmployeeComponent,
+    TestingApiGenericComponent
   ],
   imports: [
     BrowserModule,

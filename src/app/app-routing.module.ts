@@ -1,3 +1,4 @@
+import { TestingApiGenericComponent } from './testing-api-generic/testing-api-generic.component';
 import { ConfirmationComponent } from './inspection/confirmation/confirmation.component';
 import { CompanyComponent } from './inspection/company/company.component';
 import { EmployeeComponent } from './inspection/employee/employee.component';
@@ -12,7 +13,7 @@ import { PricipalViewComponent } from './pricipal-view/pricipal-view.component';
 import { TableEmployeeComponent } from './inspection/employee/table-employee/table-employee.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/test', pathMatch: 'full' },
   {path:'home', component:PricipalViewComponent},
   {path:'login', component:LogginComponent},
   {path:'register', component: RegisterComponent},
@@ -24,7 +25,8 @@ const routes: Routes = [
       {path:'company', component: CompanyComponent},
       {path:'confirmation', component: ConfirmationComponent},
       {path:'table-employee', component: TableEmployeeComponent}
-  ]}
+  ]},
+  {path:'test', component: TestingApiGenericComponent}
 ]
 
 @NgModule({
