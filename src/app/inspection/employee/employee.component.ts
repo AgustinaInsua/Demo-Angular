@@ -27,6 +27,7 @@ export class EmployeeComponent implements OnInit {
   selectedPosition: any;
   displayEdit!: boolean;
   selectedCheckBox!:boolean;
+  statusDetail: 'loading' | 'success' | 'error' | 'init' = 'init';
 
   constructor(
     private router: Router,
@@ -37,13 +38,27 @@ export class EmployeeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-
+    this.statusDetail = 'loading';
     //this.employee = new Employee();
     this.personalInformation = this.inspectionService.getEmployeesInformation();
     this.employees = new Array<Employee>();
     this.positions = this.employeeService.getPositionByCompany();
     //this.personalInformation.cuit = null;
+
+    this.employeeService.getEmployeeByCompas(23232).subscribe({
+      next: (compas) => {   
+        console.log(compas);
+        this.statusDetail = 'success';
+      },
+      error: (response : any) =>{
+        console.log(response);
+        this.messageService.add({severity:'error', summary:'Error con compania', key:'mainToast',detail:'No hay companias', life:2000});
+        this.statusDetail = 'error';
+      }
+    }
+    );
   }
+  
 
   onSelect(employee: Employee): void {
     this.selectedEmployee = employee;

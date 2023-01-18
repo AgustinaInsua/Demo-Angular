@@ -2,6 +2,11 @@ import { Company } from './../../model/Company';
 import { Injectable } from '@angular/core';
 import { COMPANIES } from 'src/app/model/mock-companies';
 import { Employee } from 'src/app/model/Employee';
+import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
+import { HttpClient, HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
+import { catchError } from 'rxjs';
+import { throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +15,20 @@ export class EmployeeService {
 
   employees!: Employee[];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  getEmployeeByCompas(cuit : number): Observable<Employee> {
+    return this.http.get<Employee>(environment.apiURL+'companies'+'/' + 'employee'+'/'+cuit)
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === HttpStatusCode.NotFound){
+          return throwError(() => new Error ("No hay empleados"));
+
+        }
+        return throwError(() => new Error ('Ups algo salio mal'));
+      })
+    );
+  }
 
   getEmployees(){
     let employees: Employee[] = new Array <Employee>();

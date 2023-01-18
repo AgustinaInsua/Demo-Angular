@@ -44,7 +44,7 @@ export class CompanyComponent implements OnInit {
       }
     }
     );*/
-    this.companyService.getCompas(0).subscribe({
+    this.companyService.getCompas(1111).subscribe({
       next: (compas) => {   
         console.log(compas);
         this.statusDetail = 'success';
