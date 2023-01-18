@@ -13,7 +13,6 @@ export class ApiService {
   constructor(private httpClient: HttpClient) { }
 
   get(url: string): Observable<any[]> {
-    //this.httpClient.post(url, {name: "Lean"});
     return this.httpClient.get<any[]>(url)
     .pipe(
       catchError((error: HttpErrorResponse) => {
@@ -24,5 +23,18 @@ export class ApiService {
         return throwError(() => new Error ('Ups algo salio mal'));
       })
     );
+  }
+
+  post(url: string, body: any){
+    return this.httpClient.post(url, body)
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === HttpStatusCode.BadRequest){
+          return throwError(() => new Error ("Bad request"));
+
+        }
+        return throwError(() => new Error ('Ups algo salio mal'));
+      })
+    );;
   }
 }
