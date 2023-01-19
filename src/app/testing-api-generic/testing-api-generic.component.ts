@@ -3,6 +3,8 @@ import { Employee } from './../model/Employee';
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api-service/api.service';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
+
 
 @Component({
   selector: 'app-testing-api-generic',
@@ -21,54 +23,30 @@ export class TestingApiGenericComponent implements OnInit {
   }
 
   get(url:string){
-    this.apiService.get(url).subscribe({
-      next: (response) => {   
-        console.log(response);
-      },
-      error: (error) =>{
-        console.log(error.message);
-        //this.messageService.add({severity:'error', summary:'Error con compania', key:'mainToast',detail:'No hay companias', life:2000});
-        //this.statusDetail = 'error';
-      }
-    })
+    this.returnResponse(this.apiService.get(url));
   }
+
   post(url:string, body: any){
-    this.apiService.post(url,body).subscribe({
-      next: (response) => {   
-        console.log(response);
-      },
-      error: (error) =>{
-        console.log(error.message);
-        //this.messageService.add({severity:'error', summary:'Error con compania', key:'mainToast',detail:'No hay companias', life:2000});
-        //this.statusDetail = 'error';
-      }
-    })
+    this.returnResponse(this.apiService.post(url,body));
   }
 
   delete(url:string, cuit: any){
-    this.apiService.delete(url+ "/" +cuit,cuit).subscribe({
-      next: (response) => {   
-        console.log(response);
-      },
-      error: (error) =>{
-        console.log(error.message);
-        //this.messageService.add({severity:'error', summary:'Error con compania', key:'mainToast',detail:'No hay companias', life:2000});
-        //this.statusDetail = 'error';
-      }
-    })
+    this.returnResponse(this.apiService.delete(url+ "/" +cuit,cuit));
   }
 
   put(url:string, body: any){
-    this.apiService.put(url,body).subscribe({
-      next: (response) => {   
-        console.log(response);
-      },
-      error: (error) =>{
-        console.log(error.message);
-        //this.messageService.add({severity:'error', summary:'Error con compania', key:'mainToast',detail:'No hay companias', life:2000});
-        //this.statusDetail = 'error';
-      }
-    })
+    this.returnResponse(this.apiService.put(url,body));
   }
+
+  returnResponse(obs: Observable<any>){
+    obs.subscribe( {next: (response: any) => {   
+      console.log(response);
+    },
+    error: (error: { message: any; }) =>{
+      console.log(error.message);
+    }
+   })
+  }
+
 
 }
