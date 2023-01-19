@@ -44,4 +44,31 @@ export class TestingApiGenericComponent implements OnInit {
       }
     })
   }
+
+  delete(url:string, cuit: any){
+    this.apiService.delete(url+ "/" +cuit,cuit).subscribe({
+      next: (compas) => {   
+        console.log(compas);
+      },
+      error: (response) =>{
+        console.log(response.message);
+        //this.messageService.add({severity:'error', summary:'Error con compania', key:'mainToast',detail:'No hay companias', life:2000});
+        //this.statusDetail = 'error';
+      }
+    })
+  }
+
+  put(url:string, body: any){
+    this.apiService.put(url,body).subscribe({
+      next: (compas) => {   
+        console.log(compas);
+      },
+      error: (response) =>{
+        console.log(response.message);
+        //this.messageService.add({severity:'error', summary:'Error con compania', key:'mainToast',detail:'No hay companias', life:2000});
+        //this.statusDetail = 'error';
+      }
+    })
+  }
+
 }

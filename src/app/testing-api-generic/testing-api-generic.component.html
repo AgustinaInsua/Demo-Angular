@@ -1,7 +1,11 @@
 <p-button (onClick)="get(urlGetCompanies)">Get Companies</p-button>
-<p-button (onClick)="get(urlGetEmployees)">Get Employees</p-button>
 <input pInputText [(ngModel)]="company.name">
 <p-button (onClick)="post(urlGetCompanies, company)">Post Companies</p-button>
+<input pInputText [(ngModel)]="company.cuit">
+<p-button (onClick)="delete(urlGetCompanies, company)">Delete Company</p-button>
+<input pInputText [(ngModel)]="company.name">
+<p-button (onClick)="put(urlGetCompanies, company)">Put Company</p-button>
+<p-button (onClick)="get(urlGetEmployees)">Get Employees</p-button>
 <input pInputText [(ngModel)]="employee.name">
 <p-button (onClick)="post(urlGetEmployees, employee)">Post Employees</p-button>
 

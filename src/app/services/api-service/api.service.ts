@@ -37,4 +37,30 @@ export class ApiService {
       })
     );;
   }
+
+  put(url: string, body: any){
+    return this.httpClient.put(url, body)
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === HttpStatusCode.BadRequest){
+          return throwError(() => new Error ("Bad request"));
+
+        }
+        return throwError(() => new Error ('Ups algo salio mal'));
+      })
+    );;
+  }
+
+  delete(url: string, cuit: any){
+    return this.httpClient.delete(url , cuit)
+    .pipe(
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === HttpStatusCode.BadRequest){
+          return throwError(() => new Error ("Bad request"));
+
+        }
+        return throwError(() => new Error ('Ups algo salio mal'));
+      })
+    );;
+  }
 }
