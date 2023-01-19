@@ -22,23 +22,23 @@ export class TestingApiGenericComponent implements OnInit {
 
   get(url:string){
     this.apiService.get(url).subscribe({
-      next: (compas) => {   
-        console.log(compas);
+      next: (response) => {   
+        console.log(response);
       },
-      error: (response : any) =>{
-        console.log(response.message);
+      error: (error) =>{
+        console.log(error.message);
         //this.messageService.add({severity:'error', summary:'Error con compania', key:'mainToast',detail:'No hay companias', life:2000});
         //this.statusDetail = 'error';
       }
     })
   }
-  post(url:string, post: any){
-    this.apiService.post(url,post).subscribe({
-      next: (compas) => {   
-        console.log(compas);
+  post(url:string, body: any){
+    this.apiService.post(url,body).subscribe({
+      next: (response) => {   
+        console.log(response);
       },
-      error: (response) =>{
-        console.log(response.message);
+      error: (error) =>{
+        console.log(error.message);
         //this.messageService.add({severity:'error', summary:'Error con compania', key:'mainToast',detail:'No hay companias', life:2000});
         //this.statusDetail = 'error';
       }
@@ -47,11 +47,11 @@ export class TestingApiGenericComponent implements OnInit {
 
   delete(url:string, cuit: any){
     this.apiService.delete(url+ "/" +cuit,cuit).subscribe({
-      next: (compas) => {   
-        console.log(compas);
+      next: (response) => {   
+        console.log(response);
       },
-      error: (response) =>{
-        console.log(response.message);
+      error: (error) =>{
+        console.log(error.message);
         //this.messageService.add({severity:'error', summary:'Error con compania', key:'mainToast',detail:'No hay companias', life:2000});
         //this.statusDetail = 'error';
       }
@@ -60,11 +60,11 @@ export class TestingApiGenericComponent implements OnInit {
 
   put(url:string, body: any){
     this.apiService.put(url,body).subscribe({
-      next: (compas) => {   
-        console.log(compas);
+      next: (response) => {   
+        console.log(response);
       },
-      error: (response) =>{
-        console.log(response.message);
+      error: (error) =>{
+        console.log(error.message);
         //this.messageService.add({severity:'error', summary:'Error con compania', key:'mainToast',detail:'No hay companias', life:2000});
         //this.statusDetail = 'error';
       }
