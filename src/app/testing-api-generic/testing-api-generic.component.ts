@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api-service/api.service';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import { MessageService } from 'primeng/api';
 
 
 @Component({
@@ -16,7 +17,8 @@ export class TestingApiGenericComponent implements OnInit {
   urlGetEmployees = environment.apiURLEmployee + 'employees';
   employee = new Employee();
   company = new Company();
-  constructor(private apiService: ApiService) { }
+  constructor(private apiService: ApiService,
+    private messageService: MessageService) { }
 
   ngOnInit(): void {
     
@@ -44,6 +46,7 @@ export class TestingApiGenericComponent implements OnInit {
     },
     error: (error: { message: any; }) =>{
       console.log(error.message);
+      this.messageService.add({severity:'error', summary:error.message, key:'mainToast', life:2000});
     }
    })
   }

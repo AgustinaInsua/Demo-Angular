@@ -38,7 +38,12 @@ export class ApiService {
 
   
   private handleError(error: HttpErrorResponse) {
-    // Handle the HTTP error here
-    return throwError(() => new Error ("Bad request"));
+    if (error.status === HttpStatusCode.BadRequest){
+      return throwError(() => new Error ("Hay un problema con la solicitud"));
+    }
+    else if (error.status === HttpStatusCode.NotFound){
+      return throwError(() => new Error ("No se encuentra el contenido solicitado"));
+    }
+    return throwError(() => new Error ("Ups algo salio mal"));
   }
 }
