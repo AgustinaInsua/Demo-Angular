@@ -11,6 +11,8 @@ import { throwError } from 'rxjs';
 })
 export class CompanyService {
 
+  apiURL = environment.apiURLCompany + 'companies';
+
   constructor(private http: HttpClient) { }
 
   getCompanies(){

@@ -5,6 +5,8 @@ import { ApiService } from '../services/api-service/api.service';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { MessageService } from 'primeng/api';
+import { CompanyService } from '../services/company-service/company.service';
+import { EmployeeService } from '../services/employee-service/employee.service';
 
 
 @Component({
@@ -13,15 +15,17 @@ import { MessageService } from 'primeng/api';
   styleUrls: ['./testing-api-generic.component.css']
 })
 export class TestingApiGenericComponent implements OnInit {
-  urlGetCompanies = environment.apiURLCompany + 'companies';
-  urlGetEmployees = environment.apiURLEmployee + 'employees';
+  urlGetCompanies : any;
+  urlGetEmployees : any; 
   employee = new Employee();
   company = new Company();
   constructor(private apiService: ApiService,
-    private messageService: MessageService) { }
+    private messageService: MessageService,private companyService: CompanyService,
+    private employeeService: EmployeeService) {} 
 
   ngOnInit(): void {
-    
+    this.urlGetCompanies = this.companyService.apiURL;
+    this.urlGetEmployees = this.employeeService.apiURL;
   }
 
   get(url:string){

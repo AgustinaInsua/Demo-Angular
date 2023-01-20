@@ -14,6 +14,7 @@ import { throwError } from 'rxjs';
 export class EmployeeService {
 
   employees!: Employee[];
+  apiURL = environment.apiURLEmployee + 'employees';
 
   constructor(private http: HttpClient) { }
 
